@@ -13,7 +13,7 @@ public class RotateCamera : MonoBehaviour
 	void Update()
 	{
 		// arrow keys, WASD keys
-		transform.Rotate(new Vector3(Input.GetAxis("Vertical") * mouseSpeed, Input.GetAxis("Horizontal") * mouseSpeed, 0));
+		transform.Rotate(new Vector3(-Input.GetAxis("Vertical") * mouseSpeed, Input.GetAxis("Horizontal") * mouseSpeed, 0));
 		// keep x and y rotated, but fix z at 0
 		float X = transform.rotation.eulerAngles.x;
 		float Y = transform.rotation.eulerAngles.y;
@@ -22,7 +22,7 @@ public class RotateCamera : MonoBehaviour
 		// drag camera with right-click
 		if (Input.GetMouseButton(1)) 
 		{
-			transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * mouseSpeed, -Input.GetAxis("Mouse X") * mouseSpeed, 0));
+			transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y") * mouseSpeed, Input.GetAxis("Mouse X") * mouseSpeed, 0));
 			// keep x and y rotated, but fix z at 0
 			float X2 = transform.rotation.eulerAngles.x;
 			float Y2 = transform.rotation.eulerAngles.y;

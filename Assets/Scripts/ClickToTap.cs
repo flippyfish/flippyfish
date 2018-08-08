@@ -45,7 +45,6 @@ public class ClickToTap : MonoBehaviour
             prevPosition = transform.position;
             isGrounded = true;
         }
-		//isGrounded = true;
 	}
 
 	void OnCollisionExit()
@@ -108,7 +107,8 @@ public class ClickToTap : MonoBehaviour
 					//Vector3 dir = new Vector3(5.0f, 10.0f, 0.0f);
 					Vector3 dir = transform.forward;
 					dir = new Vector3(dir.x, 2.0f, dir.z);
-					dir = dir * charge * 3.0f;	// make the leap bigger
+					float leapStr = (charge + 1.0f) * 2.0f;
+					dir = dir * leapStr;	// make the leap bigger
 					//print(dir);
 					rb.AddForce(dir, ForceMode.Impulse);
 					SetCharge(0);
