@@ -11,7 +11,7 @@ public class MoveForward : MonoBehaviour {
 	void Start ()
 	{
 		rb = GetComponent<Rigidbody>();
-		rb.velocity = transform.forward * speed * Time.deltaTime;
+		rb.velocity = transform.forward * speed;
 	}
 	
 	// Update is called once per frame

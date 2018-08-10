@@ -20,15 +20,26 @@ public class ClickToTap : MonoBehaviour
 
 	private Quaternion prevRotation;
 	private Vector3 prevPosition;
+	private Vector3 spawn;
 	
 	Rigidbody rb;
 	
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+		spawn = transform.position;
 		prevRotation = transform.rotation;
 		prevPosition = transform.position;
 		SetCharge(0);
+	}
+
+	// hit an obstacle, respawn at start
+	void OnTriggerEnter (Collider other)
+	{
+		if (other.tag == "Obstacle")
+		{
+			Respawn();
+		}
 	}
 	
 	void OnCollisionEnter()
@@ -61,6 +72,8 @@ public class ClickToTap : MonoBehaviour
 	// if I rotate the fish first, I can just leap forward
 	void MouseBehavior()
 	{
+		int layerMask = 1 << 9;		// we will only raycast onto layer 9
+		//layerMask = ~layerMask;
 		if (Input.GetMouseButton(0) && isGrounded)	// if holding down the mouse
 		{
 			if (charge > MAX_CHARGE)		// if we already held the mouse too long, do nothing
@@ -76,7 +89,7 @@ public class ClickToTap : MonoBehaviour
 			// face the mouse, if the cursor is over the ground
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			if (Physics.Raycast(ray, out hit))
+			if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 			{
 				transform.position = prevPosition;
 				transform.LookAt(hit.point);
@@ -97,7 +110,10 @@ public class ClickToTap : MonoBehaviour
 			{
 				RaycastHit hit;
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-				if (Physics.Raycast(ray, out hit))
+
+				
+
+				if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 				{
 					transform.LookAt(hit.point);	// face the mouse click
 					//print(transform.rotation);
@@ -120,6 +136,17 @@ public class ClickToTap : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	void Respawn()
+	{
+		rb = GetComponent<Rigidbody>();
+		rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+		transform.rotation = Quaternion.identity;
+		transform.position = spawn;
+		prevRotation = transform.rotation;
+		prevPosition = transform.position;
+		SetCharge(0);
 	}
 
 	void AddCharge(float val)
