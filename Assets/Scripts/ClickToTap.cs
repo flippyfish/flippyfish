@@ -91,9 +91,10 @@ public class ClickToTap : MonoBehaviour
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 			{
+				Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);	// we want the fish to look on its own y level
 				transform.position = prevPosition;
-				transform.LookAt(hit.point);
-                print(transform.rotation);
+				transform.LookAt(lookAt);
+                //print(transform.rotation);
 			}
 			//print(charge);
 		}
@@ -115,7 +116,8 @@ public class ClickToTap : MonoBehaviour
 
 				if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 				{
-					transform.LookAt(hit.point);	// face the mouse click
+					Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+					transform.LookAt(lookAt);	// face the mouse click
 					//print(transform.rotation);
 					prevRotation = transform.rotation;
 					// note that the x, y, and z values of the jump are the strength in each direction
