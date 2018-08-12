@@ -6,17 +6,18 @@ using UnityEngine.UI;
 /**
 *	Hold left-click to charge a leap, and release left-click to jump.
 	The fish will turn toward the mouse when charging a leap.
-	
-	Sometimes the fish will backflip or not move very far. I'll figure that out.
 */
 public class ClickToTap : MonoBehaviour
 {
-	public Slider chargeSlider;
+	public GameObject winScreen;
 
+	public Slider chargeSlider;
 	private float charge;
 	private float MAX_CHARGE = 2;
+	private float CHARGE_TO_CANCEL = 2.25f;
 
 	public bool isGrounded;
+	public bool canMove;
 
 	private Quaternion prevRotation;
 	private Vector3 prevPosition;
@@ -31,14 +32,21 @@ public class ClickToTap : MonoBehaviour
 		prevRotation = transform.rotation;
 		prevPosition = transform.position;
 		SetCharge(0);
+		isGrounded = false;
+		canMove = true;
 	}
 
-	// hit an obstacle, respawn at start
+	
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag == "Obstacle")
+		if (other.tag == "Obstacle")	// hit an obstacle, respawn at start
 		{
 			Respawn();
+		}
+		if (other.tag == "Goal")
+		{
+			canMove = false;
+			winScreen.SetActive(true);
 		}
 	}
 	
@@ -54,6 +62,7 @@ public class ClickToTap : MonoBehaviour
         {
             rb.velocity = new Vector3(0, 0, 0);
             prevPosition = transform.position;
+			prevRotation = transform.rotation;
             isGrounded = true;
         }
 	}
@@ -63,44 +72,47 @@ public class ClickToTap : MonoBehaviour
 		isGrounded = false;
 	}
 
-	void FixedUpdate()
+	void Update()
 	{
-        
-		MouseBehavior();
+        if (canMove)
+			MouseBehavior();
 	}
 
-	// if I rotate the fish first, I can just leap forward
+	/**
+	*	If the left mouse button is held down, the fish will rotate toward the cursor and charge.
+	*	If the left mouse button is released and the fish is charged, it will leap toward the cursor.
+	*/
 	void MouseBehavior()
 	{
 		int layerMask = 1 << 9;		// we will only raycast onto layer 9
 		//layerMask = ~layerMask;
-		if (Input.GetMouseButton(0) && isGrounded)	// if holding down the mouse
+
+		if (Input.GetMouseButton(0) && isGrounded)	// IF HOLDING DOWN THE MOUSE
 		{
-			if (charge > MAX_CHARGE)		// if we already held the mouse too long, do nothing
+			if (charge > CHARGE_TO_CANCEL)		// if we already held the mouse too long, do nothing
 				return;
 			AddCharge(Time.deltaTime);
-			if (charge > MAX_CHARGE)		// reset fish if mouse was held too long
+			if (charge > CHARGE_TO_CANCEL)		// reset fish if mouse was held too long
 			{
 				chargeSlider.value = 0;
 				transform.rotation = prevRotation;
 				transform.position = prevPosition;
 				return;
 			}
-			// face the mouse, if the cursor is over the ground
+
+			// face the cursor
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 			{
-				Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);	// we want the fish to look on its own y level
+				Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);	// the fish will look on its own y level
 				transform.position = prevPosition;
 				transform.LookAt(lookAt);
-                //print(transform.rotation);
 			}
-			//print(charge);
 		}
 		if (Input.GetMouseButtonUp(0) && isGrounded)	// when the mouse is released
 		{
-			if (charge < 0.25 || charge > MAX_CHARGE)	// prevent overcharged clicks and quick clicks from executing a jump
+			if (charge < 0.25 || charge > CHARGE_TO_CANCEL)	// prevent overcharged clicks and quick clicks from executing a jump
 			{
 				SetCharge(0);
 				transform.rotation = prevRotation;
@@ -111,24 +123,20 @@ public class ClickToTap : MonoBehaviour
 			{
 				RaycastHit hit;
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-				
-
 				if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 				{
 					Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);
-					transform.LookAt(lookAt);	// face the mouse click
-					//print(transform.rotation);
-					prevRotation = transform.rotation;
-					// note that the x, y, and z values of the jump are the strength in each direction
+					transform.LookAt(lookAt);
+					if (charge > MAX_CHARGE)
+						charge = MAX_CHARGE;
 
-					//Vector3 dir = new Vector3(5.0f, 10.0f, 0.0f);
+					// note that the x, y, and z values of the jump are the strength in each direction
 					Vector3 dir = transform.forward;
 					dir = new Vector3(dir.x, 2.0f, dir.z);
 					float leapStr = (charge + 1.0f) * 2.0f;
-					dir = dir * leapStr;	// make the leap bigger
-					//print(dir);
+					dir = dir * leapStr;
 					rb.AddForce(dir, ForceMode.Impulse);
+
 					SetCharge(0);
 					isGrounded = false;
 				}
@@ -142,7 +150,6 @@ public class ClickToTap : MonoBehaviour
 
 	void Respawn()
 	{
-		rb = GetComponent<Rigidbody>();
 		rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 		transform.rotation = Quaternion.identity;
 		transform.position = spawn;
