@@ -14,10 +14,14 @@ public class RotateCamera : MonoBehaviour
 	{
 		// arrow keys, WASD keys
 		transform.Rotate(new Vector3(-Input.GetAxis("Vertical") * mouseSpeed, Input.GetAxis("Horizontal") * mouseSpeed, 0));
-		// keep x and y rotated, but fix z at 0
-		float X = transform.rotation.eulerAngles.x;
+		// keep y rotated, but fix x at 60 and z at 0
+		//float X = transform.rotation.eulerAngles.x;
 		float Y = transform.rotation.eulerAngles.y;
-		transform.rotation = Quaternion.Euler(X, Y, 0);
+		if (Y > 180 && Y < 345)
+			Y = 345;
+		else if (Y < 180 && Y > 15)
+			Y = 15;
+		transform.rotation = Quaternion.Euler(60, Y, 0);
 
 		// drag camera with right-click
 		if (Input.GetMouseButton(1)) 
@@ -28,23 +32,5 @@ public class RotateCamera : MonoBehaviour
 			float Y2 = transform.rotation.eulerAngles.y;
 			transform.rotation = Quaternion.Euler(X2, Y2, 0);
 		}
-
-		// old code
-		/*if (Input.GetKey(KeyCode.A))
-		{
-			transform.RotateAround(transform.position, -Vector3.up, buttonSpeed * Time.deltaTime);
-		}
-		if (Input.GetKey(KeyCode.D))
-		{
-			transform.RotateAround(transform.position, -Vector3.up, -buttonSpeed * Time.deltaTime);
-		}
-		if (Input.GetKey(KeyCode.W))
-		{
-			transform.RotateAround(transform.position, Vector3.left, buttonSpeed * Time.deltaTime);
-		}
-		if (Input.GetKey(KeyCode.S))
-		{
-			transform.RotateAround(transform.position, Vector3.right, buttonSpeed * Time.deltaTime);
-		}*/
      }
 }

@@ -15,20 +15,21 @@ public class ClickToTap : MonoBehaviour
 	private float charge;
 	private float MAX_CHARGE = 2;
 	private float CHARGE_TO_CANCEL = 2.25f;
+	public int variance;		// maximum random angle applied to a jump
 
-	public bool isGrounded;
-	public bool canMove;
+	public bool isGrounded;		// can only charge a leap while grounded
+	public bool canMove;		// default true -- set to false upon level completion
 
 	private Quaternion prevRotation;
 	private Vector3 prevPosition;
-	private Vector3 spawn;
+	private Vector3 respawn;
 	
 	Rigidbody rb;
 	
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
-		spawn = transform.position;
+		respawn = transform.position;
 		prevRotation = transform.rotation;
 		prevPosition = transform.position;
 		SetCharge(0);
@@ -43,7 +44,12 @@ public class ClickToTap : MonoBehaviour
 		{
 			Respawn();
 		}
-		if (other.tag == "Goal")
+		if (other.tag == "Pond")		// update respawn
+		{
+			Vector3 pondPos = other.transform.position;
+			respawn = new Vector3(pondPos.x, pondPos.y + 0.5f, pondPos.z);
+		}
+		if (other.tag == "Goal")		// disable jumps after beating the level
 		{
 			canMove = false;
 			winScreen.SetActive(true);
@@ -127,6 +133,10 @@ public class ClickToTap : MonoBehaviour
 				{
 					Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);
 					transform.LookAt(lookAt);
+
+					// apply random rotation
+					transform.rotation = transform.rotation * Quaternion.Euler(0, Random.Range(-variance * charge, variance * charge), 0);
+
 					if (charge > MAX_CHARGE)
 						charge = MAX_CHARGE;
 
@@ -152,7 +162,7 @@ public class ClickToTap : MonoBehaviour
 	{
 		rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 		transform.rotation = Quaternion.identity;
-		transform.position = spawn;
+		transform.position = respawn;
 		prevRotation = transform.rotation;
 		prevPosition = transform.position;
 		SetCharge(0);
