@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class ClickToTap : MonoBehaviour
 {
 	public GameObject winScreen;
+	public Text jumpCounter;
 
 	public Slider chargeSlider;
 	private float charge;
@@ -17,12 +18,14 @@ public class ClickToTap : MonoBehaviour
 	private float CHARGE_TO_CANCEL = 2.25f;
 	public int variance;		// maximum random angle applied to a jump
 
-	public bool isGrounded;		// can only charge a leap while grounded
-	public bool canMove;		// default true -- set to false upon level completion
+	private bool isGrounded;		// can only charge a leap while grounded
+	private bool levelOver;		// set to true upon level completion
 
 	private Quaternion prevRotation;
 	private Vector3 prevPosition;
 	private Vector3 respawn;
+
+	public int jumps;
 	
 	Rigidbody rb;
 	
@@ -32,9 +35,10 @@ public class ClickToTap : MonoBehaviour
 		respawn = transform.position;
 		prevRotation = transform.rotation;
 		prevPosition = transform.position;
-		SetCharge(0);
 		isGrounded = false;
-		canMove = true;
+		levelOver = false;
+		SetCharge(0);
+		SetJump(0);
 	}
 
 	
@@ -51,18 +55,14 @@ public class ClickToTap : MonoBehaviour
 		}
 		if (other.tag == "Goal")		// disable jumps after beating the level
 		{
-			canMove = false;
+			levelOver = true;
 			winScreen.SetActive(true);
 		}
-	}
-	
-	void OnCollisionEnter()
-	{
-		//prevPosition = transform.position;
 	}
 
 	void OnCollisionStay()
 	{
+		print(transform.position);
         float currentSpeed = rb.velocity.magnitude;
         if (currentSpeed < 0.1 && !isGrounded)
         {
@@ -80,7 +80,7 @@ public class ClickToTap : MonoBehaviour
 
 	void Update()
 	{
-        if (canMove)
+        if (!levelOver)
 			MouseBehavior();
 	}
 
@@ -135,7 +135,8 @@ public class ClickToTap : MonoBehaviour
 					transform.LookAt(lookAt);
 
 					// apply random rotation
-					transform.rotation = transform.rotation * Quaternion.Euler(0, Random.Range(-variance * charge, variance * charge), 0);
+					if (charge > 1)
+						transform.rotation = transform.rotation * Quaternion.Euler(0, Random.Range(-variance * charge, variance * charge), 0);
 
 					if (charge > MAX_CHARGE)
 						charge = MAX_CHARGE;
@@ -147,10 +148,11 @@ public class ClickToTap : MonoBehaviour
 					dir = dir * leapStr;
 					rb.AddForce(dir, ForceMode.Impulse);
 
+					AddJump(1);
 					SetCharge(0);
 					isGrounded = false;
 				}
-				else
+				else	// if no valid raycast -- should not happen
 				{
 					SetCharge(0);
 				}
@@ -177,5 +179,16 @@ public class ClickToTap : MonoBehaviour
 	{
 		charge = val;
 		chargeSlider.value = charge * 100;
+	}
+
+	void AddJump(int val)
+	{
+		jumps += val;
+		jumpCounter.text = "Jumps: " + jumps.ToString();
+	}
+	void SetJump(int val)
+	{
+		jumps = val;
+		jumpCounter.text = "Jumps: " + jumps.ToString();
 	}
 }
