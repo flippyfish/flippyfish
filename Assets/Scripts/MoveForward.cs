@@ -13,4 +13,12 @@ public class MoveForward : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		rb.velocity = transform.forward * speed;
 	}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "Player")
+        {
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+        }
+    }
 }

@@ -17,11 +17,11 @@ public class RotateCamera : MonoBehaviour
 		// keep y rotated, but fix x at 60 and z at 0
 		//float X = transform.rotation.eulerAngles.x;
 		float Y = transform.rotation.eulerAngles.y;
-		if (Y > 180 && Y < 345)
-			Y = 345;
-		else if (Y < 180 && Y > 15)
-			Y = 15;
-		transform.rotation = Quaternion.Euler(60, Y, 0);
+		if (Y > 180 && Y < 330)
+			Y = 330;
+		else if (Y < 180 && Y > 30)
+			Y = 30;
+		transform.rotation = Quaternion.Euler(20, Y, 0);
 
 		// drag camera with right-click
 		if (Input.GetMouseButton(1)) 

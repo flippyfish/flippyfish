@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: 3180b327e54464aa69610ce96babcc9b
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: BL_RIM
+    100002: BL_Tire
+    100004: Body
+    100006: BR_Tire
+    100008: BRRIM
+    100010: //RootNode
+    100012: FL_Tire
+    100014: FLRIM
+    100016: FR_Tire
+    100018: FRRIM
+    100020: GRP_Tires
+    100022: L_Door
+    100024: pTorus2
+    100026: pTorus2 1
+    100028: pTorus2 2
+    100030: pTorus2 3
+    100032: R_Door
+    400000: BL_RIM
+    400002: BL_Tire
+    400004: Body
+    400006: BR_Tire
+    400008: BRRIM
+    400010: //RootNode
+    400012: FL_Tire
+    400014: FLRIM
+    400016: FR_Tire
+    400018: FRRIM
+    400020: GRP_Tires
+    400022: L_Door
+    400024: pTorus2
+    400026: pTorus2 1
+    400028: pTorus2 2
+    400030: pTorus2 3
+    400032: R_Door
+    2100000: CarBodyMatt
+    2100002: Car_L_Door_matt
+    2100004: Car_R_Door_matt
+    2100006: Car_WheelMatt
+    2100008: RimMat
+    2300000: BL_RIM
+    2300002: Body
+    2300004: BRRIM
+    2300006: FLRIM
+    2300008: FRRIM
+    2300010: L_Door
+    2300012: pTorus2
+    2300014: pTorus2 1
+    2300016: pTorus2 2
+    2300018: pTorus2 3
+    2300020: R_Door
+    3300000: BL_RIM
+    3300002: Body
+    3300004: BRRIM
+    3300006: FLRIM
+    3300008: FRRIM
+    3300010: L_Door
+    3300012: pTorus2
+    3300014: pTorus2 1
+    3300016: pTorus2 2
+    3300018: pTorus2 3
+    3300020: R_Door
+    4300000: Body
+    4300002: L_Door
+    4300004: R_Door
+    4300006: pTorus2
+    4300008: BL_RIM
+    4300010: pTorus2
+    4300012: FLRIM
+    4300014: pTorus2
+    4300016: BRRIM
+    4300018: pTorus2
+    4300020: FRRIM
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

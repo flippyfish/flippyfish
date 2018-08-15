@@ -19,7 +19,7 @@ public class ClickToTap : MonoBehaviour
 	public int variance;		// maximum random angle applied to a jump
 
 	private bool isGrounded;		// can only charge a leap while grounded
-	private bool levelOver;		// set to true upon level completion
+	private bool inControl;		// set to true upon level completion
 
 	private Quaternion prevRotation;
 	private Vector3 prevPosition;
@@ -36,17 +36,33 @@ public class ClickToTap : MonoBehaviour
 		prevRotation = transform.rotation;
 		prevPosition = transform.position;
 		isGrounded = false;
-		levelOver = false;
+		inControl = true;
 		SetCharge(0);
 		SetJump(0);
 	}
 
-	
-	void OnTriggerEnter (Collider other)
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            if (inControl)
+            {
+                inControl = false;
+                StartCoroutine(Respawn());
+            }
+        }
+    }
+
+    void OnTriggerEnter (Collider other)
 	{
 		if (other.tag == "Obstacle")	// hit an obstacle, respawn at start
 		{
-			Respawn();
+            if (inControl)
+            {
+                inControl = false;
+                StartCoroutine(Respawn());
+            }
 		}
 		if (other.tag == "Pond")		// update respawn
 		{
@@ -55,15 +71,14 @@ public class ClickToTap : MonoBehaviour
 		}
 		if (other.tag == "Goal")		// disable jumps after beating the level
 		{
-			levelOver = true;
+			inControl = false;
 			winScreen.SetActive(true);
 		}
 	}
 
 	void OnCollisionStay()
 	{
-		print(transform.position);
-        float currentSpeed = rb.velocity.magnitude;
+		float currentSpeed = rb.velocity.magnitude;
         if (currentSpeed < 0.1 && !isGrounded)
         {
             rb.velocity = new Vector3(0, 0, 0);
@@ -80,7 +95,7 @@ public class ClickToTap : MonoBehaviour
 
 	void Update()
 	{
-        if (!levelOver)
+        if (inControl)
 			MouseBehavior();
 	}
 
@@ -111,7 +126,12 @@ public class ClickToTap : MonoBehaviour
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 			{
-				Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);	// the fish will look on its own y level
+                // don't allow jump direction to be behind the player
+                float lookZ = hit.point.z;
+                if (lookZ < transform.position.z)
+                    lookZ = transform.position.z;
+                
+				Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);	// the fish will look on its own y level
 				transform.position = prevPosition;
 				transform.LookAt(lookAt);
 			}
@@ -131,12 +151,20 @@ public class ClickToTap : MonoBehaviour
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 				{
-					Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+                    // don't allow jump direction to be behind the player
+                    float lookZ = hit.point.z;
+                    if (lookZ < transform.position.z)
+                        lookZ = transform.position.z;
+					Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);
 					transform.LookAt(lookAt);
 
 					// apply random rotation
 					if (charge > 1)
 						transform.rotation = transform.rotation * Quaternion.Euler(0, Random.Range(-variance * charge, variance * charge), 0);
+                    if (transform.rotation.eulerAngles.y > 180 && transform.rotation.eulerAngles.y < 270)
+                        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 270, transform.rotation.eulerAngles.z);
+                    else if (transform.rotation.eulerAngles.y < 180 && transform.rotation.eulerAngles.y > 90)
+                        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90, transform.rotation.eulerAngles.z);
 
 					if (charge > MAX_CHARGE)
 						charge = MAX_CHARGE;
@@ -160,14 +188,17 @@ public class ClickToTap : MonoBehaviour
 		}
 	}
 
-	void Respawn()
+    IEnumerator Respawn()
 	{
+        inControl = false;
+        yield return new WaitForSeconds(1);
 		rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 		transform.rotation = Quaternion.identity;
 		transform.position = respawn;
 		prevRotation = transform.rotation;
 		prevPosition = transform.position;
 		SetCharge(0);
+        inControl = true;
 	}
 
 	void AddCharge(float val)
