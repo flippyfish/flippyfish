@@ -13,6 +13,7 @@ public class CameraTrackPlayer : MonoBehaviour {
 	void Update ()
 	{
         yOffset -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+        zOffset += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
 
 		float x = player.transform.position.x;
 		float y = player.transform.position.y + yOffset;
