@@ -1,80 +1,86 @@
 fileFormatVersion: 2
-guid: 3180b327e54464aa69610ce96babcc9b
+guid: cdb55ac15459340c5b4010ba9df08b85
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: BL_RIM
-    100002: BL_Tire
-    100004: Body
-    100006: BR_Tire
-    100008: BRRIM
-    100010: //RootNode
-    100012: FL_Tire
-    100014: FLRIM
-    100016: FR_Tire
-    100018: FRRIM
-    100020: GRP_Tires
-    100022: L_Door
-    100024: pTorus2
-    100026: pTorus2 1
-    100028: pTorus2 2
-    100030: pTorus2 3
-    100032: R_Door
-    400000: BL_RIM
-    400002: BL_Tire
-    400004: Body
-    400006: BR_Tire
-    400008: BRRIM
-    400010: //RootNode
-    400012: FL_Tire
-    400014: FLRIM
-    400016: FR_Tire
-    400018: FRRIM
-    400020: GRP_Tires
-    400022: L_Door
-    400024: pTorus2
-    400026: pTorus2 1
-    400028: pTorus2 2
-    400030: pTorus2 3
-    400032: R_Door
-    2100000: CarBodyMatt
-    2100002: Car_L_Door_matt
-    2100004: Car_R_Door_matt
-    2100006: Car_WheelMatt
-    2100008: RimMat
-    2300000: BL_RIM
-    2300002: Body
-    2300004: BRRIM
-    2300006: FLRIM
-    2300008: FRRIM
-    2300010: L_Door
-    2300012: pTorus2
-    2300014: pTorus2 1
-    2300016: pTorus2 2
-    2300018: pTorus2 3
-    2300020: R_Door
-    3300000: BL_RIM
-    3300002: Body
-    3300004: BRRIM
-    3300006: FLRIM
-    3300008: FRRIM
-    3300010: L_Door
-    3300012: pTorus2
-    3300014: pTorus2 1
-    3300016: pTorus2 2
-    3300018: pTorus2 3
-    3300020: R_Door
-    4300000: Body
-    4300002: L_Door
-    4300004: R_Door
-    4300006: pTorus2
-    4300008: BL_RIM
-    4300010: pTorus2
-    4300012: FLRIM
-    4300014: pTorus2
-    4300016: BRRIM
-    4300018: pTorus2
-    4300020: FRRIM
+    100000: //RootNode
+    100002: pCylinder2
+    100004: pCylinder3
+    100006: pCylinder4
+    100008: pCylinder5
+    100010: pCylinder6
+    100012: pPlatonic10
+    100014: pPlatonic11
+    100016: pPlatonic12
+    100018: pPlatonic13
+    100020: pPlatonic14
+    100022: pPlatonic15
+    100024: pPlatonic16
+    100026: pPlatonic17
+    100028: pPlatonic18
+    100030: pPlatonic9
+    400000: //RootNode
+    400002: pCylinder2
+    400004: pCylinder3
+    400006: pCylinder4
+    400008: pCylinder5
+    400010: pCylinder6
+    400012: pPlatonic10
+    400014: pPlatonic11
+    400016: pPlatonic12
+    400018: pPlatonic13
+    400020: pPlatonic14
+    400022: pPlatonic15
+    400024: pPlatonic16
+    400026: pPlatonic17
+    400028: pPlatonic18
+    400030: pPlatonic9
+    2100000: lambert1
+    2300000: pCylinder2
+    2300002: pCylinder3
+    2300004: pCylinder4
+    2300006: pCylinder5
+    2300008: pCylinder6
+    2300010: pPlatonic10
+    2300012: pPlatonic11
+    2300014: pPlatonic12
+    2300016: pPlatonic13
+    2300018: pPlatonic14
+    2300020: pPlatonic15
+    2300022: pPlatonic16
+    2300024: pPlatonic17
+    2300026: pPlatonic18
+    2300028: pPlatonic9
+    3300000: pCylinder2
+    3300002: pCylinder3
+    3300004: pCylinder4
+    3300006: pCylinder5
+    3300008: pCylinder6
+    3300010: pPlatonic10
+    3300012: pPlatonic11
+    3300014: pPlatonic12
+    3300016: pPlatonic13
+    3300018: pPlatonic14
+    3300020: pPlatonic15
+    3300022: pPlatonic16
+    3300024: pPlatonic17
+    3300026: pPlatonic18
+    3300028: pPlatonic9
+    4300000: pCylinder2
+    4300002: pCylinder3
+    4300004: pCylinder4
+    4300006: pCylinder5
+    4300008: pCylinder6
+    4300010: pPlatonic9
+    4300012: pPlatonic10
+    4300014: pPlatonic11
+    4300016: pPlatonic12
+    4300018: pPlatonic13
+    4300020: pPlatonic14
+    4300022: pPlatonic15
+    4300024: pPlatonic16
+    4300026: pPlatonic17
+    4300028: pPlatonic18
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -130,7 +136,7 @@ ModelImporter:
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1

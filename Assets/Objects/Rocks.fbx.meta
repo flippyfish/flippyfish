@@ -1,80 +1,31 @@
 fileFormatVersion: 2
-guid: 3180b327e54464aa69610ce96babcc9b
+guid: e92af83f847be4d369971fd8a58e8a0d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: BL_RIM
-    100002: BL_Tire
-    100004: Body
-    100006: BR_Tire
-    100008: BRRIM
-    100010: //RootNode
-    100012: FL_Tire
-    100014: FLRIM
-    100016: FR_Tire
-    100018: FRRIM
-    100020: GRP_Tires
-    100022: L_Door
-    100024: pTorus2
-    100026: pTorus2 1
-    100028: pTorus2 2
-    100030: pTorus2 3
-    100032: R_Door
-    400000: BL_RIM
-    400002: BL_Tire
-    400004: Body
-    400006: BR_Tire
-    400008: BRRIM
-    400010: //RootNode
-    400012: FL_Tire
-    400014: FLRIM
-    400016: FR_Tire
-    400018: FRRIM
-    400020: GRP_Tires
-    400022: L_Door
-    400024: pTorus2
-    400026: pTorus2 1
-    400028: pTorus2 2
-    400030: pTorus2 3
-    400032: R_Door
-    2100000: CarBodyMatt
-    2100002: Car_L_Door_matt
-    2100004: Car_R_Door_matt
-    2100006: Car_WheelMatt
-    2100008: RimMat
-    2300000: BL_RIM
-    2300002: Body
-    2300004: BRRIM
-    2300006: FLRIM
-    2300008: FRRIM
-    2300010: L_Door
-    2300012: pTorus2
-    2300014: pTorus2 1
-    2300016: pTorus2 2
-    2300018: pTorus2 3
-    2300020: R_Door
-    3300000: BL_RIM
-    3300002: Body
-    3300004: BRRIM
-    3300006: FLRIM
-    3300008: FRRIM
-    3300010: L_Door
-    3300012: pTorus2
-    3300014: pTorus2 1
-    3300016: pTorus2 2
-    3300018: pTorus2 3
-    3300020: R_Door
-    4300000: Body
-    4300002: L_Door
-    4300004: R_Door
-    4300006: pTorus2
-    4300008: BL_RIM
-    4300010: pTorus2
-    4300012: FLRIM
-    4300014: pTorus2
-    4300016: BRRIM
-    4300018: pTorus2
-    4300020: FRRIM
+    100000: pPlatonic20
+    100002: pPlatonic22
+    100004: pPlatonic23
+    100006: pPlatonic24
+    100008: //RootNode
+    400000: pPlatonic20
+    400002: pPlatonic22
+    400004: pPlatonic23
+    400006: pPlatonic24
+    400008: //RootNode
+    2100000: lambert1
+    2300000: pPlatonic20
+    2300002: pPlatonic22
+    2300004: pPlatonic23
+    2300006: pPlatonic24
+    3300000: pPlatonic20
+    3300002: pPlatonic22
+    3300004: pPlatonic23
+    3300006: pPlatonic24
+    4300000: pPlatonic20
+    4300002: pPlatonic22
+    4300004: pPlatonic23
+    4300006: pPlatonic24
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -130,7 +81,7 @@ ModelImporter:
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
