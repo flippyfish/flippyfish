@@ -41,7 +41,7 @@ public class ClickToTap : MonoBehaviour
 		SetJump(0);
 	}
 
-
+	// for solid objects the fish hits, eg. a car
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Obstacle")
@@ -54,6 +54,7 @@ public class ClickToTap : MonoBehaviour
         }
     }
 
+    // for objects the fish can move through, eg. a pond
     void OnTriggerEnter (Collider other)
 	{
 		if (other.tag == "Obstacle")	// hit an obstacle, respawn at start
@@ -73,6 +74,14 @@ public class ClickToTap : MonoBehaviour
 		{
 			inControl = false;
 			winScreen.SetActive(true);
+		}
+	}
+
+	void OnTriggerExit (Collider other)
+	{
+		if (other.tag == "Boundary")
+		{
+			StartCoroutine(Respawn());
 		}
 	}
 
