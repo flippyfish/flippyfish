@@ -2214,7 +2214,6 @@ GameObject:
   - component: {fileID: 1463806012}
   - component: {fileID: 1463806013}
   - component: {fileID: 1463806014}
-  - component: {fileID: 1463806015}
   m_Layer: 10
   m_Name: Level
   m_TagString: World
@@ -2267,22 +2266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c463369ac90b5b4794b5b3aaa558c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1759833852050602, guid: c2e7c9d86e9e74a0f8e5648220562b60, type: 2}
-  car2: {fileID: 1597423616384474, guid: 42e696d5e36174b1a85084cf516caef3, type: 2}
+  car: {fileID: 1606592766579254, guid: c2e7c9d86e9e74a0f8e5648220562b60, type: 2}
+  car2: {fileID: 1606592766579254, guid: c2e7c9d86e9e74a0f8e5648220562b60, type: 2}
   carInterval: 6
---- !u!114 &1463806015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114071068767870032, guid: 50ef3529581cf417e8d82817a09af4ac,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1463806011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04f49fc33a821974b9b1a1629764f038, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seconds: 0
 --- !u!1 &1471068254
 GameObject:
   m_ObjectHideFlags: 0

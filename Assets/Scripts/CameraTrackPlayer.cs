@@ -5,9 +5,9 @@ using UnityEngine;
 public class CameraTrackPlayer : MonoBehaviour {
 
 	public GameObject player;
-	public float yOffset;
-	public float zOffset;
-    public float zoomSpeed;
+	public float yOffset;		// suggest 3
+	public float zOffset;		// suggest -4
+    public float zoomSpeed;		// suggest 1
 
 	// Update is called once per frame
 	void Update ()

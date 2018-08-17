@@ -14,16 +14,17 @@ public class ClickToTap : MonoBehaviour
 
 	public Slider chargeSlider;
 	private float charge;
-	private float MAX_CHARGE = 2;
+	private float MAX_CHARGE = 2;				// 2 is max jump multiplier
 	private float CHARGE_TO_CANCEL = 2.25f;
-	public int variance;		// maximum random angle applied to a jump
+	public int variance;						// maximum random euler angle applied to a jump
 
-	private bool isGrounded;		// can only charge a leap while grounded
-	private bool inControl;		// set to true upon level completion
+	private bool isGrounded;					// can only charge a leap while grounded
+	private bool inControl;						// set to false upon level completion, or when about to respawn
 
 	private Quaternion prevRotation;
-	private Vector3 prevPosition;
-	private Vector3 respawn;
+	private Vector3    prevPosition;
+	private Quaternion respawnRotation;
+	private Vector3    respawnPosition;
 
 	public int jumps;
 	
@@ -32,7 +33,8 @@ public class ClickToTap : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
-		respawn = transform.position;
+		respawnRotation = transform.rotation;
+		respawnPosition = transform.position;
 		prevRotation = transform.rotation;
 		prevPosition = transform.position;
 		isGrounded = false;
@@ -68,11 +70,11 @@ public class ClickToTap : MonoBehaviour
 		if (other.tag == "Pond")		// update respawn
 		{
 			Vector3 pondPos = other.transform.position;
-			respawn = new Vector3(pondPos.x, pondPos.y + 0.5f, pondPos.z);
+			respawnPosition = new Vector3(pondPos.x, pondPos.y + 0.5f, pondPos.z);
 		}
-		if (other.tag == "Goal")		// disable jumps after beating the level
+		if (other.tag == "Goal")		// end of level
 		{
-			inControl = false;
+			inControl = false;			// disable jumping after beating the level
 			winScreen.SetActive(true);
 		}
 	}
@@ -85,21 +87,21 @@ public class ClickToTap : MonoBehaviour
 		}
 	}
 
+	// detect when the fish has landed and come to a stop; record its state
 	void OnCollisionStay()
 	{
-		float currentSpeed = rb.velocity.magnitude;
-        if (currentSpeed < 0.1 && !isGrounded)
+        if (!isGrounded && rb.velocity.magnitude < 0.05)
         {
             rb.velocity = new Vector3(0, 0, 0);
             prevPosition = transform.position;
 			prevRotation = transform.rotation;
-            isGrounded = true;
+            isGrounded = true;	// now we can charge another jump
         }
 	}
 
 	void OnCollisionExit()
 	{
-		isGrounded = false;
+		//isGrounded = false;
 	}
 
 	void Update()
@@ -127,6 +129,7 @@ public class ClickToTap : MonoBehaviour
 				chargeSlider.value = 0;
 				transform.rotation = prevRotation;
 				transform.position = prevPosition;
+				rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 				return;
 			}
 
@@ -143,6 +146,9 @@ public class ClickToTap : MonoBehaviour
 				Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);	// the fish will look on its own y level
 				transform.position = prevPosition;
 				transform.LookAt(lookAt);
+				// old removed code here preserved the x and z rotation the fish had when it landed
+				//float Y = transform.rotation.eulerAngles.y;
+				//transform.rotation = Quaternion.Euler(prevRotation.eulerAngles.x, Y, prevRotation.eulerAngles.z);
 			}
 		}
 		if (Input.GetMouseButtonUp(0) && isGrounded)	// when the mouse is released
@@ -152,6 +158,7 @@ public class ClickToTap : MonoBehaviour
 				SetCharge(0);
 				transform.rotation = prevRotation;
 				transform.position = prevPosition;
+				rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 				return;
 			}
 			else
@@ -167,7 +174,7 @@ public class ClickToTap : MonoBehaviour
 					Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);
 					transform.LookAt(lookAt);
 
-					// apply random rotation
+					// apply small random rotation, ensuring the overall angle isn't backward
 					if (charge > 1)
 						transform.rotation = transform.rotation * Quaternion.Euler(0, Random.Range(-variance * charge, variance * charge), 0);
                     if (transform.rotation.eulerAngles.y > 180 && transform.rotation.eulerAngles.y < 270)
@@ -178,20 +185,24 @@ public class ClickToTap : MonoBehaviour
 					if (charge > MAX_CHARGE)
 						charge = MAX_CHARGE;
 
-					// note that the x, y, and z values of the jump are the strength in each direction
-					Vector3 dir = transform.forward;
-					dir = new Vector3(dir.x, 2.0f, dir.z);
-					float leapStr = (charge + 1.0f) * 2.0f;
-					dir = dir * leapStr;
-					rb.AddForce(dir, ForceMode.Impulse);
+					// apply the jump force!
+					// note that the x, y, and z values of the jump vector are the strength in each direction
+					Vector3 jump = transform.forward;
+					jump = new Vector3(jump.x, 2.0f, jump.z);
+					float str = (charge + 1.0f) * 2.0f;
+					jump = jump * str;
+					rb.AddForce(jump, ForceMode.Impulse);
 
 					AddJump(1);
 					SetCharge(0);
 					isGrounded = false;
 				}
-				else	// if no valid raycast -- should not happen
+				else	// if no valid raycast -- eg. if cursor is in the sky
 				{
 					SetCharge(0);
+					transform.rotation = prevRotation;
+					transform.position = prevPosition;
+					rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 				}
 			}
 		}
@@ -201,11 +212,13 @@ public class ClickToTap : MonoBehaviour
 	{
         inControl = false;
         yield return new WaitForSeconds(1);
+
 		rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-		transform.rotation = Quaternion.identity;
-		transform.position = respawn;
+		transform.rotation = respawnRotation;
+		transform.position = respawnPosition;
 		prevRotation = transform.rotation;
 		prevPosition = transform.position;
+
 		SetCharge(0);
         inControl = true;
 	}

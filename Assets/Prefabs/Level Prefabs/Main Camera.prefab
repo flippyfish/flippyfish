@@ -116,5 +116,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a21e00afa275e4fb2dec7a80579e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSpeed: 1
-  buttonSpeed: 40
+  speed: 1
+  xTilt: 25
