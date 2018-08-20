@@ -146,6 +146,7 @@ public class ClickToTap : MonoBehaviour
 				Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);	// the fish will look on its own y level
 				transform.position = prevPosition;
 				transform.LookAt(lookAt);
+				//transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
 				// old removed code here preserved the x and z rotation the fish had when it landed
 				//float Y = transform.rotation.eulerAngles.y;
 				//transform.rotation = Quaternion.Euler(prevRotation.eulerAngles.x, Y, prevRotation.eulerAngles.z);
@@ -173,6 +174,7 @@ public class ClickToTap : MonoBehaviour
                         lookZ = transform.position.z;
 					Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);
 					transform.LookAt(lookAt);
+					//transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
 
 					// apply small random rotation, ensuring the overall angle isn't backward
 					if (charge > 1)
@@ -191,6 +193,8 @@ public class ClickToTap : MonoBehaviour
 					jump = new Vector3(jump.x, 2.0f, jump.z);
 					float str = (charge + 1.0f) * 2.0f;
 					jump = jump * str;
+					print(rb.velocity);
+					rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 					rb.AddForce(jump, ForceMode.Impulse);
 
 					AddJump(1);
