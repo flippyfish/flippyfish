@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 4679992936423036}
   - component: {fileID: 33282336985150370}
   - component: {fileID: 23356766788326658}
+  - component: {fileID: 64587469274794792}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -300,6 +301,7 @@ GameObject:
   - component: {fileID: 4672613171922102}
   - component: {fileID: 33403380813308334}
   - component: {fileID: 23770345710847914}
+  - component: {fileID: 64981983526869788}
   m_Layer: 0
   m_Name: R_Door
   m_TagString: Untagged
@@ -1064,6 +1066,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &64587469274794792
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1459000795764150}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 3180b327e54464aa69610ce96babcc9b, type: 3}
+--- !u!64 &64981983526869788
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1845541115555128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 3180b327e54464aa69610ce96babcc9b, type: 3}
 --- !u!108 &108560645645333816
 Light:
   m_ObjectHideFlags: 1
