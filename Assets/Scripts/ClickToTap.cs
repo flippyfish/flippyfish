@@ -99,11 +99,6 @@ public class ClickToTap : MonoBehaviour
         }
 	}
 
-	void OnCollisionExit()
-	{
-		//isGrounded = false;
-	}
-
 	void Update()
 	{
         if (inControl)
@@ -144,17 +139,19 @@ public class ClickToTap : MonoBehaviour
                     lookZ = transform.position.z;
                 
 				Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);	// the fish will look on its own y level
-				transform.position = prevPosition;
 				transform.LookAt(lookAt);
-				//transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-				// old removed code here preserved the x and z rotation the fish had when it landed
-				//float Y = transform.rotation.eulerAngles.y;
-				//transform.rotation = Quaternion.Euler(prevRotation.eulerAngles.x, Y, prevRotation.eulerAngles.z);
+				//transform.position = prevPosition;
+				transform.position = new Vector3(prevPosition.x, prevPosition.y + 0.2f, prevPosition.z);
 			}
 		}
-		if (Input.GetMouseButtonUp(0) && isGrounded)	// when the mouse is released
+		if (Input.GetMouseButtonUp(0) && isGrounded)	// WHEN THE MOUSE IS RELEASED
 		{
-			if (charge < 0.25 || charge > CHARGE_TO_CANCEL)	// prevent overcharged clicks and quick clicks from executing a jump
+			if (charge > CHARGE_TO_CANCEL)	// the fish is already in its old state, so don't reset again
+			{
+				SetCharge(0);
+				return;
+			}
+			else if (charge < 0.25)			// prevent overcharged clicks from executing a jump
 			{
 				SetCharge(0);
 				transform.rotation = prevRotation;
@@ -174,7 +171,7 @@ public class ClickToTap : MonoBehaviour
                         lookZ = transform.position.z;
 					Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);
 					transform.LookAt(lookAt);
-					//transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+					transform.position = new Vector3(prevPosition.x, prevPosition.y + 0.2f, prevPosition.z);
 
 					// apply small random rotation, ensuring the overall angle isn't backward
 					if (charge > 1)
@@ -193,7 +190,6 @@ public class ClickToTap : MonoBehaviour
 					jump = new Vector3(jump.x, 2.0f, jump.z);
 					float str = (charge + 1.0f) * 2.0f;
 					jump = jump * str;
-					print(rb.velocity);
 					rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 					rb.AddForce(jump, ForceMode.Impulse);
 
