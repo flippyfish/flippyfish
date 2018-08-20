@@ -5064,8 +5064,7 @@ MeshCollider:
 --- !u!114 &1463806014
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114213483281285642, guid: 50ef3529581cf417e8d82817a09af4ac,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1463806011}
   m_Enabled: 1
@@ -5074,7 +5073,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 1101679336994228, guid: c2e7c9d86e9e74a0f8e5648220562b60, type: 2}
-  car2: {fileID: 1101679336994228, guid: c2e7c9d86e9e74a0f8e5648220562b60, type: 2}
   carInterval: 6
 --- !u!1001 &1501996646
 Prefab:
