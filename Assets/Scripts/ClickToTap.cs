@@ -118,7 +118,7 @@ public class ClickToTap : MonoBehaviour
 		{
 			if (charge > CHARGE_TO_CANCEL)		// if we already held the mouse too long, do nothing
 				return;
-			AddCharge(Time.deltaTime);
+			AddCharge(Time.deltaTime * 1.5f);
 			if (charge > CHARGE_TO_CANCEL)		// reset fish if mouse was held too long
 			{
 				chargeSlider.value = 0;
@@ -187,8 +187,8 @@ public class ClickToTap : MonoBehaviour
 					// apply the jump force!
 					// note that the x, y, and z values of the jump vector are the strength in each direction
 					Vector3 jump = transform.forward;
-					jump = new Vector3(jump.x, 2.0f, jump.z);
-					float str = (charge + 1.0f) * 2.0f;
+					jump = new Vector3(jump.x, 1.3f, jump.z);
+					float str = (charge + 1.0f) * 3.0f;
 					jump = jump * str;
 					rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 					rb.AddForce(jump, ForceMode.Impulse);
