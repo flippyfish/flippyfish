@@ -49,6 +49,8 @@ Later I made an empty plane specifically for raycasting and put it on its own la
 
 Much of the remaining work involved collider and trigger detection, and tags to indicate what the fish and cars were colliding with.
 
+No external libraries or assets were used in this project.
+
 
 ## Issue
 
