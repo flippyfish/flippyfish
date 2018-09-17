@@ -8,6 +8,7 @@ Jump your way to the ocean while avoiding cars and obstacles!
 - A, D / Left, Right: Rotate camera
 
 - Drag right-click: Rotate camera
+
 - Scroll wheel: Zoom
 
 
