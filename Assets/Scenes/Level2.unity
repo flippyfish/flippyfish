@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.088638164, g: 0.28292742, b: 0.48432153, a: 1}
+  m_IndirectSpecularColor: {r: 0.08857591, g: 0.2828794, b: 0.48428988, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7253,6 +7253,21 @@ Prefab:
       propertyPath: m_Mass
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 114791707244458180, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1020537810}
+    - target: {fileID: 114926156996930008, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: jumpCounter
+      value: 
+      objectReference: {fileID: 1159538149}
+    - target: {fileID: 114926156996930008, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: chargeSlider
+      value: 
+      objectReference: {fileID: 216597086}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
   m_IsPrefabAsset: 0

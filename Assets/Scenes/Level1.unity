@@ -5775,21 +5775,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114512254218677960, guid: 6edcbaf2b095f47d8beaf35868336861,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: winScreen
       value: 
-      objectReference: {fileID: 1020537810}
-    - target: {fileID: 114512254218677960, guid: 6edcbaf2b095f47d8beaf35868336861,
-        type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: jumpCounter
       value: 
-      objectReference: {fileID: 1159538149}
-    - target: {fileID: 114512254218677960, guid: 6edcbaf2b095f47d8beaf35868336861,
-        type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: chargeSlider
       value: 
-      objectReference: {fileID: 216597086}
+      objectReference: {fileID: 0}
     - target: {fileID: 64918960178734204, guid: 6edcbaf2b095f47d8beaf35868336861,
         type: 2}
       propertyPath: m_CookingOptions
@@ -5813,15 +5810,34 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114512254218677960, guid: 6edcbaf2b095f47d8beaf35868336861,
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114791707244458180, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1020537810}
+    - target: {fileID: 114926156996930008, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: jumpCounter
+      value: 
+      objectReference: {fileID: 1159538149}
+    - target: {fileID: 114926156996930008, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: chargeSlider
+      value: 
+      objectReference: {fileID: 216597086}
+    - target: {fileID: 114926156996930008, guid: 6edcbaf2b095f47d8beaf35868336861,
         type: 2}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 54053719982425130, guid: 6edcbaf2b095f47d8beaf35868336861,
+    - target: {fileID: 114791707244458180, guid: 6edcbaf2b095f47d8beaf35868336861,
         type: 2}
-      propertyPath: m_Mass
-      value: 1.1
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
@@ -9054,7 +9070,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 1606592766579254, guid: c2e7c9d86e9e74a0f8e5648220562b60, type: 2}
-  car2: {fileID: 1606592766579254, guid: c2e7c9d86e9e74a0f8e5648220562b60, type: 2}
   carInterval: 6
 --- !u!1 &1475625808
 GameObject:

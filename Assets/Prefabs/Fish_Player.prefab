@@ -39,7 +39,8 @@ GameObject:
   - component: {fileID: 23634294773749162}
   - component: {fileID: 64918960178734204}
   - component: {fileID: 54053719982425130}
-  - component: {fileID: 114512254218677960}
+  - component: {fileID: 114791707244458180}
+  - component: {fileID: 114926156996930008}
   m_Layer: 0
   m_Name: Fish_Player
   m_TagString: Player
@@ -341,7 +342,7 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
---- !u!114 &114512254218677960
+--- !u!114 &114791707244458180
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -349,11 +350,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1644825279557514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91faf758915e94887b67bc3255fed013, type: 3}
+  m_Script: {fileID: 11500000, guid: d8dea797fd010914dbcad0b6e9b4fefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   winScreen: {fileID: 0}
+--- !u!114 &114926156996930008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644825279557514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f7e9343159ae94aaa1f633c496a797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   jumpCounter: {fileID: 0}
   chargeSlider: {fileID: 0}
-  variance: 10
+  charge: 0
+  MAX_CHARGE: 2
+  CHARGE_TO_CANCEL: 2.25
+  variance: 0
+  isGrounded: 0
+  inControl: 0
+  prevRotation: {x: 0, y: 0, z: 0, w: 0}
+  prevPosition: {x: 0, y: 0, z: 0}
+  respawnRotation: {x: 0, y: 0, z: 0, w: 0}
+  respawnPosition: {x: 0, y: 0, z: 0}
   jumps: 0

@@ -7,24 +7,23 @@ using UnityEngine.UI;
 *	Hold left-click to charge a leap, and release left-click to jump.
 	The fish will turn toward the mouse when charging a leap.
 */
-public class ClickToTap : MonoBehaviour
+public class FishMovement : MonoBehaviour
 {
-	public GameObject winScreen;
 	public Text jumpCounter;
 
 	public Slider chargeSlider;
-	private float charge;
-	private float MAX_CHARGE = 2;				// 2 is max jump multiplier
-	private float CHARGE_TO_CANCEL = 2.25f;
+	public float charge;
+	public float MAX_CHARGE = 2;				// 2 is max jump multiplier
+	public float CHARGE_TO_CANCEL = 2.25f;
 	public int variance;						// maximum random euler angle applied to a jump
 
-	private bool isGrounded;					// can only charge a leap while grounded
-	private bool inControl;						// set to false upon level completion, or when about to respawn
+	public bool isGrounded;						// can only charge a leap while grounded
+	public bool inControl;						// set to false upon level completion, or when about to respawn
 
-	private Quaternion prevRotation;
-	private Vector3    prevPosition;
-	private Quaternion respawnRotation;
-	private Vector3    respawnPosition;
+	public Quaternion prevRotation;
+	public Vector3	  prevPosition;
+	public Quaternion respawnRotation;
+	public Vector3	  respawnPosition;
 
 	public int jumps;
 	
@@ -43,65 +42,9 @@ public class ClickToTap : MonoBehaviour
 		SetJump(0);
 	}
 
-	// for solid objects the fish hits, eg. a car
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Obstacle")
-        {
-            if (inControl)
-            {
-                inControl = false;
-                StartCoroutine(Respawn());
-            }
-        }
-    }
-
-    // for objects the fish can move through, eg. a pond
-    void OnTriggerEnter (Collider other)
-	{
-		if (other.tag == "Obstacle")	// hit an obstacle, respawn at start
-		{
-            if (inControl)
-            {
-                inControl = false;
-                StartCoroutine(Respawn());
-            }
-		}
-		if (other.tag == "Pond")		// update respawn
-		{
-			Vector3 pondPos = other.transform.position;
-			respawnPosition = new Vector3(pondPos.x, pondPos.y + 0.5f, pondPos.z);
-		}
-		if (other.tag == "Goal")		// end of level
-		{
-			inControl = false;			// disable jumping after beating the level
-			winScreen.SetActive(true);
-		}
-	}
-
-	void OnTriggerExit (Collider other)
-	{
-		if (other.tag == "Boundary")
-		{
-			StartCoroutine(Respawn());
-		}
-	}
-
-	// detect when the fish has landed and come to a stop; record its state
-	void OnCollisionStay()
-	{
-        if (!isGrounded && rb.velocity.magnitude < 0.05)
-        {
-            rb.velocity = new Vector3(0, 0, 0);
-            prevPosition = transform.position;
-			prevRotation = transform.rotation;
-            isGrounded = true;	// now we can charge another jump
-        }
-	}
-
 	void Update()
 	{
-        if (inControl)
+		if (inControl)
 			MouseBehavior();
 	}
 
@@ -133,11 +76,11 @@ public class ClickToTap : MonoBehaviour
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 			{
-                // don't allow jump direction to be behind the player
-                float lookZ = hit.point.z;
-                if (lookZ < transform.position.z)
-                    lookZ = transform.position.z;
-                
+				// don't allow jump direction to be behind the player
+				float lookZ = hit.point.z;
+				if (lookZ < transform.position.z)
+					lookZ = transform.position.z;
+				
 				Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);	// the fish will look on its own y level
 				transform.LookAt(lookAt);
 				//transform.position = prevPosition;
@@ -165,10 +108,10 @@ public class ClickToTap : MonoBehaviour
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 				{
-                    // don't allow jump direction to be behind the player
-                    float lookZ = hit.point.z;
-                    if (lookZ < transform.position.z)
-                        lookZ = transform.position.z;
+					// don't allow jump direction to be behind the player
+					float lookZ = hit.point.z;
+					if (lookZ < transform.position.z)
+						lookZ = transform.position.z;
 					Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);
 					transform.LookAt(lookAt);
 					transform.position = new Vector3(prevPosition.x, prevPosition.y + 0.2f, prevPosition.z);
@@ -176,10 +119,10 @@ public class ClickToTap : MonoBehaviour
 					// apply small random rotation, ensuring the overall angle isn't backward
 					if (charge > 1)
 						transform.rotation = transform.rotation * Quaternion.Euler(0, Random.Range(-variance * charge, variance * charge), 0);
-                    if (transform.rotation.eulerAngles.y > 180 && transform.rotation.eulerAngles.y < 270)
-                        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 270, transform.rotation.eulerAngles.z);
-                    else if (transform.rotation.eulerAngles.y < 180 && transform.rotation.eulerAngles.y > 90)
-                        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90, transform.rotation.eulerAngles.z);
+					if (transform.rotation.eulerAngles.y > 180 && transform.rotation.eulerAngles.y < 270)
+						transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 270, transform.rotation.eulerAngles.z);
+					else if (transform.rotation.eulerAngles.y < 180 && transform.rotation.eulerAngles.y > 90)
+						transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90, transform.rotation.eulerAngles.z);
 
 					if (charge > MAX_CHARGE)
 						charge = MAX_CHARGE;
@@ -208,38 +151,23 @@ public class ClickToTap : MonoBehaviour
 		}
 	}
 
-    IEnumerator Respawn()
-	{
-        inControl = false;
-        yield return new WaitForSeconds(1);
-
-		rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-		transform.rotation = respawnRotation;
-		transform.position = respawnPosition;
-		prevRotation = transform.rotation;
-		prevPosition = transform.position;
-
-		SetCharge(0);
-        inControl = true;
-	}
-
-	void AddCharge(float val)
+	public void AddCharge(float val)
 	{
 		charge += val;
 		chargeSlider.value = charge * 100;
 	}
-	void SetCharge(float val)
+	public void SetCharge(float val)
 	{
 		charge = val;
 		chargeSlider.value = charge * 100;
 	}
 
-	void AddJump(int val)
+	public void AddJump(int val)
 	{
 		jumps += val;
 		jumpCounter.text = "Jumps: " + jumps.ToString();
 	}
-	void SetJump(int val)
+	public void SetJump(int val)
 	{
 		jumps = val;
 		jumpCounter.text = "Jumps: " + jumps.ToString();
