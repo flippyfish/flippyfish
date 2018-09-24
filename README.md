@@ -13,7 +13,6 @@ Jump your way to the ocean while avoiding cars and obstacles!
 
 
 
-
 - Hold left-click to charge a jump
 
 - Release left-click to jump
