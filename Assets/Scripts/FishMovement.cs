@@ -84,7 +84,7 @@ public class FishMovement : MonoBehaviour
 				Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);	// the fish will look on its own y level
 				transform.LookAt(lookAt);
 				//transform.position = prevPosition;
-				transform.position = new Vector3(prevPosition.x, prevPosition.y + 0.2f, prevPosition.z);
+				transform.position = new Vector3(prevPosition.x, prevPosition.y + 0.15f, prevPosition.z);
 			}
 		}
 		if (Input.GetMouseButtonUp(0) && isGrounded)	// WHEN THE MOUSE IS RELEASED
@@ -114,7 +114,7 @@ public class FishMovement : MonoBehaviour
 						lookZ = transform.position.z;
 					Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);
 					transform.LookAt(lookAt);
-					transform.position = new Vector3(prevPosition.x, prevPosition.y + 0.2f, prevPosition.z);
+					transform.position = new Vector3(prevPosition.x, prevPosition.y + 0.15f, prevPosition.z);
 
 					// apply small random rotation, ensuring the overall angle isn't backward
 					if (charge > 1)

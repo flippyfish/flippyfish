@@ -26,7 +26,7 @@ public class FishCollision : MonoBehaviour
 		fishMovement.transform.rotation = fishMovement.respawnRotation;
 		fishMovement.transform.position = fishMovement.respawnPosition;
 		fishMovement.prevRotation = transform.rotation;
-		fishMovement.prevPosition = transform.position;
+		//fishMovement.prevPosition = transform.position;
 
 		fishMovement.SetCharge(0);
 		fishMovement.inControl = true;
