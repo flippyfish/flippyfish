@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08841569, g: 0.28307486, b: 0.48466122, a: 1}
+  m_IndirectSpecularColor: {r: 0.08857591, g: 0.2828794, b: 0.48428988, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2216,6 +2216,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 318b38da57adb4bf597c8b001d51ef35, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &245850573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1437834098850960, guid: a75efccc39f1b4891866cba32fa46d89,
+    type: 2}
+  m_PrefabInternal: {fileID: 1733837763}
 --- !u!1 &246255515
 GameObject:
   m_ObjectHideFlags: 0
@@ -7251,17 +7256,17 @@ Prefab:
         type: 2}
       propertyPath: winScreen
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 245850573}
     - target: {fileID: 114926156996930008, guid: 6edcbaf2b095f47d8beaf35868336861,
         type: 2}
       propertyPath: jumpCounter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1269421829}
     - target: {fileID: 114926156996930008, guid: 6edcbaf2b095f47d8beaf35868336861,
         type: 2}
       propertyPath: chargeSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1106476724}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
   m_IsPrefabAsset: 0
@@ -8906,6 +8911,12 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 2530e7fe6aecc454eb6e2e194ae79e16, type: 3}
+--- !u!114 &1106476724 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114951884868433214, guid: a75efccc39f1b4891866cba32fa46d89,
+    type: 2}
+  m_PrefabInternal: {fileID: 1733837763}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1116627695
 GameObject:
   m_ObjectHideFlags: 0
@@ -10276,6 +10287,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1230314417}
   m_Mesh: {fileID: 4300012, guid: 2530e7fe6aecc454eb6e2e194ae79e16, type: 3}
+--- !u!114 &1269421829 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114755152976445690, guid: a75efccc39f1b4891866cba32fa46d89,
+    type: 2}
+  m_PrefabInternal: {fileID: 1733837763}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1300920222 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1866904174353398, guid: a75efccc39f1b4891866cba32fa46d89,
@@ -13260,7 +13277,7 @@ Prefab:
     - target: {fileID: 224161357662442700, guid: a75efccc39f1b4891866cba32fa46d89,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114506893706090816, guid: a75efccc39f1b4891866cba32fa46d89,
         type: 2}
