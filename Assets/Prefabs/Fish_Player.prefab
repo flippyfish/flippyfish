@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 54053719982425130}
   - component: {fileID: 114791707244458180}
   - component: {fileID: 114926156996930008}
+  - component: {fileID: 114270975997460754}
   m_Layer: 0
   m_Name: Fish_Player
   m_TagString: Player
@@ -342,6 +343,22 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!114 &114270975997460754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644825279557514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3ad19bc6d4a7f43a340967aa240059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oxygenSlider: {fileID: 0}
+  oxygen: 0
+  OXYGEN_MAX: 20
+  timeLastInWater: 0
+  inWater: 0
 --- !u!114 &114791707244458180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,6 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winScreen: {fileID: 0}
+  respawning: 0
 --- !u!114 &114926156996930008
 MonoBehaviour:
   m_ObjectHideFlags: 1

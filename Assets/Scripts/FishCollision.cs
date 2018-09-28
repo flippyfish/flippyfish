@@ -7,29 +7,40 @@ public class FishCollision : MonoBehaviour
 {
 
 	private FishMovement fishMovement;		// other fish script
+	private FishOxygen   fishOxygen;		// other fish script
 	public GameObject winScreen;
 
 	Rigidbody rb;
 
+	public bool respawning;		// to avoid simultaneous respawn calls
+
 	void Start()
 	{
 		fishMovement = GetComponent<FishMovement>();
+		fishOxygen   = GetComponent<FishOxygen>();
 		rb = GetComponent<Rigidbody>();
+		respawning = false;
 	}
 
-	IEnumerator Respawn()
+	public IEnumerator Respawn()
 	{
+		respawning = true;
 		fishMovement.inControl = false;
 		yield return new WaitForSeconds(1);
 
 		rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-		fishMovement.transform.rotation = fishMovement.respawnRotation;
-		fishMovement.transform.position = fishMovement.respawnPosition;
-		fishMovement.prevRotation = transform.rotation;
-		//fishMovement.prevPosition = transform.position;
+		transform.rotation = fishMovement.respawnRotation;
+		transform.position = fishMovement.respawnPosition;
+		fishMovement.prevRotation = fishMovement.respawnRotation;
+		fishMovement.prevPosition = fishMovement.respawnPosition;
 
 		fishMovement.SetCharge(0);
 		fishMovement.inControl = true;
+
+		fishOxygen.SetOxygen(fishOxygen.OXYGEN_MAX);
+		fishOxygen.timeLastInWater = Time.time;
+
+		respawning = false;
 	}
 	
 	// for solid objects the fish hits, eg. a car
@@ -56,20 +67,29 @@ public class FishCollision : MonoBehaviour
 				StartCoroutine(Respawn());
 			}
 		}
-		if (other.tag == "Pond")		// update respawn
+		if (other.tag == "Pond")		// update oxygen, respawn point
 		{
+			// oxygen
+			fishOxygen.EnterWater();
+
+			// respawn point
 			Vector3 pondPos = other.transform.position;
 			fishMovement.respawnPosition = new Vector3(pondPos.x, pondPos.y + 0.5f, pondPos.z);
 		}
 		if (other.tag == "Goal")		// end of level
 		{
-			fishMovement.inControl = false;			// disable jumping after beating the level
+			fishMovement.inControl = false;		// disable jumping after beating the level
+			fishOxygen.EnterWater();
 			winScreen.SetActive(true);
 		}
 	}
 
 	void OnTriggerExit (Collider other)
 	{
+		if (other.tag == "Pond")
+		{
+			fishOxygen.ExitWater();
+		}
 		if (other.tag == "Boundary")
 		{
 			StartCoroutine(Respawn());
