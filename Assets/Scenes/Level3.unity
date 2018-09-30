@@ -526,6 +526,30 @@ Transform:
   m_Father: {fileID: 1463806012}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 54.500004, z: 0}
+--- !u!1001 &81150330
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4570602545203502, guid: 70595efd34a0a2e4899309e8e8c11d8f, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 23355585877047904, guid: 70595efd34a0a2e4899309e8e8c11d8f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23293228947530870, guid: 70595efd34a0a2e4899309e8e8c11d8f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 70595efd34a0a2e4899309e8e8c11d8f, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!4 &92987326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4718839952697512, guid: 01962187815e34b90a42db1bfd1d3370,
@@ -2893,7 +2917,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4701437406656648, guid: a2030139fec4548188a6dd87e4e821f9, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2030139fec4548188a6dd87e4e821f9, type: 2}
@@ -3010,7 +3034,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4729875200730784, guid: 1b1f25967d02741ff85f5c0066507a36, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1f25967d02741ff85f5c0066507a36, type: 2}
@@ -4076,20 +4100,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1160657665}
   m_Mesh: {fileID: 4300018, guid: a1a9e50d3b9d044dcac5e51a5c063464, type: 3}
---- !u!1001 &1162389167
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4296969913371026, guid: 65a2ef87038bf4eb4bf4a00e6afc2b07, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 65a2ef87038bf4eb4bf4a00e6afc2b07, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1207517022
 GameObject:
   m_ObjectHideFlags: 0
