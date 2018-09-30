@@ -16,9 +16,13 @@ public class FishMovement : MonoBehaviour
 	public float MAX_CHARGE = 2;				// 2 is max jump multiplier
 	public float CHARGE_TO_CANCEL = 2.25f;
 	public int variance;						// maximum random euler angle applied to a jump
+    public float chargeSpeed;                   // charge speed i.e. value charge bar increases/decreases by
+    public float chargeAcceleration;            // rate at which charge speed changes
 
 	public bool isGrounded;						// can only charge a leap while grounded
 	public bool inControl;						// set to false upon level completion, or when about to respawn
+    public bool isIncreasing;                   // determines whether power bar is increasing or decreasing
+    public bool canceledClick;                  // determines whether a held click   is to be canceled or not
 
 	public Quaternion prevRotation;
 	public Vector3	  prevPosition;
@@ -36,8 +40,12 @@ public class FishMovement : MonoBehaviour
 		respawnPosition = transform.position;
 		prevRotation = transform.rotation;
 		prevPosition = transform.position;
-		isGrounded = false;
+        chargeSpeed = 0.1f;
+        chargeAcceleration = 0.1f;
+        isGrounded = false;
 		inControl = true;
+        isIncreasing = true;
+        canceledClick = false;
 		SetCharge(0);
 		SetJump(0);
 	}
@@ -59,20 +67,18 @@ public class FishMovement : MonoBehaviour
 
 		if (Input.GetMouseButton(0) && isGrounded)	// IF HOLDING DOWN THE MOUSE
 		{
-			if (charge > CHARGE_TO_CANCEL)		// if we already held the mouse too long, do nothing
-				return;
-			AddCharge(Time.deltaTime * 1.5f);
-			if (charge > CHARGE_TO_CANCEL)		// reset fish if mouse was held too long
+			
+			if (Input.GetKey("z") || canceledClick)		// If Z button is hit then cancel current click
 			{
-				chargeSlider.value = 0;
-				transform.rotation = prevRotation;
-				transform.position = prevPosition;
-				rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-				return;
+                canceledClick = true;
+                ResetSliderAndFish();
+                return;
 			}
 
-			// face the cursor
-			RaycastHit hit;
+            UpdateCharge();
+
+             // face the cursor
+             RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 			{
@@ -87,11 +93,12 @@ public class FishMovement : MonoBehaviour
 				transform.position = new Vector3(prevPosition.x, prevPosition.y + 0.15f, prevPosition.z);
 			}
 		}
+
 		if (Input.GetMouseButtonUp(0) && isGrounded)	// WHEN THE MOUSE IS RELEASED
 		{
-			if (charge > CHARGE_TO_CANCEL)	// the fish is already in its old state, so don't reset again
+			if (canceledClick)//player wants to cancel current jump so we ignore the current click
 			{
-				SetCharge(0);
+                canceledClick = false;
 				return;
 			}
 			else if (charge < 0.25)			// prevent overcharged clicks from executing a jump
@@ -172,4 +179,59 @@ public class FishMovement : MonoBehaviour
 		jumps = val;
 		jumpCounter.text = "Jumps: " + jumps.ToString();
 	}
+    public void ResetSliderAndFish()
+    {
+        SetCharge(0);
+        transform.rotation = prevRotation;
+        transform.position = prevPosition;
+        rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+        return;
+    }
+    public void UpdateCharge()
+    {
+        if (isIncreasing)
+        {
+            if ((charge + Time.deltaTime * (1.5f + chargeSpeed)) <= MAX_CHARGE)
+            {
+                AddCharge(Time.deltaTime * (1.5f + chargeSpeed));
+                if (charge >= ((CHARGE_TO_CANCEL / 4) * 3))
+                {
+                    chargeSpeed += chargeAcceleration * 2;
+                }
+                else
+                {
+                    chargeSpeed += chargeAcceleration;
+                }
+            }
+            else
+            {
+                isIncreasing = false;
+                AddCharge(Time.deltaTime * (-1.5f - chargeSpeed));
+                chargeSpeed -= chargeAcceleration * 2;
+            }
+        }
+        else
+        {
+            if ((charge + Time.deltaTime * (-1.5f - chargeSpeed)) >= 0)
+            {
+                AddCharge(Time.deltaTime * (-1.5f - chargeSpeed));
+                if (charge >= ((MAX_CHARGE / 4) * 3))
+                {
+                    chargeSpeed -= chargeAcceleration * 2;
+                }
+                else
+                {
+                    chargeSpeed -= chargeAcceleration;
+                }
+            }
+            else
+            {
+                isIncreasing = true;
+                AddCharge(Time.deltaTime * (1.5f + chargeSpeed));
+                chargeSpeed = 0.1f;//At 0 so we reset charge speed and acceleration to eliminate speed leak (bar continually gains speed)
+                chargeAcceleration = 0.1f;
+                chargeSpeed += chargeAcceleration;
+            }
+        }
+    }
 }
