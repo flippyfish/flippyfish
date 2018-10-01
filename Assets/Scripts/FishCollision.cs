@@ -36,6 +36,7 @@ public class FishCollision : MonoBehaviour
 
 		fishMovement.SetCharge(0);
 		fishMovement.inControl = true;
+		fishMovement.isGrounded = false;
 
 		fishOxygen.SetOxygen(fishOxygen.OXYGEN_MAX);
 		fishOxygen.timeLastInWater = Time.time;
