@@ -52,13 +52,4 @@ Later I made an empty plane specifically for raycasting and put it on its own la
 
 Much of the remaining work involved collider and trigger detection, and tags to indicate what the fish and cars were colliding with.
 
-No external libraries or assets were used in this project.
-
-
-## Issue
-
-When running the built game, sometimes the camera may shake when charging a leap. This does not happen in the Unity editor! The shaking seems more severe on my laptop than my desktop.
-
-Because the camera tracks the player, I tried raising the fish when charging to avoid clipping with the ground, and I tried rounding the camera x,y,z values, but neither approach stopped the shaking.
-
-Perhaps this may be resolved by someone else, if this prototype is chosen to become a full game.
+No external code libraries were used in this project.
