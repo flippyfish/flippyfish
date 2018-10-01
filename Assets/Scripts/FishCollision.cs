@@ -31,8 +31,6 @@ public class FishCollision : MonoBehaviour
 		rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 		transform.rotation = fishMovement.respawnRotation;
 		transform.position = fishMovement.respawnPosition;
-		fishMovement.prevRotation = fishMovement.respawnRotation;
-		fishMovement.prevPosition = fishMovement.respawnPosition;
 
 		fishMovement.SetCharge(0);
 		fishMovement.inControl = true;
@@ -104,8 +102,6 @@ public class FishCollision : MonoBehaviour
 		if (fishMovement.inControl && !fishMovement.isGrounded && rb.velocity.magnitude < 0.05)
 		{
 			rb.velocity = new Vector3(0, 0, 0);
-			fishMovement.prevPosition = transform.position;
-			fishMovement.prevRotation = transform.rotation;
 			fishMovement.isGrounded = true;	// now we can charge another jump
 		}
 	}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43721485, g: 0.48495978, b: 0.56522983, a: 1}
+  m_IndirectSpecularColor: {r: 0.43721506, g: 0.48496026, b: 0.5652302, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -272,7 +272,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 98.1, y: 194.3, z: 0}
 --- !u!1 &179097781 stripped
 GameObject:
@@ -435,6 +435,53 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300130, guid: 2e326ec653b97f143ad0bba4276ef50d, type: 3}
+--- !u!1 &312156335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1371005480609872, guid: dc364861e3a6b49ae91edb9d28ef9ed0,
+    type: 2}
+  m_PrefabInternal: {fileID: 350820623}
+--- !u!1001 &350820623
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4111132932254124, guid: dc364861e3a6b49ae91edb9d28ef9ed0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.520087
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111132932254124, guid: dc364861e3a6b49ae91edb9d28ef9ed0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.2700452
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111132932254124, guid: dc364861e3a6b49ae91edb9d28ef9ed0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4.607507
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111132932254124, guid: dc364861e3a6b49ae91edb9d28ef9ed0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.8214262
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111132932254124, guid: dc364861e3a6b49ae91edb9d28ef9ed0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.10553314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111132932254124, guid: dc364861e3a6b49ae91edb9d28ef9ed0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.07141908
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111132932254124, guid: dc364861e3a6b49ae91edb9d28ef9ed0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.55589664
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111132932254124, guid: dc364861e3a6b49ae91edb9d28ef9ed0, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dc364861e3a6b49ae91edb9d28ef9ed0, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &354496204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100028, guid: 2e326ec653b97f143ad0bba4276ef50d,
@@ -1435,7 +1482,7 @@ Transform:
   m_LocalScale: {x: 16.142326, y: 23.731453, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &758056455 stripped
 MonoBehaviour:
@@ -1671,6 +1718,11 @@ Prefab:
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 1683303827}
+    - target: {fileID: 114926156996930008, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: fishKinematic
+      value: 
+      objectReference: {fileID: 312156335}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
   m_IsPrefabAsset: 0
@@ -2137,7 +2189,7 @@ Transform:
   m_LocalScale: {x: 6.890496, y: 1, z: 27.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15.976}
 --- !u!114 &1377395449 stripped
 MonoBehaviour:
@@ -3138,7 +3190,7 @@ Transform:
   m_LocalScale: {x: 6.890496, y: 1, z: 27.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.976001}
 --- !u!1 &2065599977 stripped
 GameObject:

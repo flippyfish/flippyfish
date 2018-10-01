@@ -25,8 +25,6 @@ public class FishMovement : MonoBehaviour
     public bool isIncreasing;                   // determines whether power bar is increasing or decreasing
     public bool canceledClick;                  // determines whether a held click   is to be canceled or not
 
-	public Quaternion prevRotation;
-	public Vector3	  prevPosition;
 	public Quaternion respawnRotation;
 	public Vector3	  respawnPosition;
 
@@ -39,8 +37,6 @@ public class FishMovement : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 		respawnRotation = transform.rotation;
 		respawnPosition = transform.position;
-		prevRotation = transform.rotation;
-		prevPosition = transform.position;
         chargeSpeed = 0.1f;
         chargeAcceleration = 0.1f;
         isGrounded = false;
