@@ -24,7 +24,6 @@ public class ConveyorBelt : MonoBehaviour
 		if (o.tag == "Player")
 		{
 			o.transform.position += new Vector3(0.0f, 0.0f, 0.05f);
-			o.GetComponent<FishMovement>().prevPosition += new Vector3(0.0f, 0.0f, 0.05f);
 		}
 	}
 }
