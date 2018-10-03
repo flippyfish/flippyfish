@@ -102,18 +102,10 @@ public class FishMovement : MonoBehaviour
 		{
 			PointAtCursor();
 
-			// apply small random rotation, ensuring the overall angle isn't backward
+			// apply small random rotation
 			if (charge > 1)
 			{
 				transform.rotation = transform.rotation * Quaternion.Euler(0, Random.Range(-variance * charge, variance * charge), 0);
-			}
-			if (transform.rotation.eulerAngles.y > 180 && transform.rotation.eulerAngles.y < 270)
-			{
-				transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 270, transform.rotation.eulerAngles.z);
-			}
-			else if (transform.rotation.eulerAngles.y < 180 && transform.rotation.eulerAngles.y > 90)
-			{
-				transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90, transform.rotation.eulerAngles.z);
 			}
 
 			if (charge > MAX_CHARGE)
@@ -147,18 +139,12 @@ public class FishMovement : MonoBehaviour
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 		{
-			// don't allow jump direction to be behind the player
-			float lookZ = hit.point.z;
-			if (lookZ < transform.position.z)
-			{
-				lookZ = transform.position.z;
-			}
-			
 			// move the kinematic fish to where the real fish is
 			fishKinematic.transform.position = new Vector3(transform.position.x, transform.position.y + 0.15f, transform.position.z);
+
 			// now make it look toward the point
 			float lookY = fishKinematic.gameObject.transform.position.y;
-			Vector3 lookAt = new Vector3(hit.point.x, lookY, lookZ);	// the kinematic fish will look on its own y level
+			Vector3 lookAt = new Vector3(hit.point.x, lookY, hit.point.z);	// the kinematic fish will look on its own y level
 			fishKinematic.transform.LookAt(lookAt);
 		}
 	}
@@ -169,15 +155,8 @@ public class FishMovement : MonoBehaviour
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 		{
-			// don't allow jump direction to be behind the player
-			float lookZ = hit.point.z;
-			if (lookZ < transform.position.z)
-			{
-				lookZ = transform.position.z;
-			}
-			
 			transform.position = new Vector3(transform.position.x, transform.position.y + 0.15f, transform.position.z);
-			Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, lookZ);	// the fish will look on its own y level
+			Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);	// the fish will look on its own y level
 			transform.LookAt(lookAt);
 		}
 	}

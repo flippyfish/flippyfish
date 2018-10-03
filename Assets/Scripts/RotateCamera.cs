@@ -17,10 +17,17 @@ public class RotateCamera : MonoBehaviour
 		// keep y rotated, but fix x and z
 		// Unity euler angles are from 0 to 360, rather than -180 to 180
 		float Y = transform.rotation.eulerAngles.y;
+
+		// restrict the camera to looking forward
 		if (Y > 180 && Y < 330)
+		{
 			Y = 330;
+		}
 		else if (Y < 180 && Y > 30)
+		{
 			Y = 30;
+		}
+
 		transform.rotation = Quaternion.Euler(xTilt, Y, 0);
 
 		// drag camera with right-click
@@ -31,5 +38,5 @@ public class RotateCamera : MonoBehaviour
 			float Y2 = transform.rotation.eulerAngles.y;
 			transform.rotation = Quaternion.Euler(xTilt, Y2, 0);
 		}
-     }
+	}
 }
