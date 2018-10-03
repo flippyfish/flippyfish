@@ -19,14 +19,14 @@ public class RotateCamera : MonoBehaviour
 		float Y = transform.rotation.eulerAngles.y;
 
 		// restrict the camera to looking forward
-		if (Y > 180 && Y < 330)
+		/*if (Y > 180 && Y < 330)
 		{
 			Y = 330;
 		}
 		else if (Y < 180 && Y > 30)
 		{
 			Y = 30;
-		}
+		}*/
 
 		transform.rotation = Quaternion.Euler(xTilt, Y, 0);
 

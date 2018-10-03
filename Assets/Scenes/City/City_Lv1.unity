@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43721506, g: 0.48496026, b: 0.5652302, a: 1}
+  m_IndirectSpecularColor: {r: 0.43721497, g: 0.48495978, b: 0.5652298, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2468,6 +2468,11 @@ Prefab:
       propertyPath: yOffset
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114353206652210138, guid: ea81a6488fb284d97843ee0cc0dd487a,
+        type: 2}
+      propertyPath: xOffset
+      value: -6.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea81a6488fb284d97843ee0cc0dd487a, type: 2}
   m_IsPrefabAsset: 0
@@ -2582,6 +2587,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224145621875208466, guid: a75efccc39f1b4891866cba32fa46d89,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a75efccc39f1b4891866cba32fa46d89, type: 2}
@@ -3020,7 +3030,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1194711591}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03, y: 0.97}
   m_AnchorMax: {x: 0.03, y: 0.97}

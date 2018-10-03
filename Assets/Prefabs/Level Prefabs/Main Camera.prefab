@@ -52,7 +52,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4666667, g: 0.6509804, b: 0.48627454, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -102,9 +102,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  xOffset: -4
   yOffset: 3
   zOffset: -4
-  zoomSpeed: 1
+  zoomSpeed: 2
 --- !u!114 &114711225721556740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,5 +117,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a21e00afa275e4fb2dec7a80579e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   xTilt: 25
