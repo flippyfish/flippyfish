@@ -101,7 +101,7 @@ public class FishCollision : MonoBehaviour
 	{
 		if (fishMovement.inControl && !fishMovement.isGrounded && rb.velocity.magnitude < 0.05)
 		{
-			rb.velocity = new Vector3(0, 0, 0);
+			// rb.velocity = new Vector3(0, 0, 0);
 			fishMovement.isGrounded = true;	// now we can charge another jump
 		}
 	}
