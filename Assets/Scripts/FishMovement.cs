@@ -102,15 +102,32 @@ public class FishMovement : MonoBehaviour
 		{
 			PointAtCursor();
 
+			if (charge > MAX_CHARGE)
+			{
+				charge = MAX_CHARGE;
+			}
+
 			// apply small random rotation
 			if (charge > 1)
 			{
 				transform.rotation = transform.rotation * Quaternion.Euler(0, Random.Range(-variance * charge, variance * charge), 0);
 			}
 
-			if (charge > MAX_CHARGE)
-			{
-				charge = MAX_CHARGE;
+			// give the fish a spin
+			// the x y z values of angularVelocity are NOT relative to the current rotation!
+			// so we localize these x y z values using sine and cosine functions
+			float radians = transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
+			float spinA = 4.0f * Mathf.Cos(radians);
+			float spinB = 4.0f * Mathf.Sin(radians);
+
+			int chooseSpin = Random.Range(0, 2);
+			if (chooseSpin == 1)
+			{	// spin along x axis
+				rb.angularVelocity = new Vector3(spinA, 0.0f, -spinB);
+			}
+			else
+			{	// spin along z axis
+				rb.angularVelocity = new Vector3(spinB, 0.0f, spinA);
 			}
 
 			// apply the jump force!
