@@ -9,12 +9,27 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelMenu.unity
     guid: 1d37683737c46c74c8a6703141d91205
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Forest/Forest_lv1.unity
     guid: b5bb882fba8b84cf59f4bf4797b5cf9e
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/Forest/Forest_lv2.unity
     guid: e6a99038d97994009986759b6002317c
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
+    path: Assets/Scenes/Forest/Forest_lv3.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/City/City_Lv1.unity
+    guid: 404723b66226f804ab1f9143ae2e112d
+  - enabled: 1
+    path: Assets/Scenes/City/City_lv2.unity
+    guid: 77d2304af1494fc43bcffd20e3e93b09
+  - enabled: 1
+    path: Assets/Scenes/Factory/Factory_Lv0.unity
+    guid: 2250b36d155778d418f6d7fd36c5850a
+  - enabled: 1
+    path: Assets/Scenes/LevelSelection.unity
+    guid: 6d17c2f5d59f106429ba5d43e8b45a60
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: fe95ed696242a85499c8e05f8a47d141
   m_configObjects: {}

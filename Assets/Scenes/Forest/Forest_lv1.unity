@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.366821, g: 0.6416299, b: 0.87611616, a: 1}
+  m_IndirectSpecularColor: {r: 0.36677358, g: 0.6417017, b: 0.8760933, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4455,6 +4455,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 224554321606280812, guid: 0ac2ebebb20637a4490609855b7c7537,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ac2ebebb20637a4490609855b7c7537, type: 2}
   m_IsPrefabAsset: 0
@@ -6049,6 +6054,11 @@ Prefab:
       propertyPath: fishKinematic
       value: 
       objectReference: {fileID: 1853245669}
+    - target: {fileID: 114270975997460754, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: OXYGEN_MAX
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
   m_IsPrefabAsset: 0
@@ -10929,11 +10939,48 @@ Prefab:
     - target: {fileID: 224528989140084322, guid: 1723cb3685619d64e9039172039f17c4,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224285947433507554, guid: 1723cb3685619d64e9039172039f17c4,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224285947433507554, guid: 1723cb3685619d64e9039172039f17c4,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224285947433507554, guid: 1723cb3685619d64e9039172039f17c4,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114326868618732686, guid: 1723cb3685619d64e9039172039f17c4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Forest_lv2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1723cb3685619d64e9039172039f17c4, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1733837764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1713014824889428, guid: 1723cb3685619d64e9039172039f17c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1733837763}
+--- !u!114 &1733837765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1733837764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f31fec5537b0114080f118f51c827fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: 
 --- !u!1 &1764642591
 GameObject:
   m_ObjectHideFlags: 0
