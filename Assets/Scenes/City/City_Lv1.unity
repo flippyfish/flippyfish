@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43721485, g: 0.48495978, b: 0.56522983, a: 1}
+  m_IndirectSpecularColor: {r: 0.43721497, g: 0.48495978, b: 0.5652298, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2047,7 +2047,7 @@ GameObject:
   - component: {fileID: 718246984}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2059,7 +2059,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 718246983}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2220,6 +2220,7 @@ GameObject:
   - component: {fileID: 784184259}
   - component: {fileID: 784184258}
   - component: {fileID: 784184257}
+  - component: {fileID: 784184260}
   m_Layer: 0
   m_Name: Water (1)
   m_TagString: Pond
@@ -2282,6 +2283,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &784184260
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 784184256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &802550035 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: 1c0e03fefe8437944ab22b0c5db944a7,
@@ -2927,9 +2940,10 @@ GameObject:
   - component: {fileID: 1137043250}
   - component: {fileID: 1137043249}
   - component: {fileID: 1137043248}
+  - component: {fileID: 1137043251}
   m_Layer: 0
   m_Name: FridgeWater_2 (1)
-  m_TagString: Untagged
+  m_TagString: Pond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2989,6 +3003,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15.976}
+--- !u!65 &1137043251
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137043247}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000001, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1144851790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100138, guid: 1c0e03fefe8437944ab22b0c5db944a7,
@@ -5200,9 +5226,10 @@ GameObject:
   - component: {fileID: 1655116604}
   - component: {fileID: 1655116603}
   - component: {fileID: 1655116602}
+  - component: {fileID: 1655116605}
   m_Layer: 0
   m_Name: FridgeWater_1 (1)
-  m_TagString: Untagged
+  m_TagString: Pond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5262,6 +5289,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.976001}
+--- !u!65 &1655116605
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1655116601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1657534798 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100062, guid: 1c0e03fefe8437944ab22b0c5db944a7,
