@@ -28,6 +28,7 @@ public class SpawnCar : MonoBehaviour {
 
             // time between cars
             yield return new WaitForSeconds(carInterval);
+
         }
 	}
 	

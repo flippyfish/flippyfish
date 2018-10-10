@@ -9242,6 +9242,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 1606592766579254, guid: c2e7c9d86e9e74a0f8e5648220562b60, type: 2}
   carInterval: 6
+  spawnX: 0
+  spawnY: 0
+  spawnZ: 0
+  spawnRot: 0
 --- !u!1 &1475625808
 GameObject:
   m_ObjectHideFlags: 0
@@ -12824,11 +12828,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 224720412583355414, guid: a75efccc39f1b4891866cba32fa46d89,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 26
-      objectReference: {fileID: 0}
     - target: {fileID: 224720412583355414, guid: a75efccc39f1b4891866cba32fa46d89,
         type: 2}
       propertyPath: m_LocalPosition.x
