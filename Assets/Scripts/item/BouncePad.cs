@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class BouncePad : MonoBehaviour {
     public float charge;
+    public string targetName;
+    private GameObject target;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        target = GameObject.Find(targetName);
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,7 +25,7 @@ public class BouncePad : MonoBehaviour {
         {
             Debug.Log("Bounce Pad, Fish on me!");
             Vector3 fishPos = GameObject.Find("Fish_Player").transform.position;
-            Vector3 pondPos = GameObject.Find("Pond").transform.position;
+            Vector3 pondPos = target.transform.position;
             Vector3 newDirection = pondPos - fishPos.normalized;
             Quaternion newRotation = Quaternion.LookRotation(newDirection, Vector3.up);
             GameObject.Find("Fish_Player").transform.rotation = newRotation;

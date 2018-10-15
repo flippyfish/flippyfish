@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneScript : MonoBehaviour {
 
-	public GameObject loadingImage;
+    public GameObject loadingImage;
 
 	public void LoadScene(string level)
 	{
