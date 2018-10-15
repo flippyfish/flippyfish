@@ -8,6 +8,7 @@ TagManager:
   - Goal
   - Pond
   - Boundary
+  - ChargeSlider
   layers:
   - Default
   - TransparentFX
