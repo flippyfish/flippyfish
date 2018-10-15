@@ -74,7 +74,7 @@ public class FishCollision : MonoBehaviour
 
 			// respawn point
 			Vector3 pondPos = other.transform.position;
-			fishMovement.respawnPosition = new Vector3(pondPos.x, pondPos.y + 0.5f, pondPos.z);
+			fishMovement.respawnPosition = new Vector3(pondPos.x, pondPos.y + 2f, pondPos.z);
 		}
 		if (other.tag == "Goal")		// end of level
 		{

@@ -174,6 +174,10 @@ public class FishMovement : MonoBehaviour
 			float lookY = fishKinematic.gameObject.transform.position.y;
 			Vector3 lookAt = new Vector3(hit.point.x, lookY, hit.point.z);	// the kinematic fish will look on its own y level
 			fishKinematic.transform.LookAt(lookAt);
+
+			// finally, rotate the fish by 90 degrees so its head faces forward
+			Quaternion rotate90 = Quaternion.Euler(0, 90, 0);
+			fishKinematic.transform.rotation *= rotate90;
 		}
 	}
 
