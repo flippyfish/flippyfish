@@ -10,9 +10,9 @@ public class SpawnCar : MonoBehaviour {
 	public float carInterval;
 
 	public Vector3 spawnPosition;
-	public float rotationX;
 	public float rotationY;
-	public float rotationZ;
+	//public float rotationX;
+	//public float rotationZ;
 	private Quaternion spawnRotation;
 
 	private float rand;
@@ -20,7 +20,7 @@ public class SpawnCar : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		spawnRotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
+		spawnRotation = Quaternion.Euler(0.0f, rotationY, 0.0f);
 		StartCoroutine(SpawnCars());
 	}
 
@@ -45,7 +45,6 @@ public class SpawnCar : MonoBehaviour {
 
             // time between cars
             yield return new WaitForSeconds(carInterval);
-
         }
 	}
 	
