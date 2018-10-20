@@ -10,9 +10,12 @@ public class WinScreen : MonoBehaviour {
 
     public void ShowTotalJump()
     {
+        StreamReader reader = new StreamReader(Application.persistentDataPath + "/user/user");
+        string username = reader.ReadLine();
+        reader.Close();
         GameObject.Find("Jumps").SetActive(false);
         string jumpNum = GameObject.Find("Fish_Player").GetComponent<FishMovement>().jumps.ToString();
-        GameObject.Find("WinMSG").GetComponent<UnityEngine.UI.Text>().text = "Well done! You jumped " + jumpNum + " times!";
+        GameObject.Find("WinMSG").GetComponent<UnityEngine.UI.Text>().text = "Well done " + username + "! You jumped " + jumpNum + " times!";
     }
 
     public void saveScore() {
