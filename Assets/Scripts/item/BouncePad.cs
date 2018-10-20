@@ -29,7 +29,7 @@ public class BouncePad : MonoBehaviour {
             Vector3 newDirection = pondPos - fishPos.normalized;
             Quaternion newRotation = Quaternion.LookRotation(newDirection, Vector3.up);
             GameObject.Find("Fish_Player").transform.rotation = newRotation;
-            GameObject.Find("Fish_Player").GetComponent<FishMovement>().doJump(charge);
+            GameObject.Find("Fish_Player").GetComponent<FishMovement>().JumpFromBP(charge);
         }
     }
 }

@@ -24,7 +24,6 @@ public class PowerBar : MonoBehaviour
         MAX_ACCELERATION = 1.5f;
         MINIMUM_CHARGE = 0.0f;
         charging = false;
-        chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -55,6 +54,7 @@ public class PowerBar : MonoBehaviour
 
     public void UpdateCharge()
     {
+        chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
         if (isIncreasing)
         {
             float newCharge = currentCharge + (Time.deltaTime * acceleration);
