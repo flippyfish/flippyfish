@@ -82,6 +82,8 @@ public class FishCollision : MonoBehaviour
 			fishOxygen.EnterWater();
 			winScreen.SetActive(true);
             GameObject.Find("Fish_Player").GetComponent<WinScreen>().ShowTotalJump();
+            GameObject.Find("Fish_Player").GetComponent<WinScreen>().saveScore();
+            GameObject.Find("Fish_Player").GetComponent<WinScreen>().loadScore();
         }
 	}
 
