@@ -81,7 +81,8 @@ public class FishCollision : MonoBehaviour
 			fishMovement.inControl = false;		// disable jumping after beating the level
 			fishOxygen.EnterWater();
 			winScreen.SetActive(true);
-		}
+            GameObject.Find("Fish_Player").GetComponent<WinScreen>().ShowTotalJump();
+        }
 	}
 
 	void OnTriggerExit (Collider other)
