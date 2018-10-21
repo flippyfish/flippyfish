@@ -42,7 +42,7 @@ The gameplay loop is to select a level and beat it. The complete game could have
 If we were to expand the gameplay, we might add an oxygen bar that replenishes in ponds. If you ran out of oxygen, you would respawn at the latest pond. This would impose a time limit without putting the entire level at stake.
 
 
-## Development
+## Development - Jonathan Brown
 
 I started development with a jumping script to move an orange box in an empty plane. This required a raycast from the mouse x,y coordinates onto the world. The fish rotates to look at the specified point on the world, and when the mouse is released, it applies a jump force in that direction.
 
@@ -53,3 +53,12 @@ Later I made an empty plane specifically for raycasting and put it on its own la
 Much of the remaining work involved collider and trigger detection, and tags to indicate what the fish and cars were colliding with.
 
 No external code libraries were used in this project.
+
+
+## Contributors
+- Jonathan Brown - Game Developer, Prototype
+- James Watt - Game Developer
+- Ehnel Bugas - Game Designer
+- Keegan Edwards - Game Designer
+- Sieni Faafuata - GameDesigner
+- Chanil Park - Game Developer
