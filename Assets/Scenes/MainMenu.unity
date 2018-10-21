@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -179,11 +179,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!224 &124090934 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224425504382128378, guid: dcb3013dc2542d0499d2d7cc2a873b36,
+    type: 2}
+  m_PrefabInternal: {fileID: 1978345812}
 --- !u!224 &288136502 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224160282510428190, guid: dcb3013dc2542d0499d2d7cc2a873b36,
     type: 2}
   m_PrefabInternal: {fileID: 1978345812}
+--- !u!1 &343206317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 343206318}
+  - component: {fileID: 343206320}
+  - component: {fileID: 343206319}
+  m_Layer: 5
+  m_Name: bubbles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &343206318
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343206317}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_Children: []
+  m_Father: {fileID: 124090934}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -90.5, y: -53.6}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &343206319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343206317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: dfe448acc17c8f44ab5e18f262a569a2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &343206320
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343206317}
+  m_CullTransparentMesh: 0
 --- !u!1 &597411312
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +575,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1181561129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181561130}
+  - component: {fileID: 1181561132}
+  - component: {fileID: 1181561131}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1181561130
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1181561129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
+  m_Children: []
+  m_Father: {fileID: 124090934}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -122.7, y: -91.8}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1181561131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1181561129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: c806d2d39c1063f42b13d3d989743d7c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1181561132
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1181561129}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1978345812
 Prefab:
   m_ObjectHideFlags: 0
@@ -1049,17 +1192,20 @@ Prefab:
     - target: {fileID: 114544671493670674, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_Text
-      value: "Jump your way to the ocean while avoiding obstacles!\n\n- A, D / Left,
-        Right\t\t\t\tRotate camera\n- Drag right-click\t\t\t\tRotate camera\n- Scroll
-        wheel\t\t\t\t\t\tZoom\n\n- Hold left-click to charge a jump\n- Release left-click
-        to jump\n- Press 'Z' while charging to cancel jump\n- The farther you jump,
-        the more likely you are to go off course!\n\nIf you hit a hazard, you respawn
-        at the latest pond you touched."
+      value: "You've been caught and taken from your family in the ocean. Escape the
+        factory and Flip your way back home!\n\n- Hold Left-Click to charge a jump,
+        release Left-Click to jump\n- Press 'Z' while charging to cancel jump\n- The
+        orange bar is your jump charge, the more charge the further you jump\n- Use
+        A, D / Left, Right or drag Right-Click to rotate the camera\n- Use the Scroll
+        Wheel zoom\n-The blue bar is your water meter which goes down over time, find
+        water sources \t\t\t\tto stay hydrated\n-Flip to the exit\t\t\t\tto move onto
+        the next level\n\nIf you hit a hazard ro run out of water, you respawn at
+        the latest water source you touched."
       objectReference: {fileID: 0}
     - target: {fileID: 114544671493670674, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114772499957918464, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
@@ -1084,16 +1230,16 @@ Prefab:
     - target: {fileID: 224125375067671814, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4995938954592822, guid: dcb3013dc2542d0499d2d7cc2a873b36, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224840864982852234, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 224371267942408864, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
@@ -1103,22 +1249,22 @@ Prefab:
     - target: {fileID: 224373239648845992, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224194399889741206, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224669876195316440, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224425504382128378, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224648548934649298, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
@@ -1142,6 +1288,21 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224286124005483898, guid: dcb3013dc2542d0499d2d7cc2a873b36,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 114544671493670674, guid: dcb3013dc2542d0499d2d7cc2a873b36,
+        type: 2}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224286124005483898, guid: dcb3013dc2542d0499d2d7cc2a873b36,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 140.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcb3013dc2542d0499d2d7cc2a873b36, type: 2}
