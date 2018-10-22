@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class FishMovement : MonoBehaviour
 {
     public GameObject fishKinematic;            // "ghost" fish that faces the cursor while charging a jump
+    public GameObject distanceIndicator;        // measuring tape that shows the player how far the fish can go
     public Text jumpCounter;
     public int variance;						// maximum random euler angle applied to a jump
     public int layerMask = 1 << 9;              // we will only raycast onto layer 9
@@ -38,6 +39,7 @@ public class FishMovement : MonoBehaviour
         canceledClick = false;
         SetJump(0);
         fishKinematic.SetActive(false);
+        distanceIndicator.SetActive(false);
         powerBar = gameObject.AddComponent<PowerBar>();
 
     }
@@ -189,6 +191,7 @@ public class FishMovement : MonoBehaviour
         if (fishKinematic.gameObject.activeSelf == false)
         {
             fishKinematic.gameObject.SetActive(true);
+            distanceIndicator.gameObject.SetActive(true);
         }
 
         RaycastHit hit;
@@ -206,6 +209,11 @@ public class FishMovement : MonoBehaviour
             // finally, rotate the fish by 90 degrees so its head faces forward
             Quaternion rotate90 = Quaternion.Euler(0, 90, 0);
             fishKinematic.transform.rotation *= rotate90;
+
+
+            // do the distance indicator
+            distanceIndicator.transform.position = transform.position;
+            distanceIndicator.transform.LookAt(lookAt);
         }
     }
 
@@ -242,6 +250,7 @@ public class FishMovement : MonoBehaviour
     {
         powerBar.StopCharge();
         fishKinematic.gameObject.SetActive(false);
+        distanceIndicator.gameObject.SetActive(false);
         return;
     }
 }
