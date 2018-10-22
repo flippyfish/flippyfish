@@ -6,17 +6,28 @@ ModelImporter:
     100000: waterSpill
     100002: //RootNode
     100004: waterSpillBottom
+    100006: waterSpill:waterSpill
+    100008: waterSpill:waterSpillBottom
     400000: waterSpill
     400002: //RootNode
     400004: waterSpillBottom
+    400006: waterSpill:waterSpill
+    400008: waterSpill:waterSpillBottom
     2100000: waterSpillMat
     2100002: waterSpillBottomMat
+    2100004: initialShadingGroup
     2300000: waterSpill
     2300002: waterSpillBottom
+    2300004: waterSpill:waterSpill
+    2300006: waterSpill:waterSpillBottom
     3300000: waterSpill
     3300002: waterSpillBottom
+    3300004: waterSpill:waterSpill
+    3300006: waterSpill:waterSpillBottom
     4300000: waterSpill
     4300002: waterSpillBottom
+    4300004: waterSpill:waterSpill
+    4300006: waterSpill:waterSpillBottom
   externalObjects: {}
   materials:
     importMaterials: 1
