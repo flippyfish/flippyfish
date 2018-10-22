@@ -10,8 +10,10 @@ using UnityEngine.UI;
 public class FishMovement : MonoBehaviour
 {
     public GameObject fishKinematic;            // "ghost" fish that faces the cursor while charging a jump
-    public GameObject distanceIndicator;        // measuring tape that shows the player how far the fish can go
+    public GameObject distanceMeasure;          // measuring tape that shows the player how far the fish can go
+    public GameObject distanceBar;              // moving bar that shows how far the fish would jump
     public Text jumpCounter;
+
     public int variance;						// maximum random euler angle applied to a jump
     public int layerMask = 1 << 9;              // we will only raycast onto layer 9
 
@@ -25,7 +27,7 @@ public class FishMovement : MonoBehaviour
 
     public int jumps;
 
-    private PowerBar powerBar;
+    private PowerBar powerBar;                  // other fish script
 
     Rigidbody rb;
 
@@ -39,7 +41,8 @@ public class FishMovement : MonoBehaviour
         canceledClick = false;
         SetJump(0);
         fishKinematic.SetActive(false);
-        distanceIndicator.SetActive(false);
+        distanceMeasure.SetActive(false);
+        distanceBar.SetActive(false);
         powerBar = gameObject.AddComponent<PowerBar>();
     }
 
@@ -77,7 +80,7 @@ public class FishMovement : MonoBehaviour
         }
 
         powerBar.StartCharge();
-        PointKinematicAtCursor();
+        PointJumpIndicators();
     }
 
     // Called during a frame when the mouse is released (ie. it was held the previous frame) and the fish is grounded.
@@ -184,15 +187,21 @@ public class FishMovement : MonoBehaviour
     }
 
 
-
-    public void PointKinematicAtCursor()
+    /*
+     * Moves and rotates the ghost fish, the distance tape measure, and the moving distance bar.
+     *  - Jonathan
+     */
+    public void PointJumpIndicators()
     {
+        // if objects are hidden, make them visible
         if (fishKinematic.gameObject.activeSelf == false)
         {
             fishKinematic.gameObject.SetActive(true);
-            distanceIndicator.gameObject.SetActive(true);
+            distanceMeasure.gameObject.SetActive(true);
+            distanceBar.gameObject.SetActive(true);
         }
 
+        // start with ghost fish
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
@@ -210,9 +219,23 @@ public class FishMovement : MonoBehaviour
             fishKinematic.transform.rotation *= rotate90;
 
 
-            // do the distance indicator
-            distanceIndicator.transform.position = transform.position;
-            distanceIndicator.transform.LookAt(lookAt);
+            // do the distance measure
+            distanceMeasure.transform.position = transform.position;
+            distanceMeasure.transform.LookAt(lookAt);
+
+
+            // do the moving distance bar
+            Vector3 fishPosition = transform.position;
+            float degrees = distanceMeasure.gameObject.transform.rotation.eulerAngles.y;
+            float radians = degrees * Mathf.Deg2Rad;
+            float distance = powerBar.GetCurrentPower() * 8.0f;
+
+            float x = fishPosition.x + Mathf.Sin(radians) * distance;
+            float y = fishPosition.y;
+            float z = fishPosition.z + Mathf.Cos(radians) * distance;
+
+            distanceBar.transform.position = new Vector3(x, y, z);
+            distanceBar.transform.rotation = Quaternion.Euler(0, degrees, 0);
         }
     }
 
@@ -249,7 +272,8 @@ public class FishMovement : MonoBehaviour
     {
         powerBar.StopCharge();
         fishKinematic.gameObject.SetActive(false);
-        distanceIndicator.gameObject.SetActive(false);
+        distanceMeasure.gameObject.SetActive(false);
+        distanceBar.gameObject.SetActive(false);
         return;
     }
 }
