@@ -13,6 +13,7 @@ public class PowerBar : MonoBehaviour
     private float MINIMUM_CHARGE;
     private bool charging;
     private Slider chargeSlider;
+    public Image sliderBackground;
 
     // Use this for initialization
     void Start()
@@ -24,6 +25,10 @@ public class PowerBar : MonoBehaviour
         MAX_ACCELERATION = 1.5f;
         MINIMUM_CHARGE = 0.0f;
         charging = false;
+        Debug.Log("In start");
+        //sliderBackground = GameObject.FindWithTag("SliderImage").GetComponent<Image>();
+        //chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
+
     }
 
     // Update is called once per frame
@@ -54,17 +59,27 @@ public class PowerBar : MonoBehaviour
 
     public void UpdateCharge()
     {
-        chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
+
+
+        if(chargeSlider == null || sliderBackground == null){
+            chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
+            sliderBackground = GameObject.FindWithTag("SliderImage").GetComponent<Image>();
+            sliderBackground.fillMethod = Image.FillMethod.Vertical;
+        }
+        //chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
         if (isIncreasing)
         {
             float newCharge = currentCharge + (Time.deltaTime * acceleration);
-
             if (newCharge <= MAX_CHARGE)
             {
                 currentCharge = newCharge;
                 chargeSlider.value = currentCharge * 100;
+                acceleration *=1.05f;//1.1
+                //sliderBackground.color = new Color(255,0,0);
+                sliderBackground.fillAmount = 0.2f;
+
             }
-            else
+            else//If new charge is going to be greater than max then set currentCharge to max
             {
                 currentCharge = MAX_CHARGE;
                 chargeSlider.value = currentCharge * 100;
@@ -79,12 +94,16 @@ public class PowerBar : MonoBehaviour
             if (newCharge >= MINIMUM_CHARGE)
             {
                 currentCharge = newCharge;
+                acceleration *= 0.95f;//0.9
                 chargeSlider.value = currentCharge * 100;
+                //sliderBackground.color = new Color(252, 146, 0, 255);
+
             }
-            else
+            else//If new charge is going to be less than zero then set currentCharge to zero
             {
                 currentCharge = MINIMUM_CHARGE;
                 chargeSlider.value = 0;
+                acceleration = 2f;
                 isIncreasing = true;
             }
 

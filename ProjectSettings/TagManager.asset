@@ -9,6 +9,7 @@ TagManager:
   - Pond
   - Boundary
   - ChargeSlider
+  - SliderImage
   layers:
   - Default
   - TransparentFX

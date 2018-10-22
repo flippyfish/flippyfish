@@ -41,7 +41,6 @@ public class FishMovement : MonoBehaviour
         fishKinematic.SetActive(false);
         distanceIndicator.SetActive(false);
         powerBar = gameObject.AddComponent<PowerBar>();
-
     }
 
     void Update()
@@ -89,9 +88,9 @@ public class FishMovement : MonoBehaviour
             canceledClick = false;
             return;
         }
-        else if (false)//(charge < 0.25)			// prevent overcharged clicks from executing a jump
+        else if (false)//(charge < 0.25)
         {
-            ResetSliderAndFish();
+            ResetSliderAndFish(); //Too small of a charge does not trigger jump
             return;
         }
         else
