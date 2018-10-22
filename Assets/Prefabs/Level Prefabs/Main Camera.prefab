@@ -106,6 +106,8 @@ MonoBehaviour:
   yOffset: 3
   zOffset: -4
   zoomSpeed: 2
+  zoomYMin: 2
+  zoomYMax: 8
 --- !u!114 &114711225721556740
 MonoBehaviour:
   m_ObjectHideFlags: 1

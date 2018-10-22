@@ -9,10 +9,18 @@ public class CameraTrackPlayer : MonoBehaviour {
 	public float xOffset;		// suggest -4
 	public float yOffset;		// suggest 3
 	public float zOffset;		// suggest -4
-	public float zoomSpeed;		// suggest 1
+	public float zoomSpeed;		// suggest 2
+	public float zoomYMin;		// suggest 2
+	public float zoomYMax;		// suggest 8
 
 	void Update ()
 	{
+		float zoomCheck = yOffset - Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+		if (zoomCheck < zoomYMin || zoomCheck > zoomYMax)
+		{
+			return;
+		}
+
 		xOffset += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
 		yOffset -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
 		zOffset += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
