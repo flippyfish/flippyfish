@@ -67,6 +67,10 @@ public class FishCollision : MonoBehaviour
 				StartCoroutine(Respawn());
 			}
 		}
+		if (other.tag == "Water")		// update oxygen, but NOT respawn point
+		{
+			fishOxygen.EnterWater();
+		}
 		if (other.tag == "Pond")		// update oxygen, respawn point
 		{
 			// oxygen
@@ -89,6 +93,10 @@ public class FishCollision : MonoBehaviour
 
 	void OnTriggerExit (Collider other)
 	{
+		if (other.tag == "Water")
+		{
+			fishOxygen.ExitWater();
+		}
 		if (other.tag == "Pond")
 		{
 			fishOxygen.ExitWater();
