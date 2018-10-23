@@ -20,7 +20,7 @@ public class FishMovement : MonoBehaviour
     public bool isGrounded;                     // can only charge a leap while grounded
     public bool inControl;						// set to false upon level completion, or when about to respawn
 
-    private bool canceledClick;                  // determines whether a held click   is to be canceled or not
+    public bool canceledClick;                  // determines whether a held click   is to be canceled or not
 
     public Quaternion respawnRotation;
     public Vector3 respawnPosition;

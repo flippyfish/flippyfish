@@ -8,17 +8,20 @@ public class chargeUI : MonoBehaviour {
      * 
      */
     private GameObject chargeBar;
+    private FishMovement fishMovement;  // fish script
+
     // Use this for initialization
     void Start () {
-		chargeBar= GameObject.Find("ChargeSlider");
+		chargeBar = GameObject.Find("ChargeSlider");
         chargeBar.SetActive(false);
+        fishMovement = GameObject.Find("Fish_Player").GetComponent<FishMovement>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButton(0) && fishMovement.isGrounded && fishMovement.inControl && !fishMovement.canceledClick) {
             chargeBar.SetActive(true);
-        } else if (Input.GetMouseButtonUp(0)) {
+        } else {
             chargeBar.SetActive(false);
         }
             float screenWidth = Screen.width;
