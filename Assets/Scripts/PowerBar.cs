@@ -9,7 +9,7 @@ public class PowerBar : MonoBehaviour
     private bool isIncreasing;
     private float acceleration;
     private float MAX_CHARGE;
-    private float MAX_ACCELERATION;
+    //private float MAX_ACCELERATION;
     private float MINIMUM_CHARGE;
     private bool charging;
     private Slider chargeSlider;
@@ -22,10 +22,10 @@ public class PowerBar : MonoBehaviour
         isIncreasing = true;
         acceleration = 2f;
         MAX_CHARGE = 2f;
-        MAX_ACCELERATION = 1.5f;
+        //MAX_ACCELERATION = 1.5f;
         MINIMUM_CHARGE = 0.0f;
         charging = false;
-        Debug.Log("In start");
+        //Debug.Log("In start");
         //sliderBackground = GameObject.FindWithTag("SliderImage").GetComponent<Image>();
         //chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
 
@@ -63,8 +63,6 @@ public class PowerBar : MonoBehaviour
 
         if(chargeSlider == null || sliderBackground == null){
             chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
-            sliderBackground = GameObject.FindWithTag("SliderImage").GetComponent<Image>();
-            sliderBackground.fillMethod = Image.FillMethod.Vertical;
         }
         //chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
         if (isIncreasing)
@@ -76,7 +74,7 @@ public class PowerBar : MonoBehaviour
                 chargeSlider.value = currentCharge * 100;
                 acceleration *=1.05f;//1.1
                 //sliderBackground.color = new Color(255,0,0);
-                sliderBackground.fillAmount = 0.2f;
+                //sliderBackground.fillAmount = 0.2f;
 
             }
             else//If new charge is going to be greater than max then set currentCharge to max
