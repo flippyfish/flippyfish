@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114791707244458180}
   - component: {fileID: 114926156996930008}
   - component: {fileID: 114270975997460754}
+  - component: {fileID: 114588387196362952}
   m_Layer: 0
   m_Name: Fish_Player
   m_TagString: Player
@@ -308,6 +309,18 @@ MonoBehaviour:
   OXYGEN_MAX: 20
   timeLastInWater: 0
   inWater: 0
+--- !u!114 &114588387196362952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644825279557514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c0201fbb7cbdb42ba487c100c72f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
 --- !u!114 &114791707244458180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -333,21 +346,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpCounter: {fileID: 0}
-  chargeSlider: {fileID: 0}
-  charge: 0
-  MAX_CHARGE: 2
-  CHARGE_TO_CANCEL: 2.25
   variance: 0
-  chargeSpeed: 0
-  chargeAcceleration: 0
   layerMask: 512
   isGrounded: 0
   inControl: 0
-  isIncreasing: 0
   canceledClick: 0
-  prevRotation: {x: 0, y: 0, z: 0, w: 0}
-  prevPosition: {x: 0, y: 0, z: 0}
   respawnRotation: {x: 0, y: 0, z: 0, w: 0}
   respawnPosition: {x: 0, y: 0, z: 0}
-  fishKinetic: {fileID: 0}
   jumps: 0
