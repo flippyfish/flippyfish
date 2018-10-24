@@ -172,7 +172,7 @@ public class FishMovement : MonoBehaviour
         // apply the jump force!
         // note that the x, y, and z values of the jump vector are the strength in each direction
         Vector3 jump = transform.forward;
-        jump = new Vector3(jump.x, 1.3f, jump.z);
+        jump = new Vector3(jump.x, 1.5f, jump.z);
         float str = (powerBar.GetCurrentPower() + 1.0f) * 3.0f;
         jump = jump * str;
         rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
