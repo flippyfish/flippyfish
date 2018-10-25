@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: JumpIndicator1
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 6de56873afb38f248af7610bafbc35eb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -73,4 +73,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 0.26166108, b: 0, a: 1}
+    - _Color1: {r: 0.4716981, g: 0.20532742, b: 0, a: 1}
+    - _Color2: {r: 1, g: 0.8862745, b: 0.79607844, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MainTex: {r: 255, g: 67, b: 0, a: 1}
