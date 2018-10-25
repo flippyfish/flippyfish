@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43685722, g: 0.4845037, b: 0.5647583, a: 1}
+  m_IndirectSpecularColor: {r: 0.43685707, g: 0.4845031, b: 0.5647577, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28054,6 +28054,10 @@ Prefab:
     - target: {fileID: 100002, guid: 841b4721ce5db45ae9aa3d9fb111e667, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 841b4721ce5db45ae9aa3d9fb111e667, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 841b4721ce5db45ae9aa3d9fb111e667, type: 3}
