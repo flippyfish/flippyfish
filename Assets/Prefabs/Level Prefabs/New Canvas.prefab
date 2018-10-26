@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 114102720398991832}
   - component: {fileID: 114214060348891422}
   - component: {fileID: 114668030097636386}
+  - component: {fileID: 114450858251383852}
   m_Layer: 5
   m_Name: New Canvas
   m_TagString: Untagged
@@ -922,6 +923,17 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Well done!
+--- !u!114 &114450858251383852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1288473544870118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e4ad2918ddc614c8ddaca82a9b4724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114461770475456178
 MonoBehaviour:
   m_ObjectHideFlags: 1
