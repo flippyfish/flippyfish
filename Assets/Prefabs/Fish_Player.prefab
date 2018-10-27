@@ -349,6 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreen: {fileID: 0}
   respawning: 0
+  respawnTime: 1
 --- !u!114 &114926156996930008
 MonoBehaviour:
   m_ObjectHideFlags: 1

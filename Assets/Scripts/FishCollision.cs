@@ -13,6 +13,7 @@ public class FishCollision : MonoBehaviour
 	Rigidbody rb;
 
 	public bool respawning;		// to avoid simultaneous respawn calls
+	public float respawnTime;
 
 	void Start()
 	{
@@ -22,17 +23,31 @@ public class FishCollision : MonoBehaviour
 		respawning = false;
 	}
 
+	public IEnumerator TakenBySeagull(GameObject seagull)
+	{
+		float elapsedTime = 0;
+		rb.isKinematic = true;
+		rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+		while (elapsedTime < respawnTime)
+		{
+			transform.position = seagull.transform.position;
+			elapsedTime += Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+		rb.isKinematic = false;
+	}
+
 	public IEnumerator Respawn()
 	{
 		respawning = true;
 		fishMovement.inControl = false;
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(respawnTime);
 
 		rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 		transform.rotation = fishMovement.respawnRotation;
 		transform.position = fishMovement.respawnPosition;
 
-        fishMovement.ResetSliderAndFish();
+		fishMovement.ResetSliderAndFish();
 		fishMovement.inControl = true;
 		fishMovement.isGrounded = false;
 
@@ -67,6 +82,15 @@ public class FishCollision : MonoBehaviour
 				StartCoroutine(Respawn());
 			}
 		}
+		if (other.tag == "Seagull")		// respawn, but the seagull picks up the fish!!
+		{
+			if (fishMovement.inControl)
+			{
+				fishMovement.inControl = false;
+				StartCoroutine(TakenBySeagull(other.gameObject));
+				StartCoroutine(Respawn());
+			}
+		}
 		if (other.tag == "Water")		// update oxygen, but NOT respawn point
 		{
 			fishOxygen.EnterWater();
@@ -86,10 +110,10 @@ public class FishCollision : MonoBehaviour
 			fishOxygen.EnterWater();
 			winScreen.SetActive(true);
 			WinScreen winScreenScript = GameObject.Find("New Canvas").GetComponent<WinScreen>();
-            winScreenScript.ShowTotalJump();
-            winScreenScript.saveScore();
-            winScreenScript.loadScore();
-        }
+			winScreenScript.ShowTotalJump();
+			winScreenScript.saveScore();
+			winScreenScript.loadScore();
+		}
 	}
 
 	void OnTriggerExit (Collider other)
