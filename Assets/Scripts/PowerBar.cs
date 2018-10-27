@@ -12,7 +12,8 @@ public class PowerBar : MonoBehaviour
     //private float MAX_ACCELERATION;
     private float MINIMUM_CHARGE;
     private bool charging;
-    private Slider chargeSlider;
+    
+    public Slider chargeSlider;
     public Image sliderBackground;
 
     // Use this for initialization
@@ -59,12 +60,6 @@ public class PowerBar : MonoBehaviour
 
     public void UpdateCharge()
     {
-
-
-        if(chargeSlider == null || sliderBackground == null){
-            chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
-        }
-        //chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
         if (isIncreasing)
         {
             float newCharge = currentCharge + (Time.deltaTime * acceleration);

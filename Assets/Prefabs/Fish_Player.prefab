@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114926156996930008}
   - component: {fileID: 114270975997460754}
   - component: {fileID: 114588387196362952}
+  - component: {fileID: 114228292523015690}
   m_Layer: 0
   m_Name: Fish_Player
   m_TagString: Player
@@ -293,6 +294,19 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 0b2f2ac25fecc4c4ba92d29388076fb7, type: 3}
+--- !u!114 &114228292523015690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644825279557514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49045e54e3fb447708ae7400fa0a55e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeSlider: {fileID: 0}
+  sliderBackground: {fileID: 0}
 --- !u!114 &114270975997460754
 MonoBehaviour:
   m_ObjectHideFlags: 1

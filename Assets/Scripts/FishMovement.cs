@@ -33,7 +33,7 @@ public class FishMovement : MonoBehaviour
     void Start()
     {
         fishIndicators = GetComponent<FishIndicators>();
-        powerBar = gameObject.AddComponent<PowerBar>();
+        powerBar = GetComponent<PowerBar>();
         rb = GetComponent<Rigidbody>();
         respawnRotation = transform.rotation;
         respawnPosition = transform.position;
@@ -197,7 +197,7 @@ public class FishMovement : MonoBehaviour
 
     public void resetPowerBar()
     {
-        this.powerBar.StopCharge();
+        powerBar.StopCharge();
     }
 
     public void AddJump(int val)

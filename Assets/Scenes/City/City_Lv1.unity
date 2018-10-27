@@ -5199,6 +5199,18 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &807242336 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114825525265962526, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 807242335}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &807242337 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114286996172048852, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 807242335}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &810457368
 GameObject:
   m_ObjectHideFlags: 0
@@ -6435,6 +6447,16 @@ Prefab:
       propertyPath: distanceBar
       value: 
       objectReference: {fileID: 828689016}
+    - target: {fileID: 114228292523015690, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: chargeSlider
+      value: 
+      objectReference: {fileID: 807242337}
+    - target: {fileID: 114228292523015690, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: sliderBackground
+      value: 
+      objectReference: {fileID: 807242336}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
   m_IsPrefabAsset: 0

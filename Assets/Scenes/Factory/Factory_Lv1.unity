@@ -4332,6 +4332,16 @@ Prefab:
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 574541537}
+    - target: {fileID: 114228292523015690, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: chargeSlider
+      value: 
+      objectReference: {fileID: 1356736339}
+    - target: {fileID: 114228292523015690, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: sliderBackground
+      value: 
+      objectReference: {fileID: 1356736338}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
   m_IsPrefabAsset: 0
@@ -10783,6 +10793,18 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1356736338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114825525265962526, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1356736337}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1356736339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114286996172048852, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1356736337}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1361412620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: d32039043753a414eaf445ae15ab1b4a,

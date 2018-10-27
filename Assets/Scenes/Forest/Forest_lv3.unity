@@ -3776,6 +3776,16 @@ Prefab:
       propertyPath: distanceBar
       value: 
       objectReference: {fileID: 1681824588}
+    - target: {fileID: 114228292523015690, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: chargeSlider
+      value: 
+      objectReference: {fileID: 2139095434}
+    - target: {fileID: 114228292523015690, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: sliderBackground
+      value: 
+      objectReference: {fileID: 2139095433}
     m_RemovedComponents:
     - {fileID: 23634294773749162, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
     - {fileID: 64918960178734204, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
@@ -7085,3 +7095,15 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &2139095433 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114825525265962526, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2139095432}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &2139095434 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114286996172048852, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2139095432}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
