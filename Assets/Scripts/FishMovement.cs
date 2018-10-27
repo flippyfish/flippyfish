@@ -69,7 +69,7 @@ public class FishMovement : MonoBehaviour
     // Called during a frame when the mouse is held down and the fish is grounded.
     public void ChargeJump()
     {
-        if (Input.GetMouseButtonDown(1) || canceledClick)       // If Z button is hit then cancel current click
+        if (Input.GetMouseButtonDown(1) || canceledClick)       // right-click cancels the charging jump
         {
             canceledClick = true;
             ResetSliderAndFish();
@@ -102,57 +102,16 @@ public class FishMovement : MonoBehaviour
             {
                 transform.rotation = transform.rotation * Quaternion.Euler(0, Random.Range(-variance * charge, variance * charge), 0);
             }
-            doJump(powerBar.GetCurrentPower());
+            DoJump(powerBar.GetCurrentPower());
         }
     }
 
 
     /*
-     * I am adding this here becuase i think it is really a waste of time if i write new code to do the jump in other script when i can use already built in functions and variables.
-     * 
-     * I want the functions to be more dynamically callable/separated into multiple scripts/functions.
-     * 
-     * Jump function from Jon & Chanil
-     * 
-     * - Chail Park -
+     * This jump function assumes the fish is already pointing in the correct direction.
+     * Call this after PointToCursor().
      */
-    public void JumpFromBP(float charge)
-    {
-        // give the fish a spin
-        // the x y z values of angularVelocity are NOT relative to the current rotation!
-        // so we localize these x y z values using sine and cosine functions
-        float radians = transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
-        float spinA = 4.0f * Mathf.Cos(radians);
-        float spinB = 4.0f * Mathf.Sin(radians);
-        int chooseSpin = Random.Range(0, 2);
-        if (chooseSpin == 1)
-        {   // spin along x axis
-            rb.angularVelocity = new Vector3(spinA, 0.0f, -spinB);
-        }
-        else
-        {   // spin along z axis
-            rb.angularVelocity = new Vector3(spinB, 0.0f, spinA);
-        }
-        // apply the jump force!
-        // note that the x, y, and z values of the jump vector are the strength in each direction
-        Vector3 jump = transform.forward;
-        jump = new Vector3(jump.x, 1.3f, jump.z);
-        float str = (charge + 1.0f) * 3.0f;
-        jump = jump * str;
-        rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-        rb.AddForce(jump, ForceMode.Impulse);
-
-        AddJump(1);
-        ResetSliderAndFish();
-        isGrounded = false;
-    }
-
-
-    /*
-     * Jump function from Jon & James.
-     *
-     */
-    public void doJump(float charge)
+    public void DoJump(float charge)
     {
         // give the fish a spin
         // the x y z values of angularVelocity are NOT relative to the current rotation!
@@ -173,7 +132,7 @@ public class FishMovement : MonoBehaviour
         // note that the x, y, and z values of the jump vector are the strength in each direction
         Vector3 jump = transform.forward;
         jump = new Vector3(jump.x, 1.5f, jump.z);
-        float str = (powerBar.GetCurrentPower() + 1.0f) * 3.0f;
+        float str = (charge + 1.0f) * 3.0f;
         jump = jump * str;
         rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
         rb.AddForce(jump, ForceMode.Impulse);
@@ -193,11 +152,6 @@ public class FishMovement : MonoBehaviour
             Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);   // the fish will look on its own y level
             transform.LookAt(lookAt);
         }
-    }
-
-    public void resetPowerBar()
-    {
-        powerBar.StopCharge();
     }
 
     public void AddJump(int val)

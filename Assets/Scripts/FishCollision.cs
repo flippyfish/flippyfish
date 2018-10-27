@@ -32,7 +32,7 @@ public class FishCollision : MonoBehaviour
 		transform.rotation = fishMovement.respawnRotation;
 		transform.position = fishMovement.respawnPosition;
 
-        fishMovement.resetPowerBar();
+        fishMovement.ResetSliderAndFish();
 		fishMovement.inControl = true;
 		fishMovement.isGrounded = false;
 

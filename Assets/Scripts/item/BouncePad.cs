@@ -24,12 +24,12 @@ public class BouncePad : MonoBehaviour {
         if (collision.gameObject.name == "Fish_Player")
         {
             Debug.Log("Bounce Pad, Fish on me!");
-            Vector3 fishPos = GameObject.Find("Fish_Player").transform.position;
+            Vector3 fishPos = collision.gameObject.transform.position;
             Vector3 pondPos = target.transform.position;
             Vector3 newDirection = pondPos - fishPos.normalized;
             Quaternion newRotation = Quaternion.LookRotation(newDirection, Vector3.up);
             GameObject.Find("Fish_Player").transform.rotation = newRotation;
-            GameObject.Find("Fish_Player").GetComponent<FishMovement>().JumpFromBP(charge);
+            GameObject.Find("Fish_Player").GetComponent<FishMovement>().DoJump(charge);
         }
     }
 }
