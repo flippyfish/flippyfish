@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 64953902185556896}
   m_Layer: 10
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,6 @@ GameObject:
   - component: {fileID: 4449989387501330}
   - component: {fileID: 54866900466882706}
   - component: {fileID: 114398641375678042}
-  - component: {fileID: 114612108497965308}
   m_Layer: 10
   m_Name: Car_Silver
   m_TagString: Obstacle
@@ -1075,7 +1074,7 @@ MeshCollider:
   m_GameObject: {fileID: 1379762283762542}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
@@ -1181,14 +1180,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
---- !u!114 &114612108497965308
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1319886216260798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30fe387a2640e24583d9a50170b5d60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

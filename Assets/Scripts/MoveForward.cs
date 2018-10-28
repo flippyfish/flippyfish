@@ -18,7 +18,7 @@ public class MoveForward : MonoBehaviour {
     {
         if (collision.gameObject.tag != "Player")
         {
-            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+            Physics.IgnoreCollision(collision.collider, GetComponentInChildren<Collider>());
         }
     }
 }
