@@ -37,12 +37,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4839460235277822}
   - component: {fileID: 54053719982425130}
+  - component: {fileID: 82680872989380386}
   - component: {fileID: 114791707244458180}
   - component: {fileID: 114926156996930008}
   - component: {fileID: 114270975997460754}
   - component: {fileID: 114588387196362952}
   - component: {fileID: 114228292523015690}
-  - component: {fileID: 82680872989380386}
   - component: {fileID: 114681065176103876}
   m_Layer: 0
   m_Name: Fish_Player
