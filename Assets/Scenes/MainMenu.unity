@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.496413, b: 0.5748175, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1850,16 +1850,16 @@ Prefab:
     - target: {fileID: 224125375067671814, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4995938954592822, guid: dcb3013dc2542d0499d2d7cc2a873b36, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 224840864982852234, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224371267942408864, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
@@ -1869,22 +1869,22 @@ Prefab:
     - target: {fileID: 224373239648845992, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224194399889741206, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224669876195316440, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224425504382128378, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224648548934649298, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
@@ -1957,6 +1957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2120516180}
   - component: {fileID: 2120516179}
+  - component: {fileID: 2120516181}
   m_Layer: 0
   m_Name: Ambient_juke_box
   m_TagString: Untagged
@@ -1974,7 +1975,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ca6b832a995744d45bf74d84697624a5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -2072,3 +2073,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2120516181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2120516178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4fe2820e2f8c54e88554fae35b040a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmMainMenu: {fileID: 8300000, guid: ca6b832a995744d45bf74d84697624a5, type: 3}
+  bgmFactory: {fileID: 8300000, guid: ca6b832a995744d45bf74d84697624a5, type: 3}
+  bgmCity: {fileID: 8300000, guid: ca6b832a995744d45bf74d84697624a5, type: 3}
+  bgmForest: {fileID: 8300000, guid: ca6b832a995744d45bf74d84697624a5, type: 3}
+  bgmBeach: {fileID: 8300000, guid: ca6b832a995744d45bf74d84697624a5, type: 3}
