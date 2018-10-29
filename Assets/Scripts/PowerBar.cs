@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * The PowerBar class is responsbile for handling all functionality regarding the in-game power bar
+ * which the user interacts with to control the power of a individual fish jump. This class has three core methods which are
+ * mainly called from the central fish movement script:
+ * - UpdateCharge()
+ * - StartCharge()
+ * - StopCharge()
+**/
 public class PowerBar : MonoBehaviour
 {
     private float currentCharge;
     private bool isIncreasing;
     private float acceleration;
     private float MAX_CHARGE;
-    //private float MAX_ACCELERATION;
     private float MINIMUM_CHARGE;
     private bool charging;
     
@@ -26,12 +33,8 @@ public class PowerBar : MonoBehaviour
         isIncreasing = true;
         acceleration = 2f;
         MAX_CHARGE = 2f;
-        //MAX_ACCELERATION = 1.5f;
         MINIMUM_CHARGE = 0.0f;
         charging = false;
-        //Debug.Log("In start");
-        //sliderBackground = GameObject.FindWithTag("SliderImage").GetComponent<Image>();
-        //chargeSlider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
 
     }
 
@@ -44,11 +47,17 @@ public class PowerBar : MonoBehaviour
         }
     }
 
+    /**
+     * Starts the charging of the power bar by allowing the UpdateCharge() method to be called in the Update() method
+    **/
     public void StartCharge()
     {
         charging = true;
     }
 
+    /**
+     * Stops the charging of the power bar by reseting all values
+    **/
     public void StopCharge()
     {
         charging = false;
@@ -56,11 +65,12 @@ public class PowerBar : MonoBehaviour
         currentCharge = 0;
     }
 
-    public float GetCurrentPower()
-    {
-        return currentCharge;
-    }
-
+    /**
+     * The update charge method is responsible for updating the state of the power bar.
+     * The power bar has two states:
+     * - Increasing, this is when the power bar is increasing via the acceleration variable
+     * - Decreasing, this is when the power bar is decresing via the acceleration variable
+    **/
     public void UpdateCharge()
     {
         if (isIncreasing)
@@ -70,12 +80,10 @@ public class PowerBar : MonoBehaviour
             {
                 currentCharge = newCharge;
                 chargeSlider.value = currentCharge * 100;
-                acceleration *=1.05f;//1.1
-                //sliderBackground.color = new Color(255,0,0);
-                //sliderBackground.fillAmount = 0.2f;
+                acceleration *=1.05f;
 
             }
-            else//If new charge is going to be greater than max then set currentCharge to max
+            else//If the new charge is going to be greater than max then set currentCharge to max
             {
                 currentCharge = MAX_CHARGE;
                 chargeSlider.value = currentCharge * 100;
@@ -90,12 +98,11 @@ public class PowerBar : MonoBehaviour
             if (newCharge >= MINIMUM_CHARGE)
             {
                 currentCharge = newCharge;
-                acceleration *= 0.95f;//0.9
+                acceleration *= 0.95f;
                 chargeSlider.value = currentCharge * 100;
-                //sliderBackground.color = new Color(252, 146, 0, 255);
 
             }
-            else//If new charge is going to be less than zero then set currentCharge to zero
+            else//If the new charge is going to be less than zero then set currentCharge to zero
             {
                 currentCharge = MINIMUM_CHARGE;
                 chargeSlider.value = 0;
@@ -110,5 +117,10 @@ public class PowerBar : MonoBehaviour
     public void SetColor()
     {
         sliderBackground.color = Color.Lerp(minChargeColor, maxChargeColor, (currentCharge / MAX_CHARGE));
+    }
+
+    public float GetCurrentPower()
+    {
+        return currentCharge;
     }
 }
