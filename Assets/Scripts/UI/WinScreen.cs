@@ -58,7 +58,6 @@ public class WinScreen : MonoBehaviour {
             bf.Serialize(writer.BaseStream, json);
             writer.Close();
         }
-        Debug.Log("Failed to load score/user");
     }
 
     public void loadScore() {
@@ -93,7 +92,6 @@ public class WinScreen : MonoBehaviour {
             GameObject.Find("ScoreBoard2").GetComponent<UnityEngine.UI.Text>().text = boardMsg2;
             GameObject.Find("ScoreBoard3").GetComponent<UnityEngine.UI.Text>().text = boardMsg3;
         }
-        Debug.Log("Failed to load score/user");
     }
 
     public bool isScoreDirectory()
