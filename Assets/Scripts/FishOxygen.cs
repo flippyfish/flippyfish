@@ -59,6 +59,11 @@ public class FishOxygen : MonoBehaviour
 		timeLastInWater = Time.time;
 	}
 
+	public bool fishInWater ()
+	{
+		return inWater;
+	}
+
 	public void SetOxygen (int val)
 	{
 		oxygen = val;

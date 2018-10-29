@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * This seagull script target's the fish's exact location.
+ * This seagull script places a target shadow at the fish's exact location.
  */
 public class Seagull : MonoBehaviour
 {
 
 	private GameObject fish;
+	private FishOxygen fishOxygen;		// fish script -- use to check if fish is in a pond "safe zone"
 	private GameObject shadow;
 	public GameObject shadowPrefab;
 
@@ -16,24 +17,32 @@ public class Seagull : MonoBehaviour
 	void Start ()
 	{
 		fish = GameObject.Find("Fish_Player");
+		fishOxygen = fish.gameObject.GetComponent<FishOxygen>();
 		transform.position = CreateAirPosition();
 		StartCoroutine(SeagullLoop());
 	}
 
 	IEnumerator SeagullLoop()
 	{
+		yield return new WaitForSeconds(1.0f);	// if there is a pond at start, let the fish enter it first
 		while (true)
 		{
+			// don't swoop onto the fish if it's in a pond
+			while (isFishSafe())
+			{
+				yield return new WaitForSeconds(2.0f);
+			}
+			yield return new WaitForSeconds(1.0f);
+
 			float fishX = fish.transform.position.x;
 			float fishZ = fish.transform.position.z;
 			Vector3 shadowPosition = new Vector3(fishX, 0.5f, fishZ);
-
 			shadow = Instantiate(shadowPrefab, shadowPosition, Quaternion.identity);
 			yield return new WaitForSeconds(1.0f);
 
 			// swoop onto the fish's location
-			transform.LookAt(fish.transform.position);
-			StartCoroutine(MoveOverSeconds(fish.transform.position, 1.5f));
+			transform.LookAt(shadowPosition);
+			StartCoroutine(MoveOverSeconds(shadowPosition, 1.5f));
 			yield return new WaitForSeconds(1.5f);
 
 			// fly back into the air
@@ -41,7 +50,7 @@ public class Seagull : MonoBehaviour
 			Vector3 nextAirPosition = CreateAirPosition();
 			transform.LookAt(nextAirPosition);
 			StartCoroutine(MoveOverSeconds(nextAirPosition, 1.5f));
-			yield return new WaitForSeconds(2.5f);
+			yield return new WaitForSeconds(1.5f);
 		}
 	}
 
@@ -57,6 +66,11 @@ public class Seagull : MonoBehaviour
 			yield return new WaitForEndOfFrame();
 		}
 		transform.position = target;
+	}
+
+	bool isFishSafe ()
+	{
+		return fishOxygen.fishInWater();
 	}
 
 	Vector3 CreateAirPosition()
