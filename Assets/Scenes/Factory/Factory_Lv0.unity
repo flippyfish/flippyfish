@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43685725, g: 0.4845037, b: 0.564758, a: 1}
+  m_IndirectSpecularColor: {r: 0.43685687, g: 0.48450273, b: 0.5647576, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7962,6 +7962,21 @@ Prefab:
       propertyPath: sliderBackground
       value: 
       objectReference: {fileID: 1424155083}
+    - target: {fileID: 114681065176103876, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: fishSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cb334b886b0b846d4bd8d22032596ed0, type: 3}
+    - target: {fileID: 114681065176103876, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: soundSource
+      value: 
+      objectReference: {fileID: 912038176}
+    - target: {fileID: 114681065176103876, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c31894192947c4a51aa58e68d6d010ed, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
   m_IsPrefabAsset: 0
@@ -14145,6 +14160,11 @@ Prefab:
 --- !u!1 &912038169 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1644825279557514, guid: 6edcbaf2b095f47d8beaf35868336861,
+    type: 2}
+  m_PrefabInternal: {fileID: 500282338}
+--- !u!82 &912038176 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82680872989380386, guid: 6edcbaf2b095f47d8beaf35868336861,
     type: 2}
   m_PrefabInternal: {fileID: 500282338}
 --- !u!1001 &918023670
@@ -22378,12 +22398,27 @@ Prefab:
     - target: {fileID: 224837046530231832, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224385485408830042, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224374073419849750, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224374073419849750, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224374073419849750, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}

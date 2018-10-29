@@ -66,10 +66,7 @@ public class WinScreen : MonoBehaviour {
         BinaryFormatter bf = new BinaryFormatter();
         if (File.Exists(Application.persistentDataPath + "/user/user") && File.Exists(Application.persistentDataPath + "/score/" + sceneName + ".score"))
         {
-            StreamReader reader = new StreamReader(Application.persistentDataPath + "/user/user");
-            string username = reader.ReadLine();
-            reader.Close();
-            reader = new StreamReader(Application.persistentDataPath + "/score/" + sceneName + ".score");
+            StreamReader reader = new StreamReader(Application.persistentDataPath + "/score/" + sceneName + ".score");
             string json = (string)bf.Deserialize(reader.BaseStream);
             reader.Close();
             Players players = JsonUtility.FromJson<Players>(json);

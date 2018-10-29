@@ -140,6 +140,7 @@ public class FishMovement : MonoBehaviour
         AddJump(1);
         ResetSliderAndFish();
         isGrounded = false;
+        GetComponent<FishSound>().playJumpSound();
     }
 
     public void PointAtCursor()

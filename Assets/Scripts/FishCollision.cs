@@ -60,9 +60,10 @@ public class FishCollision : MonoBehaviour
 	// for solid objects the fish hits, eg. a car
 	void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.tag == "Obstacle")
+        GetComponent<FishSound>().playFishSound();
+        if (collision.gameObject.tag == "Obstacle")
 		{
-			if (fishMovement.inControl)
+            if (fishMovement.inControl)
 			{
 				fishMovement.inControl = false;
 				fishMovement.isGrounded = false;
@@ -135,12 +136,9 @@ public class FishCollision : MonoBehaviour
 	// detect when the fish has landed and come to a stop
 	void OnCollisionStay()
 	{
-        if (!fishMovement.isGrounded) {
-            GetComponent<FishSound>().playFishSound();
-        }
         if (fishMovement.inControl && !fishMovement.isGrounded && rb.velocity.magnitude < 1.5f)
 		{
-            fishMovement.isGrounded = true;	// now we can charge another jump
-		}
+            fishMovement.isGrounded = true; // now we can charge another jump
+        }
 	}
 }
