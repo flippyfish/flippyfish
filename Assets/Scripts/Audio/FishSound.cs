@@ -5,10 +5,11 @@ using UnityEngine;
 public class FishSound : MonoBehaviour {
 
     public AudioClip fishSound;
-    public AudioSource soundSource;
+    private AudioSource soundSource;
 
 	// Use this for initialization
 	void Start () {
+		soundSource = GetComponent<AudioSource>();
         soundSource.clip = fishSound;
 	}
 

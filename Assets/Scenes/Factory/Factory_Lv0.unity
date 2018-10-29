@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43685687, g: 0.48450273, b: 0.5647576, a: 1}
+  m_IndirectSpecularColor: {r: 0.43685722, g: 0.4845037, b: 0.5647583, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14164,7 +14164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishSound: {fileID: 8300000, guid: 058f7d6a14b0bd74e8b8901dffd4ccf9, type: 3}
-  soundSource: {fileID: 912038171}
 --- !u!82 &912038171
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14175,7 +14174,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -22691,12 +22690,12 @@ Prefab:
     - target: {fileID: 224837046530231832, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224385485408830042, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}

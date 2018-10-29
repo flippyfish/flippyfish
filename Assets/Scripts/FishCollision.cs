@@ -132,15 +132,14 @@ public class FishCollision : MonoBehaviour
 		}
 	}
 
-	// detect when the fish has landed and come to a stop; record its state
+	// detect when the fish has landed and come to a stop
 	void OnCollisionStay()
 	{
         if (!fishMovement.isGrounded) {
-            GameObject.Find("Fish_Player").GetComponent<FishSound>().playFishSound();
+            GetComponent<FishSound>().playFishSound();
         }
         if (fishMovement.inControl && !fishMovement.isGrounded && rb.velocity.magnitude < 1.5f)
 		{
-            // rb.velocity = new Vector3(0, 0, 0);
             fishMovement.isGrounded = true;	// now we can charge another jump
 		}
 	}
