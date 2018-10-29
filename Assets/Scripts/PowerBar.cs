@@ -16,6 +16,9 @@ public class PowerBar : MonoBehaviour
     public Slider chargeSlider;
     public Image sliderBackground;
 
+    public Color maxChargeColor;
+    public Color minChargeColor;
+
     // Use this for initialization
     void Start()
     {
@@ -101,5 +104,11 @@ public class PowerBar : MonoBehaviour
             }
 
         }
+        SetColor();
+    }
+
+    public void SetColor()
+    {
+        sliderBackground.color = Color.Lerp(minChargeColor, maxChargeColor, (currentCharge / MAX_CHARGE));
     }
 }
