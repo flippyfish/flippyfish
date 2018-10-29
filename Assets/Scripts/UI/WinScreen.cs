@@ -58,7 +58,6 @@ public class WinScreen : MonoBehaviour {
             bf.Serialize(writer.BaseStream, json);
             writer.Close();
         }
-        Debug.Log("Failed to load score/user");
     }
 
     public void loadScore() {
@@ -66,10 +65,7 @@ public class WinScreen : MonoBehaviour {
         BinaryFormatter bf = new BinaryFormatter();
         if (File.Exists(Application.persistentDataPath + "/user/user") && File.Exists(Application.persistentDataPath + "/score/" + sceneName + ".score"))
         {
-            StreamReader reader = new StreamReader(Application.persistentDataPath + "/user/user");
-            string username = reader.ReadLine();
-            reader.Close();
-            reader = new StreamReader(Application.persistentDataPath + "/score/" + sceneName + ".score");
+            StreamReader reader = new StreamReader(Application.persistentDataPath + "/score/" + sceneName + ".score");
             string json = (string)bf.Deserialize(reader.BaseStream);
             reader.Close();
             Players players = JsonUtility.FromJson<Players>(json);
@@ -96,7 +92,6 @@ public class WinScreen : MonoBehaviour {
             GameObject.Find("ScoreBoard2").GetComponent<UnityEngine.UI.Text>().text = boardMsg2;
             GameObject.Find("ScoreBoard3").GetComponent<UnityEngine.UI.Text>().text = boardMsg3;
         }
-        Debug.Log("Failed to load score/user");
     }
 
     public bool isScoreDirectory()

@@ -5,7 +5,9 @@ using UnityEngine;
 public class FishSound : MonoBehaviour {
 
     public AudioClip fishSound;
-    private AudioSource soundSource;
+    public AudioClip jumpSound;
+    // don't touch. It should stay in public.
+    public AudioSource soundSource;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +16,12 @@ public class FishSound : MonoBehaviour {
 	}
 
     public void playFishSound() {
+        soundSource.clip = fishSound;
+        soundSource.Play();
+    }
+
+    public void playJumpSound() {
+        soundSource.clip = jumpSound;
         soundSource.Play();
     }
 

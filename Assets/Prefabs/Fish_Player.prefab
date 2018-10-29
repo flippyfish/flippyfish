@@ -404,6 +404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeSlider: {fileID: 0}
   sliderBackground: {fileID: 0}
+  maxChargeColor: {r: 1, g: 0, b: 0, a: 1}
+  minChargeColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!114 &114270975997460754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -450,7 +452,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8429e6d6c1e664c8cb3675f6cbb86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishSound: {fileID: 8300000, guid: 058f7d6a14b0bd74e8b8901dffd4ccf9, type: 3}
+  fishSound: {fileID: 8300000, guid: c31894192947c4a51aa58e68d6d010ed, type: 3}
+  jumpSound: {fileID: 8300000, guid: cb334b886b0b846d4bd8d22032596ed0, type: 3}
+  soundSource: {fileID: 82680872989380386}
 --- !u!114 &114791707244458180
 MonoBehaviour:
   m_ObjectHideFlags: 1
