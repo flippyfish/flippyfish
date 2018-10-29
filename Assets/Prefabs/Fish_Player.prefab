@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 114270975997460754}
   - component: {fileID: 114588387196362952}
   - component: {fileID: 114228292523015690}
+  - component: {fileID: 82680872989380386}
+  - component: {fileID: 114681065176103876}
   m_Layer: 0
   m_Name: Fish_Player
   m_TagString: Player
@@ -294,6 +296,101 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 0b2f2ac25fecc4c4ba92d29388076fb7, type: 3}
+--- !u!82 &82680872989380386
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644825279557514}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114228292523015690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -334,8 +431,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c0201fbb7cbdb42ba487c100c72f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishKinematic: {fileID: 1371005480609872, guid: dc364861e3a6b49ae91edb9d28ef9ed0,
+    type: 2}
+  distanceMeasure: {fileID: 1886559242490010, guid: 8a6e43451837549e294f23b253e942ba,
+    type: 2}
+  distanceBar: {fileID: 1870481457817748, guid: ff3901c6a0aa74c78968cc86d4f12626,
+    type: 2}
   scale: 5
   active: 0
+--- !u!114 &114681065176103876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644825279557514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8429e6d6c1e664c8cb3675f6cbb86a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishSound: {fileID: 8300000, guid: 058f7d6a14b0bd74e8b8901dffd4ccf9, type: 3}
 --- !u!114 &114791707244458180
 MonoBehaviour:
   m_ObjectHideFlags: 1

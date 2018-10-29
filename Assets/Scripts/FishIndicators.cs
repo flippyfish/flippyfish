@@ -5,9 +5,9 @@ using UnityEngine;
 public class FishIndicators : MonoBehaviour
 {
 
-	private GameObject fishKinematic;		// "ghost" fish that faces the cursor while charging a jump
-	private GameObject distanceMeasure;		// measuring stick that shows the player the direction the fish will go
-	private GameObject distanceBar;			// moving bar that shows how far the fish would jump
+	public GameObject fishKinematic;		// "ghost" fish that faces the cursor while charging a jump
+	public GameObject distanceMeasure;		// measuring stick that shows the player the direction the fish will go
+	public GameObject distanceBar;			// moving bar that shows how far the fish would jump
 
 	private PowerBar powerBar;				// other fish script
 
@@ -17,9 +17,9 @@ public class FishIndicators : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		fishKinematic   = GameObject.Find("Fish_Player kinematic");
-		distanceMeasure = GameObject.Find("Distance measure");
-		distanceBar     = GameObject.Find("Distance bar");
+		fishKinematic   = Instantiate(fishKinematic);
+		distanceMeasure = Instantiate(distanceMeasure);
+		distanceBar     = Instantiate(distanceBar);
 		powerBar        = GetComponent<PowerBar>();
 
 		StopIndicators();
