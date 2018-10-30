@@ -6,6 +6,7 @@ public class FishSound : MonoBehaviour {
 
     public AudioClip fishSound;
     public AudioClip jumpSound;
+    public AudioClip splashSound;
     // don't touch. It should stay in public.
     public AudioSource soundSource;
 
@@ -22,6 +23,11 @@ public class FishSound : MonoBehaviour {
 
     public void playJumpSound() {
         soundSource.clip = jumpSound;
+        soundSource.Play();
+    }
+
+    public void playSplashSound() {
+        soundSource.clip = splashSound;
         soundSource.Play();
     }
 

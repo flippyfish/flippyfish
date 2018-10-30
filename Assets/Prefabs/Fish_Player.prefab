@@ -454,6 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishSound: {fileID: 8300000, guid: c31894192947c4a51aa58e68d6d010ed, type: 3}
   jumpSound: {fileID: 8300000, guid: cb334b886b0b846d4bd8d22032596ed0, type: 3}
+  splashSound: {fileID: 8300000, guid: 46919ae8af28c4a5c92e58e582fb4989, type: 3}
   soundSource: {fileID: 82680872989380386}
 --- !u!114 &114791707244458180
 MonoBehaviour:
