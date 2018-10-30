@@ -500,7 +500,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1881323343900450}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -515,7 +515,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256814091779048}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -530,7 +530,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838244722346372}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -545,7 +545,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1045886475759734}
   serializedVersion: 2
-  m_Mass: 1.1
+  m_Mass: 0.6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -810,8 +810,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishSound: {fileID: 8300000, guid: c31894192947c4a51aa58e68d6d010ed, type: 3}
   jumpSound: {fileID: 8300000, guid: cb334b886b0b846d4bd8d22032596ed0, type: 3}
-  splashSound: {fileID: 0}
-  soundSource: {fileID: 0}
+  splashSound: {fileID: 8300000, guid: 46919ae8af28c4a5c92e58e582fb4989, type: 3}
+  soundSource: {fileID: 82059304793915858}
 --- !u!114 &114368879765806742
 MonoBehaviour:
   m_ObjectHideFlags: 1
