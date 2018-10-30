@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ *	This script maintains the fish's oxygen level. Oxygen acts as a time limit.
+
+ *	While the fish is not in water, its oxygen bar slowly depletes. If the fish runs out of oxygen it respawns.
+ *	Water sources instantly fill the oxygen bar.
+ */
 public class FishOxygen : MonoBehaviour
 {
 
-	private FishCollision fishCollision;		// other fish script
+	private FishCollision fishCollision;	// other fish script
 	public Slider oxygenSlider;
 
 	public int oxygen;
-	public int OXYGEN_MAX;
+	public int OXYGEN_MAX;					// suggest 20
 
 	public float timeLastInWater;
-	public bool inWater;
+	private bool inWater;
 
 	// Use this for initialization
 	void Start ()
@@ -39,7 +45,7 @@ public class FishOxygen : MonoBehaviour
 		{
 			SetOxygen(newOxygen);
 		}
-		if (oxygen <= 0 && fishCollision.respawning == false)
+		if (oxygen <= 0 && !fishCollision.isRespawning())
 		{
 			StartCoroutine(fishCollision.Respawn());
 		}
@@ -68,6 +74,5 @@ public class FishOxygen : MonoBehaviour
 	{
 		oxygen = val;
 		oxygenSlider.value = oxygen;
-		//print(oxygen);
 	}
 }

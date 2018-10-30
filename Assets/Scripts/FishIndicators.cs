@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ *	This script displays a jump indicator when called for by the FishMovement script.
+ *	
+ *	- fishKinematic is a ghost fish that points in the jump direction like an arrow.
+ *	- distanceMeasure is a line that points in the jump direction. Its length is the maximum jump distance.
+ *	- distanceBar is a moving bar perpendicular to the distanceMeasure. It moves up and down the distanceMeasure according to jump charge.
+ *	  distanceBar's location is where the fish is estimated to land.
+ */
 public class FishIndicators : MonoBehaviour
 {
 
@@ -12,7 +20,7 @@ public class FishIndicators : MonoBehaviour
 	private PowerBar powerBar;				// other fish script
 
 	public float scale;						// calibrate how far the moving distance bar travels
-	public bool active;
+	private bool active;
 
 	// Use this for initialization
 	void Start ()
@@ -46,7 +54,7 @@ public class FishIndicators : MonoBehaviour
 	}
 
 	/*
-	 * Moves and rotates the ghost fish, the distance tape measure, and the moving distance bar.
+	 *	Moves and rotates the ghost fish, the distance measure, and the moving distance bar.
 	 */
 	public void PointJumpIndicators(int layerMask)
 	{
@@ -61,15 +69,15 @@ public class FishIndicators : MonoBehaviour
 		if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 		{
 			// GHOST FISH
-			// move the kinematic fish to where the real fish is
+			// move the ghost fish to where the real fish is
 			fishKinematic.transform.position = new Vector3(transform.position.x, transform.position.y + 0.15f, transform.position.z);
 
-			// now make it look toward the point
+			// make the ghost fish look toward the point
 			float lookY = fishKinematic.gameObject.transform.position.y;
-			Vector3 lookAt = new Vector3(hit.point.x, lookY, hit.point.z);  // the kinematic fish will look on its own y level
+			Vector3 lookAt = new Vector3(hit.point.x, lookY, hit.point.z);  // the ghost fish will look on its own y level
 			fishKinematic.transform.LookAt(lookAt);
 
-			// store rotation for distance measure and bar
+			// store its current rotation for the distance measure and bar
 			float degrees = fishKinematic.gameObject.transform.rotation.eulerAngles.y;
 			Quaternion flatRotation = Quaternion.Euler(0, degrees, 0);
 
@@ -84,6 +92,7 @@ public class FishIndicators : MonoBehaviour
 
 
 			// DISTANCE BAR
+			// must place bar at correct distance from player fish
 			Vector3 fishPosition = transform.position;
 			float radians = degrees * Mathf.Deg2Rad;
 			float distance = powerBar.GetCurrentPower() * scale;

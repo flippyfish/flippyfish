@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /**
-*	This script is acts as the main communicator between the user and the fish character.
+*	This script is the main communicator between the user and the fish character.
 *   This script allows for:
 *       - Holding of left-click which will charge a jump,
-*       - Aiming of a jump by making the fish turn toward the mouse
-*       - Releasing of left-click which will propel the fish if their is a current charge
+*       - Aiming of a jump by making a jump indicator turn toward the mouse
+*       - Releasing of left-click which will propel the fish according to charge
 *       - Right-clicking to cancel a current charge
 */
 public class FishMovement : MonoBehaviour
@@ -19,8 +19,8 @@ public class FishMovement : MonoBehaviour
 
     public Text jumpCounter;
 
-    public int variance;						// maximum random euler angle applied to a jump
-    public int layerMask = 1 << 9;              // we will only raycast onto layer 9
+    public int angleVariance;					// maximum random euler angle applied to a jump
+    public int layerMask = 1 << 9;              // we will only raycast onto layer 9 (note that layers 1 to 8 are already claimed by Unity)
 
     public bool isGrounded;                     // can only charge a leap while grounded
     public bool inControl;						// set to false upon level completion, or when about to respawn
@@ -50,21 +50,23 @@ public class FishMovement : MonoBehaviour
     void Update()
     {
         if (inControl)
+        {
             MouseBehavior();
+        }
     }
 
     /**
-	*	If the left mouse button is held down, the fish will rotate toward the cursor and charge.
-	*	If the left mouse button is released and the fish is charged, it will leap toward the cursor.
-	*/
+	 *	If the left mouse button is held down, the fish will charge.
+	 *	If the left mouse button is released and the fish is charged, it will leap toward the cursor.
+	 */
     void MouseBehavior()
     {
-        if (Input.GetMouseButton(0) && isGrounded)  // IF HOLDING DOWN THE MOUSE
+        if (Input.GetMouseButton(0) && isGrounded)  // IF HOLDING DOWN LEFT-CLICK
         {
             ChargeJump();
         }
 
-        if (Input.GetMouseButtonUp(0) && isGrounded)    // WHEN THE MOUSE IS RELEASED
+        if (Input.GetMouseButtonUp(0) && isGrounded)    // WHEN LEFT-CLICK IS RELEASED
         {
             ReleaseJump();
         }
@@ -87,7 +89,7 @@ public class FishMovement : MonoBehaviour
     // Called during a frame when the mouse is released (ie. it was held the previous frame) and the fish is grounded.
     public void ReleaseJump()
     {
-        if (canceledClick)//player wants to cancel current jump so we ignore the current click
+        if (canceledClick)	// player wants to cancel current jump so we ignore the current click
         {
             canceledClick = false;
             return;
@@ -99,25 +101,26 @@ public class FishMovement : MonoBehaviour
             // apply small random rotation
             if (charge > 1)
             {
-                transform.rotation = transform.rotation * Quaternion.Euler(0, Random.Range(-variance * charge, variance * charge), 0);
+                transform.rotation *= Quaternion.Euler(0, Random.Range(-angleVariance * charge, angleVariance * charge), 0);
             }
-            DoJump(powerBar.GetCurrentPower());
+            DoJump(charge);
         }
     }
 
 
     /*
-     * This jump function assumes the fish is already pointing in the correct direction.
-     * Call this after PointToCursor().
+     *	This jump function assumes the fish is already pointing in the correct direction.
+     *	Call this after PointToCursor().
      */
     public void DoJump(float charge)
     {
         // give the fish a spin
-        // the x y z values of angularVelocity are NOT relative to the current rotation!
+        // the x y z values of rb.angularVelocity are NOT relative to the current rotation!
         // so we localize these x y z values using sine and cosine functions
         float radians = transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
-        float spinA = 4.0f * Mathf.Cos(radians);
-        float spinB = 4.0f * Mathf.Sin(radians);
+        float spinStr = 4.0f;
+        float spinA = spinStr * Mathf.Cos(radians);
+        float spinB = spinStr * Mathf.Sin(radians);
         int chooseSpin = Random.Range(0, 2);
         if (chooseSpin == 1)
         {   // spin along x axis
@@ -127,10 +130,12 @@ public class FishMovement : MonoBehaviour
         {   // spin along z axis
             rb.angularVelocity = new Vector3(spinB, 0.0f, spinA);
         }
+
         // apply the jump force!
         // note that the x, y, and z values of the jump vector are the strength in each direction
         Vector3 jump = transform.forward;
-        jump = new Vector3(jump.x, 1.5f, jump.z);
+        float jumpHeight = 1.5f;
+        jump = new Vector3(jump.x, jumpHeight, jump.z);
         float str = (charge + 1.0f) * 3.0f;
         jump = jump * str;
         rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
@@ -148,7 +153,9 @@ public class FishMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + 0.15f, transform.position.z);
+        	// lift the fish slightly first
+        	float yOffset = 0.15f;
+            transform.position += new Vector3(0.0f, yOffset, 0.0f);
             Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);   // the fish will look on its own y level
             transform.LookAt(lookAt);
         }

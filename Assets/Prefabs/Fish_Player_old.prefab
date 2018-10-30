@@ -421,7 +421,6 @@ MonoBehaviour:
   oxygen: 0
   OXYGEN_MAX: 20
   timeLastInWater: 0
-  inWater: 0
 --- !u!114 &114588387196362952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,7 +439,6 @@ MonoBehaviour:
   distanceBar: {fileID: 1870481457817748, guid: ff3901c6a0aa74c78968cc86d4f12626,
     type: 2}
   scale: 5
-  active: 0
 --- !u!114 &114681065176103876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -454,7 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishSound: {fileID: 8300000, guid: c31894192947c4a51aa58e68d6d010ed, type: 3}
   jumpSound: {fileID: 8300000, guid: cb334b886b0b846d4bd8d22032596ed0, type: 3}
-  splashSound: {fileID: 0}
+  splashSound: {fileID: 8300000, guid: 46919ae8af28c4a5c92e58e582fb4989, type: 3}
   soundSource: {fileID: 82680872989380386}
 --- !u!114 &114791707244458180
 MonoBehaviour:
@@ -468,7 +466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winScreen: {fileID: 0}
-  respawning: 0
   respawnTime: 1
 --- !u!114 &114926156996930008
 MonoBehaviour:
@@ -482,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpCounter: {fileID: 0}
-  variance: 0
+  angleVariance: 0
   layerMask: 512
   isGrounded: 0
   inControl: 0

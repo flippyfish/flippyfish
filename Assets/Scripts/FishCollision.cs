@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ *	This script handles interactions between the player fish and collider/trigger objects.
+ *	Because it detects collisions with obstacles, it also contains the respawn script.
+
+ *	The FishOxygen script relies on this script for pond and water detection.
+ */
 public class FishCollision : MonoBehaviour
 {
 
@@ -12,7 +18,7 @@ public class FishCollision : MonoBehaviour
 
 	Rigidbody rb;
 
-	public bool respawning;		// to avoid simultaneous respawn calls
+	private bool respawning;		// to avoid simultaneous respawn calls
 	public float respawnTime;
 
 	void Start()
@@ -23,6 +29,15 @@ public class FishCollision : MonoBehaviour
 		respawning = false;
 	}
 
+	public bool isRespawning()
+	{
+		return respawning;
+	}
+
+	/**
+	 *	For the respawn duration, set the fish's position to the given seagull's position.
+	 *	When using this, call at the same time as Respawn().
+	 */
 	public IEnumerator TakenBySeagull(GameObject seagull)
 	{
 		float elapsedTime = 0;
@@ -37,24 +52,31 @@ public class FishCollision : MonoBehaviour
 		rb.isKinematic = false;
 	}
 
+	/**
+	 *	Disables charging and releasing jumps for the respawn duration.
+	 *	Respawns the fish after the duration has passed.
+	 */
 	public IEnumerator Respawn()
 	{
-		respawning = true;
-		fishMovement.inControl = false;
-		yield return new WaitForSeconds(respawnTime);
+		if (!respawning)
+		{
+			respawning = true;
+			fishMovement.inControl = false;
+			yield return new WaitForSeconds(respawnTime);
 
-		rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-		transform.rotation = fishMovement.respawnRotation;
-		transform.position = fishMovement.respawnPosition;
+			rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+			transform.rotation = fishMovement.respawnRotation;
+			transform.position = fishMovement.respawnPosition;
 
-		fishMovement.ResetSliderAndFish();
-		fishMovement.inControl = true;
-		fishMovement.isGrounded = false;
+			fishMovement.ResetSliderAndFish();
+			fishMovement.inControl = true;
+			fishMovement.isGrounded = false;
 
-		fishOxygen.SetOxygen(fishOxygen.OXYGEN_MAX);
-		fishOxygen.timeLastInWater = Time.time;
+			fishOxygen.SetOxygen(fishOxygen.OXYGEN_MAX);
+			fishOxygen.timeLastInWater = Time.time;
 
-		respawning = false;
+			respawning = false;
+		}
 	}
 	
 	// for solid objects the fish hits, eg. a car
@@ -68,7 +90,6 @@ public class FishCollision : MonoBehaviour
 		{
             if (fishMovement.inControl)
 			{
-				fishMovement.inControl = false;
 				fishMovement.isGrounded = false;
 				StartCoroutine(Respawn());
 			}
@@ -78,11 +99,10 @@ public class FishCollision : MonoBehaviour
 	// for objects the fish can move through, eg. a pond
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag == "Obstacle")	// hit an obstacle, respawn at start
+		if (other.tag == "Obstacle")	// hit an obstacle, respawn
 		{
 			if (fishMovement.inControl)
 			{
-				fishMovement.inControl = false;
 				StartCoroutine(Respawn());
 			}
 		}
@@ -90,24 +110,24 @@ public class FishCollision : MonoBehaviour
 		{
 			if (fishMovement.inControl)
 			{
-				fishMovement.inControl = false;
 				StartCoroutine(TakenBySeagull(other.gameObject));
 				StartCoroutine(Respawn());
 			}
 		}
 		if (other.tag == "Water")		// update oxygen, but NOT respawn point
 		{
+			GetComponent<FishSound>().playSplashSound();
 			fishOxygen.EnterWater();
 		}
-		if (other.tag == "Pond")		// update oxygen, respawn point
+		if (other.tag == "Pond")		// update oxygen and respawn point
 		{
 			GetComponent<FishSound>().playSplashSound();
-			// oxygen
 			fishOxygen.EnterWater();
 
 			// respawn point
 			Vector3 pondPos = other.transform.position;
-			fishMovement.respawnPosition = new Vector3(pondPos.x, pondPos.y + 2f, pondPos.z);
+			float yOffset = 2.0f;	// keep the fish out of any colliders beneath it
+			fishMovement.respawnPosition = new Vector3(pondPos.x, pondPos.y + yOffset, pondPos.z);
 		}
 		if (other.tag == "Goal")		// end of level
 		{
@@ -121,6 +141,7 @@ public class FishCollision : MonoBehaviour
 		}
 	}
 
+	// for objects the fish can move through, eg. a pond
 	void OnTriggerExit (Collider other)
 	{
 		if (other.tag == "Water")
@@ -137,12 +158,15 @@ public class FishCollision : MonoBehaviour
 		}
 	}
 
-	// detect when the fish has landed and come to a stop
+	/**
+	 *	Detect when the fish has landed and come to a near-stop, so we can charge another jump.
+	 */
 	void OnCollisionStay()
 	{
-        if (fishMovement.inControl && !fishMovement.isGrounded && rb.velocity.magnitude < 1.5f)
+		float threshold = 1.5f;	// check if magnitude of fish velocity is less than this value
+        if (fishMovement.inControl && !fishMovement.isGrounded && rb.velocity.magnitude < threshold)
 		{
-            fishMovement.isGrounded = true; // now we can charge another jump
+            fishMovement.isGrounded = true;
         }
 	}
 }
