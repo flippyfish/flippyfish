@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.73024184, g: 0.78898203, b: 0.8498679, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -269,11 +269,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 28813589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fc2ff55022bd646a039e7249d68a54, type: 3}
+  m_Script: {fileID: 11500000, guid: a5bbfe9e8b747d448a781a2e58ed2306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charge: 0.88
-  targetName: 
+  charge: 1.3
+  angle: 0
 --- !u!65 &28813591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3629,11 +3629,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 335160017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fc2ff55022bd646a039e7249d68a54, type: 3}
+  m_Script: {fileID: 11500000, guid: a5bbfe9e8b747d448a781a2e58ed2306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charge: 0.88
-  targetName: 
+  charge: 2.5
+  angle: 0
 --- !u!65 &335160019
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3984,11 +3984,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 363705669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fc2ff55022bd646a039e7249d68a54, type: 3}
+  m_Script: {fileID: 11500000, guid: a5bbfe9e8b747d448a781a2e58ed2306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charge: 1.02
-  targetName: 
+  charge: 1.3
+  angle: 0
 --- !u!65 &363705671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7818,11 +7818,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 953550425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fc2ff55022bd646a039e7249d68a54, type: 3}
+  m_Script: {fileID: 11500000, guid: a5bbfe9e8b747d448a781a2e58ed2306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charge: 1.02
-  targetName: 
+  charge: 1.3
+  angle: 0
 --- !u!65 &953550427
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8432,11 +8432,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1013074967}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fc2ff55022bd646a039e7249d68a54, type: 3}
+  m_Script: {fileID: 11500000, guid: a5bbfe9e8b747d448a781a2e58ed2306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charge: 0.88
-  targetName: 
+  charge: 1
+  angle: 0
 --- !u!65 &1013074969
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9809,11 +9809,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1260617411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fc2ff55022bd646a039e7249d68a54, type: 3}
+  m_Script: {fileID: 11500000, guid: a5bbfe9e8b747d448a781a2e58ed2306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charge: 0.88
-  targetName: 
+  charge: 0.5
+  angle: 90
 --- !u!65 &1260617413
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10902,11 +10902,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1395569227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fc2ff55022bd646a039e7249d68a54, type: 3}
+  m_Script: {fileID: 11500000, guid: a5bbfe9e8b747d448a781a2e58ed2306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charge: 1.02
-  targetName: 
+  charge: 1
+  angle: 0
 --- !u!65 &1395569229
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13585,11 +13585,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1716403887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fc2ff55022bd646a039e7249d68a54, type: 3}
+  m_Script: {fileID: 11500000, guid: a5bbfe9e8b747d448a781a2e58ed2306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charge: 0.88
-  targetName: 
+  charge: 0.5
+  angle: 270
 --- !u!65 &1716403889
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16949,11 +16949,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2122581382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fc2ff55022bd646a039e7249d68a54, type: 3}
+  m_Script: {fileID: 11500000, guid: a5bbfe9e8b747d448a781a2e58ed2306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charge: 1.02
-  targetName: 
+  charge: 1
+  angle: 0
 --- !u!65 &2122581384
 BoxCollider:
   m_ObjectHideFlags: 0

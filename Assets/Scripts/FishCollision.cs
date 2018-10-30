@@ -60,7 +60,10 @@ public class FishCollision : MonoBehaviour
 	// for solid objects the fish hits, eg. a car
 	void OnCollisionEnter(Collision collision)
 	{
-        GetComponent<FishSound>().playFishSound();
+		if (!fishOxygen.fishInWater())
+		{
+        	GetComponent<FishSound>().playFishSound();
+        }
         if (collision.gameObject.tag == "Obstacle")
 		{
             if (fishMovement.inControl)
@@ -98,6 +101,7 @@ public class FishCollision : MonoBehaviour
 		}
 		if (other.tag == "Pond")		// update oxygen, respawn point
 		{
+			GetComponent<FishSound>().playSplashSound();
 			// oxygen
 			fishOxygen.EnterWater();
 

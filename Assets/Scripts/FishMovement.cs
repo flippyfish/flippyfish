@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /**
-*	Hold left-click to charge a leap, and release left-click to jump.
-	The fish will turn toward the mouse when charging a leap.
+*	This script is acts as the main communicator between the user and the fish character.
+*   This script allows for:
+*       - Holding of left-click which will charge a jump,
+*       - Aiming of a jump by making the fish turn toward the mouse
+*       - Releasing of left-click which will propel the fish if their is a current charge
+*       - Right-clicking to cancel a current charge
 */
 public class FishMovement : MonoBehaviour
 {
@@ -21,7 +25,7 @@ public class FishMovement : MonoBehaviour
     public bool isGrounded;                     // can only charge a leap while grounded
     public bool inControl;						// set to false upon level completion, or when about to respawn
 
-    public bool canceledClick;                  // determines whether a held click   is to be canceled or not
+    public bool canceledClick;                  // determines whether a held click is to be canceled or not
 
     public Quaternion respawnRotation;
     public Vector3 respawnPosition;
@@ -86,11 +90,6 @@ public class FishMovement : MonoBehaviour
         if (canceledClick)//player wants to cancel current jump so we ignore the current click
         {
             canceledClick = false;
-            return;
-        }
-        else if (false)//(charge < 0.25)
-        {
-            ResetSliderAndFish(); //Too small of a charge does not trigger jump
             return;
         }
         else

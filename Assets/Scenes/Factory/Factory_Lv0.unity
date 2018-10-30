@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.43685707, g: 0.4845031, b: 0.5647577, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.43685725, g: 0.4845037, b: 0.564758, a: 1}
+>>>>>>> 5db55bc28f3c660a67807d4307a2927cfba2d4a0
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7962,21 +7966,6 @@ Prefab:
       propertyPath: sliderBackground
       value: 
       objectReference: {fileID: 1424155083}
-    - target: {fileID: 114681065176103876, guid: 6edcbaf2b095f47d8beaf35868336861,
-        type: 2}
-      propertyPath: fishSound
-      value: 
-      objectReference: {fileID: 8300000, guid: cb334b886b0b846d4bd8d22032596ed0, type: 3}
-    - target: {fileID: 114681065176103876, guid: 6edcbaf2b095f47d8beaf35868336861,
-        type: 2}
-      propertyPath: soundSource
-      value: 
-      objectReference: {fileID: 912038176}
-    - target: {fileID: 114681065176103876, guid: 6edcbaf2b095f47d8beaf35868336861,
-        type: 2}
-      propertyPath: jumpSound
-      value: 
-      objectReference: {fileID: 8300000, guid: c31894192947c4a51aa58e68d6d010ed, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
   m_IsPrefabAsset: 0
@@ -14160,11 +14149,6 @@ Prefab:
 --- !u!1 &912038169 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1644825279557514, guid: 6edcbaf2b095f47d8beaf35868336861,
-    type: 2}
-  m_PrefabInternal: {fileID: 500282338}
---- !u!82 &912038176 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 82680872989380386, guid: 6edcbaf2b095f47d8beaf35868336861,
     type: 2}
   m_PrefabInternal: {fileID: 500282338}
 --- !u!1001 &918023670
@@ -22404,6 +22388,7 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
+<<<<<<< HEAD
       objectReference: {fileID: 0}
     - target: {fileID: 224374073419849750, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
         type: 2}
@@ -22419,6 +22404,8 @@ Prefab:
         type: 2}
       propertyPath: m_LocalScale.z
       value: 0
+=======
+>>>>>>> 5db55bc28f3c660a67807d4307a2927cfba2d4a0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}
@@ -25489,7 +25476,11 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
+<<<<<<< HEAD
   m_Color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+=======
+  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+>>>>>>> 5db55bc28f3c660a67807d4307a2927cfba2d4a0
   m_Intensity: 1.2
   m_Range: 10
   m_SpotAngle: 30
