@@ -3020,6 +3020,7 @@ GameObject:
   - component: {fileID: 347494430}
   - component: {fileID: 347494429}
   - component: {fileID: 347494428}
+  - component: {fileID: 347494431}
   m_Layer: 0
   m_Name: cardboard_box (8)
   m_TagString: Untagged
@@ -3085,6 +3086,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 87
   m_LocalEulerAnglesHint: {x: 0, y: 49.801003, z: 0}
+--- !u!64 &347494431
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 347494427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300102, guid: 2e326ec653b97f143ad0bba4276ef50d, type: 3}
 --- !u!1001 &351314843
 Prefab:
   m_ObjectHideFlags: 0
@@ -3638,8 +3653,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 45.85054, y: 61.915085, z: 23.46087}
-  m_Center: {x: -266.6846, y: 99.55716, z: -69.20519}
+  m_Size: {x: 50.48271, y: 61.915085, z: 11.812282}
+  m_Center: {x: -269.00055, y: 99.55713, z: -81.55406}
 --- !u!1 &403186544 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: d32039043753a414eaf445ae15ab1b4a,
@@ -3843,6 +3858,7 @@ GameObject:
   - component: {fileID: 435740489}
   - component: {fileID: 435740488}
   - component: {fileID: 435740487}
+  - component: {fileID: 435740490}
   m_Layer: 0
   m_Name: cardboard_box (11)
   m_TagString: Untagged
@@ -3908,6 +3924,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 91
   m_LocalEulerAnglesHint: {x: 0, y: 16.707, z: 0}
+--- !u!64 &435740490
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 435740486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300102, guid: 2e326ec653b97f143ad0bba4276ef50d, type: 3}
 --- !u!1 &440996438
 GameObject:
   m_ObjectHideFlags: 0
@@ -6205,6 +6235,7 @@ GameObject:
   - component: {fileID: 777484280}
   - component: {fileID: 777484279}
   - component: {fileID: 777484278}
+  - component: {fileID: 777484281}
   m_Layer: 0
   m_Name: ledge
   m_TagString: Untagged
@@ -6270,6 +6301,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!64 &777484281
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 777484277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300086, guid: 2e326ec653b97f143ad0bba4276ef50d, type: 3}
 --- !u!1 &795968061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: d32039043753a414eaf445ae15ab1b4a,
@@ -7148,6 +7193,7 @@ GameObject:
   - component: {fileID: 961790374}
   - component: {fileID: 961790373}
   - component: {fileID: 961790372}
+  - component: {fileID: 961790375}
   m_Layer: 0
   m_Name: cardboard_box (1)
   m_TagString: Untagged
@@ -7213,6 +7259,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 79
   m_LocalEulerAnglesHint: {x: 0, y: -8.9470005, z: 0}
+--- !u!64 &961790375
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 961790371}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300102, guid: 2e326ec653b97f143ad0bba4276ef50d, type: 3}
 --- !u!1001 &967227118
 Prefab:
   m_ObjectHideFlags: 0
@@ -10048,6 +10108,7 @@ GameObject:
   - component: {fileID: 1265350439}
   - component: {fileID: 1265350438}
   - component: {fileID: 1265350437}
+  - component: {fileID: 1265350440}
   m_Layer: 0
   m_Name: cardboard_box (7)
   m_TagString: Untagged
@@ -10113,6 +10174,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 86
   m_LocalEulerAnglesHint: {x: 0, y: -45.676003, z: 0}
+--- !u!64 &1265350440
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1265350436}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300102, guid: 2e326ec653b97f143ad0bba4276ef50d, type: 3}
 --- !u!4 &1291897138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c4c55f333e36040ac8feb2526e2ebbbb,
@@ -10540,6 +10615,7 @@ GameObject:
   - component: {fileID: 1338997929}
   - component: {fileID: 1338997928}
   - component: {fileID: 1338997927}
+  - component: {fileID: 1338997930}
   m_Layer: 0
   m_Name: cardboard_box
   m_TagString: Untagged
@@ -10605,6 +10681,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 12.366, z: 0}
+--- !u!64 &1338997930
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1338997926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300102, guid: 2e326ec653b97f143ad0bba4276ef50d, type: 3}
 --- !u!1 &1345653174 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: d32039043753a414eaf445ae15ab1b4a,
@@ -12478,6 +12568,7 @@ GameObject:
   - component: {fileID: 1531753577}
   - component: {fileID: 1531753576}
   - component: {fileID: 1531753575}
+  - component: {fileID: 1531753578}
   m_Layer: 0
   m_Name: cardboard_box (10)
   m_TagString: Untagged
@@ -12543,6 +12634,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 89
   m_LocalEulerAnglesHint: {x: 0, y: -24.362001, z: 0}
+--- !u!64 &1531753578
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1531753574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300102, guid: 2e326ec653b97f143ad0bba4276ef50d, type: 3}
 --- !u!1 &1534068394
 GameObject:
   m_ObjectHideFlags: 0
@@ -16587,6 +16692,7 @@ GameObject:
   - component: {fileID: 1975174574}
   - component: {fileID: 1975174573}
   - component: {fileID: 1975174572}
+  - component: {fileID: 1975174575}
   m_Layer: 0
   m_Name: cardboard_box (6)
   m_TagString: Untagged
@@ -16652,6 +16758,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 85
   m_LocalEulerAnglesHint: {x: 0, y: -24.362001, z: 0}
+--- !u!64 &1975174575
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1975174571}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300102, guid: 2e326ec653b97f143ad0bba4276ef50d, type: 3}
 --- !u!1001 &1980948176
 Prefab:
   m_ObjectHideFlags: 0
@@ -17422,6 +17542,7 @@ GameObject:
   - component: {fileID: 2076147928}
   - component: {fileID: 2076147927}
   - component: {fileID: 2076147926}
+  - component: {fileID: 2076147929}
   m_Layer: 0
   m_Name: cardboard_box (2)
   m_TagString: Untagged
@@ -17487,6 +17608,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 80
   m_LocalEulerAnglesHint: {x: 0, y: 86.52901, z: 0}
+--- !u!64 &2076147929
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076147925}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300102, guid: 2e326ec653b97f143ad0bba4276ef50d, type: 3}
 --- !u!1001 &2078607289
 Prefab:
   m_ObjectHideFlags: 0
@@ -17576,6 +17711,7 @@ GameObject:
   - component: {fileID: 2081443135}
   - component: {fileID: 2081443134}
   - component: {fileID: 2081443133}
+  - component: {fileID: 2081443136}
   m_Layer: 0
   m_Name: cardboard_box (9)
   m_TagString: Untagged
@@ -17641,6 +17777,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 88
   m_LocalEulerAnglesHint: {x: 0, y: -24.362001, z: 0}
+--- !u!64 &2081443136
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2081443132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300102, guid: 2e326ec653b97f143ad0bba4276ef50d, type: 3}
 --- !u!1 &2097981229
 GameObject:
   m_ObjectHideFlags: 0
