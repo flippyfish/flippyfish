@@ -14,8 +14,9 @@ using UnityEngine.UI;
 public class FishCollision : MonoBehaviour
 {
 
-	private FishMovement fishMovement;		// other fish script
-	private FishOxygen   fishOxygen;		// other fish script
+	private FishMovement   fishMovement;	// other fish script
+	private FishOxygen     fishOxygen;		// other fish script
+	private FishIndicators fishIndicators;	// other fish script
 	public GameObject winScreen;
 
 	Rigidbody rb;
@@ -26,8 +27,9 @@ public class FishCollision : MonoBehaviour
 
 	void Start()
 	{
-		fishMovement = GetComponent<FishMovement>();
-		fishOxygen   = GetComponent<FishOxygen>();
+		fishMovement   = GetComponent<FishMovement>();
+		fishOxygen     = GetComponent<FishOxygen>();
+		fishIndicators = GetComponent<FishIndicators>();
 		rb = GetComponent<Rigidbody>();
 		respawning = false;
 		wonLevel = false;
@@ -66,6 +68,7 @@ public class FishCollision : MonoBehaviour
 		{
 			respawning = true;
 			fishMovement.inControl = false;
+			fishIndicators.StopIndicators();
 			yield return new WaitForSeconds(respawnTime);
 
 			rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
