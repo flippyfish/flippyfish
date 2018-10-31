@@ -1326,12 +1326,43 @@ Prefab:
     - target: {fileID: 114933340297500756, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: MainMenu
+      value: EndCredits
       objectReference: {fileID: 0}
     - target: {fileID: 114510501047259514, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: beach level
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470883247739894, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484923359938556, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114837221039223448, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+        type: 2}
+      propertyPath: m_Text
+      value: Credits
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948754422947362, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}
+      propertyPath: m_Name
+      value: Credits
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731972158547742, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}
+      propertyPath: m_Name
+      value: Credits text
+      objectReference: {fileID: 0}
+    - target: {fileID: 224020730320747668, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 224235187473802780, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}
