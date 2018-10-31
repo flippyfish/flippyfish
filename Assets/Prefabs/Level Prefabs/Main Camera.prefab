@@ -102,9 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  xOffset: -4
-  yOffset: 3
-  zOffset: -4
+  xOffset: -5.5
+  yOffset: 4
+  zOffset: -5.5
   zoomSpeed: 2
   zoomYMin: 2
   zoomYMax: 8

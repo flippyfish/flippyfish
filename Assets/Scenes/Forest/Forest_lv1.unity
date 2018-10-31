@@ -2931,11 +2931,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114353206652210138, guid: ea81a6488fb284d97843ee0cc0dd487a,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1393344193}
     - target: {fileID: 20087569075944648, guid: ea81a6488fb284d97843ee0cc0dd487a,
         type: 2}
       propertyPath: m_BackGroundColor.r
@@ -2953,19 +2948,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114353206652210138, guid: ea81a6488fb284d97843ee0cc0dd487a,
         type: 2}
-      propertyPath: zOffset
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114353206652210138, guid: ea81a6488fb284d97843ee0cc0dd487a,
-        type: 2}
-      propertyPath: yOffset
-      value: 4.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114353206652210138, guid: ea81a6488fb284d97843ee0cc0dd487a,
-        type: 2}
-      propertyPath: xOffset
-      value: -5
-      objectReference: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1393344193}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea81a6488fb284d97843ee0cc0dd487a, type: 2}
   m_IsPrefabAsset: 0
