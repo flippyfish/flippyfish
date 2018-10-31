@@ -19,6 +19,7 @@ public class BGM : MonoBehaviour
 	public AudioClip bgmCity;
 	public AudioClip bgmForest;
 	public AudioClip bgmBeach;
+	public AudioClip bgmCredits;
 	private AudioSource audioSource;
 
 	private int zone;		// -1	No BGM
@@ -27,6 +28,7 @@ public class BGM : MonoBehaviour
 							//  2	City
 							//  3	Forest
 							//  4	Beach
+							//	5	Credits
 
 	public static BGM GetInstance()
 	{
@@ -112,6 +114,10 @@ public class BGM : MonoBehaviour
 		{
 			audioSource.clip = bgmBeach;
 		}
+		else if (zone == 5)
+		{
+			audioSource.clip = bgmCredits;
+		}
 		audioSource.Play();
 	}
 
@@ -139,6 +145,10 @@ public class BGM : MonoBehaviour
 		else if (scene.name == "beach level")
 		{
 			return 4;
+		}
+		else if (scene.name == "EndCredits")
+		{
+			return 5;
 		}
 		else
 		{
