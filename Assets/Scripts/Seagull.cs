@@ -13,6 +13,10 @@ public class Seagull : MonoBehaviour
 	private GameObject shadow;
 	public GameObject shadowPrefab;
 
+	public float shadowYOffset;			// because ground level is relative to the current level
+	public float initialDelay;
+	public float loopDelay;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -24,33 +28,34 @@ public class Seagull : MonoBehaviour
 
 	IEnumerator SeagullLoop()
 	{
-		yield return new WaitForSeconds(1.0f);	// if there is a pond at start, let the fish enter it first
+		yield return new WaitForSeconds(initialDelay);	// if there is a pond at start, let the fish enter it first
 		while (true)
 		{
-			// don't swoop onto the fish if it's in a pond
-			while (isFishSafe())
+			yield return new WaitForSeconds(loopDelay);
+			if (!isFishSafe())	// don't swoop onto the fish if it's in a pond
 			{
-				yield return new WaitForSeconds(2.0f);
+				float fishX = fish.transform.position.x;
+				float fishZ = fish.transform.position.z;
+				Vector3 shadowPosition = new Vector3(fishX, shadowYOffset, fishZ);
+				shadow = Instantiate(shadowPrefab, shadowPosition, Quaternion.identity);
+				yield return new WaitForSeconds(1.0f);
+
+				// swoop onto the fish's location
+				transform.LookAt(shadowPosition);
+				StartCoroutine(MoveOverSeconds(shadowPosition, 1.5f));
+				yield return new WaitForSeconds(1.5f);
+
+				// fly back into the air
+				Destroy(shadow);
+				Vector3 nextAirPosition = CreateAirPosition();
+				transform.LookAt(nextAirPosition);
+				StartCoroutine(MoveOverSeconds(nextAirPosition, 1.5f));
+				yield return new WaitForSeconds(1.5f);
 			}
-			yield return new WaitForSeconds(1.0f);
-
-			float fishX = fish.transform.position.x;
-			float fishZ = fish.transform.position.z;
-			Vector3 shadowPosition = new Vector3(fishX, 0.5f, fishZ);
-			shadow = Instantiate(shadowPrefab, shadowPosition, Quaternion.identity);
-			yield return new WaitForSeconds(1.0f);
-
-			// swoop onto the fish's location
-			transform.LookAt(shadowPosition);
-			StartCoroutine(MoveOverSeconds(shadowPosition, 1.5f));
-			yield return new WaitForSeconds(1.5f);
-
-			// fly back into the air
-			Destroy(shadow);
-			Vector3 nextAirPosition = CreateAirPosition();
-			transform.LookAt(nextAirPosition);
-			StartCoroutine(MoveOverSeconds(nextAirPosition, 1.5f));
-			yield return new WaitForSeconds(1.5f);
+			else
+			{
+				yield return new WaitForSeconds(4.0f);	// equivalent to time of above section
+			}
 		}
 	}
 

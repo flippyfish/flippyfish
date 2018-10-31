@@ -1844,6 +1844,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowPrefab: {fileID: 1496680449299776, guid: 04b6455acf674154f862d41a9c5dc89f,
     type: 2}
+  shadowYOffset: 0
+  initialDelay: 1
+  loopDelay: 1
 --- !u!135 &135501600036811018
 SphereCollider:
   m_ObjectHideFlags: 1
