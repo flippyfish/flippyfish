@@ -1854,12 +1854,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4995938954592822, guid: dcb3013dc2542d0499d2d7cc2a873b36, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224840864982852234, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 224371267942408864, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmMainMenu: {fileID: 8300000, guid: ca6b832a995744d45bf74d84697624a5, type: 3}
-  bgmFactory: {fileID: 8300000, guid: ca6b832a995744d45bf74d84697624a5, type: 3}
-  bgmCity: {fileID: 8300000, guid: ca6b832a995744d45bf74d84697624a5, type: 3}
-  bgmForest: {fileID: 8300000, guid: ca6b832a995744d45bf74d84697624a5, type: 3}
-  bgmBeach: {fileID: 8300000, guid: ca6b832a995744d45bf74d84697624a5, type: 3}
+  bgmFactory: {fileID: 8300000, guid: 6fc81330b0eda4371a7140e3d8f7089d, type: 3}
+  bgmCity: {fileID: 8300000, guid: 1e14f50f597e04bcea502a43b9dffc2c, type: 3}
+  bgmForest: {fileID: 8300000, guid: 3d5222b9a41694422bcf8c353e2b6b05, type: 3}
+  bgmBeach: {fileID: 8300000, guid: 67f0f9356e6524026a9bf46fcc31912d, type: 3}
