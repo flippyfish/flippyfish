@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 /**
  *	This script handles interactions between the player fish and collider/trigger objects.
+ *
  *	Because it detects collisions with obstacles, it also contains the respawn script.
-
+ *	Similarly it displays the win screen upon level completion.
+ *
  *	The FishOxygen script relies on this script for pond and water detection.
  */
 public class FishCollision : MonoBehaviour
@@ -20,6 +22,7 @@ public class FishCollision : MonoBehaviour
 
 	private bool respawning;		// to avoid simultaneous respawn calls
 	public float respawnTime;
+	private bool wonLevel;
 
 	void Start()
 	{
@@ -27,6 +30,7 @@ public class FishCollision : MonoBehaviour
 		fishOxygen   = GetComponent<FishOxygen>();
 		rb = GetComponent<Rigidbody>();
 		respawning = false;
+		wonLevel = false;
 	}
 
 	public bool isRespawning()
@@ -58,7 +62,7 @@ public class FishCollision : MonoBehaviour
 	 */
 	public IEnumerator Respawn()
 	{
-		if (!respawning)
+		if (!respawning && !wonLevel)
 		{
 			respawning = true;
 			fishMovement.inControl = false;
@@ -88,31 +92,27 @@ public class FishCollision : MonoBehaviour
         }
         if (collision.gameObject.tag == "Obstacle")
 		{
-            if (fishMovement.inControl)
-			{
-				fishMovement.isGrounded = false;
-				StartCoroutine(Respawn());
-			}
+            fishMovement.isGrounded = false;
+			StartCoroutine(Respawn());
 		}
 	}
 
 	// for objects the fish can move through, eg. a pond
 	void OnTriggerEnter (Collider other)
 	{
+		if (respawning || wonLevel)
+		{
+			return;
+		}
+
 		if (other.tag == "Obstacle")	// hit an obstacle, respawn
 		{
-			if (fishMovement.inControl)
-			{
-				StartCoroutine(Respawn());
-			}
+			StartCoroutine(Respawn());
 		}
 		if (other.tag == "Seagull")		// respawn, but the seagull picks up the fish!!
 		{
-			if (fishMovement.inControl)
-			{
-				StartCoroutine(TakenBySeagull(other.gameObject));
-				StartCoroutine(Respawn());
-			}
+			StartCoroutine(TakenBySeagull(other.gameObject));
+			StartCoroutine(Respawn());
 		}
 		if (other.tag == "Water")		// update oxygen, but NOT respawn point
 		{
@@ -131,6 +131,7 @@ public class FishCollision : MonoBehaviour
 		}
 		if (other.tag == "Goal")		// end of level
 		{
+			wonLevel = true;
 			fishMovement.inControl = false;		// disable jumping after beating the level
 			fishOxygen.EnterWater();
 			winScreen.SetActive(true);
@@ -144,6 +145,11 @@ public class FishCollision : MonoBehaviour
 	// for objects the fish can move through, eg. a pond
 	void OnTriggerExit (Collider other)
 	{
+		if (respawning || wonLevel)
+		{
+			return;
+		}
+
 		if (other.tag == "Water")
 		{
 			fishOxygen.ExitWater();
