@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2027,13 +2027,13 @@ Prefab:
       propertyPath: m_Text
       value: "You've been caught and taken from your family in the ocean. Escape the
         factory and Flip your way back home!\n\n- Hold Left-Click to charge a jump,
-        release Left-Click to jump\n- Press 'Z' while charging to cancel jump\n- The
-        orange bar is your jump charge, the more charge the further you jump\n- Use
-        A, D / Left, Right or drag Right-Click to rotate the camera\n- Use the Scroll
-        Wheel zoom\n-The blue bar is your water meter which goes down over time, find
-        water sources \t\t\t\tto stay hydrated\n-Flip to the exit\t\t\t\tto move onto
-        the next level\n\nIf you hit a hazard ro run out of water, you respawn at
-        the latest water source you touched."
+        release Left-Click to jump\n- Right-Click while charging to cancel jump\n-
+        The orange bar is your jump charge, the more charge the further you jump\n-
+        Use A, D / Left, Right or drag Right-Click to rotate the camera\n- Zoom with
+        the scroll wheel\n-The blue bar is your water meter which goes down over time,
+        find water sources \t\t\t\tto stay hydrated\n-Flip to the exit\t\t\t\tto move
+        onto the next level\n\nIf you hit a hazard or run out of water, you respawn
+        at the latest water source you touched."
       objectReference: {fileID: 0}
     - target: {fileID: 114544671493670674, guid: dcb3013dc2542d0499d2d7cc2a873b36,
         type: 2}
