@@ -13,6 +13,8 @@ public class Seagull : MonoBehaviour
 	private GameObject shadow;
 	public GameObject shadowPrefab;
 
+	public float shadowYOffset;			// because ground level is relative to the current level
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -36,7 +38,7 @@ public class Seagull : MonoBehaviour
 
 			float fishX = fish.transform.position.x;
 			float fishZ = fish.transform.position.z;
-			Vector3 shadowPosition = new Vector3(fishX, 0.5f, fishZ);
+			Vector3 shadowPosition = new Vector3(fishX, shadowYOffset, fishZ);
 			shadow = Instantiate(shadowPrefab, shadowPosition, Quaternion.identity);
 			yield return new WaitForSeconds(1.0f);
 
