@@ -6,8 +6,8 @@ public class FishSound : MonoBehaviour {
 
     public AudioClip fishSound;
     public AudioClip jumpSound;
-    public AudioClip splashSound;
-    // don't touch. It should stay in public.
+    public AudioClip enterWaterSound;
+    public AudioClip exitWaterSound;
     public AudioSource soundSource;
 
 	// Use this for initialization
@@ -26,12 +26,13 @@ public class FishSound : MonoBehaviour {
         soundSource.Play();
     }
 
-    public void playSplashSound() {
-        soundSource.clip = splashSound;
+    public void playEnterWaterSound() {
+        soundSource.clip = enterWaterSound;
         soundSource.Play();
     }
 
-	// Update is called once per frame
-	void Update () {
-	}
+    public void playExitWaterSound() {
+        soundSource.clip = exitWaterSound;
+        soundSource.Play();
+    }
 }

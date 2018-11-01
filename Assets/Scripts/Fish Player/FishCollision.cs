@@ -119,12 +119,12 @@ public class FishCollision : MonoBehaviour
 		}
 		if (other.tag == "Water")		// update oxygen, but NOT respawn point
 		{
-			GetComponent<FishSound>().playSplashSound();
+			GetComponent<FishSound>().playEnterWaterSound();
 			fishOxygen.EnterWater();
 		}
 		if (other.tag == "Pond")		// update oxygen and respawn point
 		{
-			GetComponent<FishSound>().playSplashSound();
+			GetComponent<FishSound>().playEnterWaterSound();
 			fishOxygen.EnterWater();
 
 			// respawn point
@@ -155,10 +155,12 @@ public class FishCollision : MonoBehaviour
 
 		if (other.tag == "Water")
 		{
+			GetComponent<FishSound>().playExitWaterSound();
 			fishOxygen.ExitWater();
 		}
 		if (other.tag == "Pond")
 		{
+			GetComponent<FishSound>().playExitWaterSound();
 			fishOxygen.ExitWater();
 		}
 		if (other.tag == "Boundary")
