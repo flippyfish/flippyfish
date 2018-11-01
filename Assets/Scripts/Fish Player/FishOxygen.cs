@@ -14,6 +14,9 @@ public class FishOxygen : MonoBehaviour
 
 	private FishCollision fishCollision;	// other fish script
 	public Slider oxygenSlider;
+	public Image sliderImage;
+	public Color oxygenColor;
+	public Color inPondColor;
 
 	public int oxygen;
 	public int OXYGEN_MAX;					// suggest 20
@@ -56,6 +59,7 @@ public class FishOxygen : MonoBehaviour
 	{
 		inWater = true;
 		SetOxygen(OXYGEN_MAX);
+		sliderImage.color = inPondColor;
 	}
 
 	// Called by FishCollision script
@@ -63,6 +67,7 @@ public class FishOxygen : MonoBehaviour
 	{
 		inWater = false;
 		timeLastInWater = Time.time;
+		sliderImage.color = oxygenColor;
 	}
 
 	public bool fishInWater ()

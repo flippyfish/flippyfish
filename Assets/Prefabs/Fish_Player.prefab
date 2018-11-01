@@ -418,6 +418,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oxygenSlider: {fileID: 0}
+  sliderImage: {fileID: 0}
+  oxygenColor: {r: 0, g: 0.65882355, b: 0.9137255, a: 1}
+  inPondColor: {r: 0, g: 0.23921569, b: 0.9137255, a: 1}
   oxygen: 0
   OXYGEN_MAX: 20
   timeLastInWater: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43671697, g: 0.48432088, b: 0.564571, a: 1}
+  m_IndirectSpecularColor: {r: 0.4367169, g: 0.484321, b: 0.5645708, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4377,6 +4377,11 @@ Prefab:
       propertyPath: sliderBackground
       value: 
       objectReference: {fileID: 1356736338}
+    - target: {fileID: 114270975997460754, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: sliderImage
+      value: 
+      objectReference: {fileID: 931859844}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
   m_IsPrefabAsset: 0
@@ -7299,6 +7304,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1644825279557514, guid: 6edcbaf2b095f47d8beaf35868336861,
     type: 2}
   m_PrefabInternal: {fileID: 500282338}
+--- !u!114 &931859844 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114265911877264086, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1356736337}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &934635886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: d32039043753a414eaf445ae15ab1b4a,
@@ -11163,6 +11174,16 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Factory_Lv1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224367755680749068, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224367755680749068, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}

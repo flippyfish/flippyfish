@@ -1364,6 +1364,16 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: -150
       objectReference: {fileID: 0}
+    - target: {fileID: 224367755680749068, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224367755680749068, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -19
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b, type: 2}
   m_IsPrefabAsset: 0
@@ -1384,6 +1394,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 56941942}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &56941946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114265911877264086, guid: 60bbdae2cd9e5774f8d710bbb9b67c2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 56941942}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &62597443
 GameObject:
   m_ObjectHideFlags: 0
@@ -16474,6 +16490,11 @@ Prefab:
       propertyPath: m_Name
       value: Fish_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114270975997460754, guid: 6edcbaf2b095f47d8beaf35868336861,
+        type: 2}
+      propertyPath: sliderImage
+      value: 
+      objectReference: {fileID: 56941946}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edcbaf2b095f47d8beaf35868336861, type: 2}
   m_IsPrefabAsset: 0
