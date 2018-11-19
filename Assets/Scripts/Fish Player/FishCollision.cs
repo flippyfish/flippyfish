@@ -41,6 +41,14 @@ public class FishCollision : MonoBehaviour
 	}
 
 	/**
+	 *	Instant respawn, called by the Respawn button.
+	 */
+	public void instantRespawn()
+	{
+		StartCoroutine(Respawn(true));
+	}
+
+	/**
 	 *	For the respawn duration, set the fish's position to the given seagull's position.
 	 *	When using this, call at the same time as Respawn().
 	 */
@@ -62,14 +70,17 @@ public class FishCollision : MonoBehaviour
 	 *	Disables charging and releasing jumps for the respawn duration.
 	 *	Respawns the fish after the duration has passed.
 	 */
-	public IEnumerator Respawn()
+	public IEnumerator Respawn(bool instant)
 	{
 		if (!respawning && !wonLevel)
 		{
 			respawning = true;
 			fishMovement.inControl = false;
 			fishIndicators.StopIndicators();
-			yield return new WaitForSeconds(respawnTime);
+			if (!instant)
+			{
+				yield return new WaitForSeconds(respawnTime);
+			}
 
 			rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
 			transform.rotation = fishMovement.respawnRotation;
@@ -96,7 +107,7 @@ public class FishCollision : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle")
 		{
             fishMovement.isGrounded = false;
-			StartCoroutine(Respawn());
+			StartCoroutine(Respawn(false));
 		}
 	}
 
@@ -110,12 +121,12 @@ public class FishCollision : MonoBehaviour
 
 		if (other.tag == "Obstacle")	// hit an obstacle, respawn
 		{
-			StartCoroutine(Respawn());
+			StartCoroutine(Respawn(false));
 		}
 		if (other.tag == "Seagull")		// respawn, but the seagull picks up the fish!!
 		{
 			StartCoroutine(TakenBySeagull(other.gameObject));
-			StartCoroutine(Respawn());
+			StartCoroutine(Respawn(false));
 		}
 		if (other.tag == "Water")		// update oxygen, but NOT respawn point
 		{
@@ -136,6 +147,7 @@ public class FishCollision : MonoBehaviour
 		{
 			wonLevel = true;
 			fishMovement.inControl = false;		// disable jumping after beating the level
+			GetComponent<FishSound>().playEnterWaterSound();
 			fishOxygen.EnterWater();
 			winScreen.SetActive(true);
 			WinScreen winScreenScript = GameObject.Find("New Canvas").GetComponent<WinScreen>();
@@ -165,7 +177,7 @@ public class FishCollision : MonoBehaviour
 		}
 		if (other.tag == "Boundary")
 		{
-			StartCoroutine(Respawn());
+			StartCoroutine(Respawn(false));
 		}
 	}
 

@@ -1,64 +1,52 @@
-Flippy Fish
-===========
+# Flippy Fish
 
-Jump your way to the ocean while avoiding cars and obstacles!
+You've been caught and taken from your family in the ocean. Escape the factory and Flip your way back home!
 
+- Hold Left-Click to charge a jump
+- Release Left-Click to jump toward the cursor
+- Right-Click to cancel a charging jump
+- Rotate camera with A, D / Left, Right -- or by dragging Right-Click
+- Scroll wheel to zoom
+- The blue bar is your water meter which goes down over time, find water sources to stay hydrated
+- Flip to the exit to move onto the next level
 
+A video by James Watt that showcases Flippy Fish is in the root of the repository.
 
-- A, D / Left, Right: Rotate camera
-
-- Drag right-click: Rotate camera
-
-- Scroll wheel: Zoom
-
-
-
-
-
-
-- Hold left-click to charge a jump
-
-- Release left-click to jump
-
-- Cancel a charged jump by overcharging it
-
-- The farther you jump, the more likely you are to go off course!
-
-
-
-If you hit a hazard, you respawn at the latest pond you touched.
+- 0:00 - 7:43:	Game mechanics
+- 7:43 - 11:45:	Playing the game
 
 
 ## Description
 
-The player moves the fish to the ocean via numerous jumps. Touching a hazard (moving cars, campfires) sends the fish back to the latest pond.
+In a level of Flippy Fish, the player moves a fish to a goal via numerous jumps. The fish has a water meter that depletes when out of water, so ponds and water sources act as intermediate goals. Along the way are hazards that, if touched, send the fish back to the latest pond.
 
-The fish cannot jump backward, and the camera cannot be turned far left or right. This emphasises an arcade-like forward gameplay.
+Flippy Fish contains 10 levels:
 
-Holding and releasing a click to make the fish jump is the core mechanic.  
-Levels consist of flat terrain with trees and rocks and other scenic obstacles, and roads with moving cars. An ocean is at the end of each level.  
-The gameplay loop is to select a level and beat it. The complete game could have progressive level unlocks.
+- 3 Factory levels
+- 3 City levels
+- 3 Forest levels
+- Beach level
 
-If we were to expand the gameplay, we might add an oxygen bar that replenishes in ponds. If you ran out of oxygen, you would respawn at the latest pond. This would impose a time limit without putting the entire level at stake.
-
-
-## Development - Jonathan Brown
-
-I started development with a jumping script to move an orange box in an empty plane. This required a raycast from the mouse x,y coordinates onto the world. The fish rotates to look at the specified point on the world, and when the mouse is released, it applies a jump force in that direction.
-
-At first, depending on terrain, the raycasted point could be higher or lower than the fish, meaning the front or back of the fish would clip into the ground when looking at the point. This interfered with the jump, causing jump distance to be inconsistent. I fixed the issue by replacing the y position of the look point with the fish's current y position.
-
-Later I made an empty plane specifically for raycasting and put it on its own layer, and I told the raycast to only work with that layer. This ensured that obstacles and moving cars would not interfere with jump direction.
-
-Much of the remaining work involved collider and trigger detection, and tags to indicate what the fish and cars were colliding with.
+The level selection menu is fully unlocked from the start.
 
 No external code libraries were used in this project.
 
 
 ## Contributors
-- Jonathan Brown - Game Developer, Prototype
-- James Watt - Game Developer
-- Ehnel Bugas - Game Designer
-- Keegan Edwards - Game Designer
-- Sieni Faafuata - GameDesigner
-- Chanil Park - Game Developer
+
+- Justin Cage		- Game Designer (Prototype)
+- Ehnel Bugas		- Game Designer
+- Keegan Edwards	- Game Designer
+- Sieni Faafuata	- Game Designer
+- Jonathan Brown	- Game Developer
+- Chanil Park		- Game Developer
+- James Watt		- Game Developer
+
+Please note that lots of commits in the Commits page claim to be authored by guest users. However, viewing those commits through the Activity page will display our names.
+
+
+## Developers' writeup
+
+- Jonathan Brown:	[brownjona1.md](brownjona1.md)
+- Chanil Park:		[parkchan4.md](parkchan4.md)
+- James Watt:		[wattjame.md](wattjame.md)

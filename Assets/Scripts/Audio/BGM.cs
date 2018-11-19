@@ -130,23 +130,23 @@ public class BGM : MonoBehaviour
 		{
 			return 0;
 		}
-		else if (scene.name == "Factory_Lv0" || scene.name == "Factory_Lv1" || scene.name == "Factory_Lv2")
+		else if (scene.name == "Comic1" || scene.name == "Factory_Lv0" || scene.name == "Factory_Lv1" || scene.name == "Factory_Lv2")
 		{
 			return 1;
 		}
-		else if (scene.name == "City_Lv1" || scene.name == "City_lv2" || scene.name == "City_Lv3")
+		else if (scene.name == "Comic2" || scene.name == "City_Lv1" || scene.name == "City_lv2" || scene.name == "City_Lv3")
 		{
 			return 2;
 		}
-		else if (scene.name == "Forest_lv1" || scene.name == "Forest_lv2" || scene.name == "Forest_lv3")
+		else if (scene.name == "Comic3" || scene.name == "Forest_lv1" || scene.name == "Forest_lv2" || scene.name == "Forest_lv3")
 		{
 			return 3;
 		}
-		else if (scene.name == "beach level")
+		else if (scene.name == "Comic4" || scene.name == "beach level")
 		{
 			return 4;
 		}
-		else if (scene.name == "EndCredits")
+		else if (scene.name == "Comic5" || scene.name == "EndCredits")
 		{
 			return 5;
 		}

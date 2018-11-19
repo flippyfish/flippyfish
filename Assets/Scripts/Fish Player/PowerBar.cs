@@ -14,12 +14,25 @@ using UnityEngine.UI;
 public class PowerBar : MonoBehaviour
 {
     private float currentCharge;
-    private bool isIncreasing;
+
+    /**
+    * Rate at which the power bar increases, this is modified by the acceleration and deacceleration values
+    */
+    private float rate_of_change;
     private float acceleration;
+    private float deacceleration;
+
     private float MAX_CHARGE;
     private float MINIMUM_CHARGE;
-    private bool charging;
-    
+    private float STARTING_RATE;
+
+    private bool isBarIncreasing;
+
+    /**
+     * Determinges whether the slider should be updated with every frame
+     */
+    private bool isCharging;
+
     public Slider chargeSlider;
     public Image sliderBackground;
 
@@ -29,76 +42,82 @@ public class PowerBar : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        currentCharge = 0.0f;
-        isIncreasing = true;
-        acceleration = 2f;
         MAX_CHARGE = 2f;
         MINIMUM_CHARGE = 0.0f;
-        charging = false;
+        STARTING_RATE = 2f;
+
+        currentCharge = MINIMUM_CHARGE;
+        rate_of_change = STARTING_RATE;
+        acceleration = 1.05f;
+        deacceleration = 0.95f;
+
+        isBarIncreasing = true;
+        isCharging = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (charging)
+        if (isCharging)
         {
             UpdateCharge();
         }
     }
 
     /**
-     * Starts the charging of the power bar by allowing the UpdateCharge() method to be called in the Update() method
+     * Starts the isCharging of the power bar by allowing the UpdateCharge() method to be called in the Update() method
     **/
     public void StartCharge()
     {
-        charging = true;
+        isCharging = true;
     }
 
     /**
-     * Stops the charging of the power bar by reseting all values
+     * Stops the isCharging of the power bar by reseting all values
     **/
     public void StopCharge()
     {
-        charging = false;
+        isCharging = false;
         chargeSlider.value = 0;
         currentCharge = 0;
+        rate_of_change = STARTING_RATE;
     }
 
     /**
      * The update charge method is responsible for updating the state of the power bar.
      * The power bar has two states:
-     * - Increasing, this is when the power bar is increasing via the acceleration variable
-     * - Decreasing, this is when the power bar is decresing via the acceleration variable
+     * - Increasing, this is when the power bar is increasing via the rate_of_change variable
+     * - Decreasing, this is when the power bar is decresing via the rate_of_change variable
     **/
-    public void UpdateCharge()
+    private void UpdateCharge()
     {
-        if (isIncreasing)
+        if (isBarIncreasing)
         {
-            float newCharge = currentCharge + (Time.deltaTime * acceleration);
+            float newCharge = currentCharge + (Time.deltaTime * rate_of_change);
             if (newCharge <= MAX_CHARGE)
             {
                 currentCharge = newCharge;
                 chargeSlider.value = currentCharge * 100;
-                acceleration *=1.05f;
+                rate_of_change *=acceleration;
 
             }
             else//If the new charge is going to be greater than max then set currentCharge to max
             {
                 currentCharge = MAX_CHARGE;
                 chargeSlider.value = currentCharge * 100;
-                isIncreasing = false;
+                isBarIncreasing = false;
             }
 
         }
         else
         {
-            float newCharge = currentCharge - (Time.deltaTime * acceleration);
+            float newCharge = currentCharge - (Time.deltaTime * rate_of_change);
 
             if (newCharge >= MINIMUM_CHARGE)
             {
                 currentCharge = newCharge;
-                acceleration *= 0.95f;
+                rate_of_change *= deacceleration;
                 chargeSlider.value = currentCharge * 100;
 
             }
@@ -106,15 +125,15 @@ public class PowerBar : MonoBehaviour
             {
                 currentCharge = MINIMUM_CHARGE;
                 chargeSlider.value = 0;
-                acceleration = 2f;
-                isIncreasing = true;
+                rate_of_change = 2f;
+                isBarIncreasing = true;
             }
 
         }
         SetColor();
     }
 
-    public void SetColor()
+    private void SetColor()
     {
         sliderBackground.color = Color.Lerp(minChargeColor, maxChargeColor, (currentCharge / MAX_CHARGE));
     }

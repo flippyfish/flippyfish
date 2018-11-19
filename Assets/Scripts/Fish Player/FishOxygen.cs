@@ -17,6 +17,7 @@ public class FishOxygen : MonoBehaviour
 	public Image sliderImage;
 	public Color oxygenColor;
 	public Color inPondColor;
+	public Color lowOxygenColor;
 
 	public int oxygen;
 	public int OXYGEN_MAX;					// suggest 20
@@ -50,7 +51,7 @@ public class FishOxygen : MonoBehaviour
 		}
 		if (oxygen <= 0 && !fishCollision.isRespawning())
 		{
-			StartCoroutine(fishCollision.Respawn());
+			StartCoroutine(fishCollision.Respawn(false));
 		}
 	}
 
@@ -79,5 +80,13 @@ public class FishOxygen : MonoBehaviour
 	{
 		oxygen = val;
 		oxygenSlider.value = oxygen;
+		if ((float) oxygen / OXYGEN_MAX <= 0.25)
+		{
+			sliderImage.color = lowOxygenColor;
+		}
+		else
+		{
+			sliderImage.color = oxygenColor;
+		}
 	}
 }

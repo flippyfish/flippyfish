@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu/LevelSelection.unity
     guid: 6d17c2f5d59f106429ba5d43e8b45a60
   - enabled: 1
-    path: Assets/Scenes/EndCredits.unity
+    path: Assets/Scenes/MainMenu/EndCredits.unity
     guid: 419836578ad9b4c3a96798b79d71d6cc
   - enabled: 1
     path: Assets/Scenes/Forest/Forest_lv1.unity
@@ -50,4 +50,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Beach/beach level.unity
     guid: 5326d4fcf8f80406981a31f663bb575e
+  - enabled: 1
+    path: Assets/Scenes/Comics/Comic1.unity
+    guid: f7e13ec2e286fd841b0aa68e0d888047
+  - enabled: 1
+    path: Assets/Scenes/Comics/Comic2.unity
+    guid: 163170a5fbe7d6549ae0735c2c6343b8
+  - enabled: 1
+    path: Assets/Scenes/Comics/Comic3.unity
+    guid: 22d872ba73418884c8b20f917107db62
+  - enabled: 1
+    path: Assets/Scenes/Comics/Comic4.unity
+    guid: 4b279205cae0175408add26778730a9d
+  - enabled: 1
+    path: Assets/Scenes/Comics/Comic5.unity
+    guid: 5b683c1c69059bc4195028a2ee30c193
   m_configObjects: {}
