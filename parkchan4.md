@@ -29,4 +29,3 @@ I have learnt how to handle audio, data, UI, Game System programming in Unity. I
 Also I have learnt how to communicate with group of people (amazing design students and other 2 computer science/engineering students) and managing a huge project in git environment. This project was great experience of workling with none-programmers.
 The most important thing that I will use in future projects from this project is how we managing issues in git enviroment. I have never used this feature before this project and I find it is very efficent to manage/document all the issues in project.
 Also audio, data management and UI programming are reuseable for most of app/game development. 
-
