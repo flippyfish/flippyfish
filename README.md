@@ -10,10 +10,12 @@ You've been caught and taken from your family in the ocean. Escape the factory a
 - The blue bar is your water meter which goes down over time, find water sources to stay hydrated
 - Flip to the exit to move onto the next level
 
-A video by James Watt that showcases Flippy Fish is in the root of the repository.
+A video by James Watt that showcases Flippy Fish is here: https://www.youtube.com/watch?v=9rN2lgkrqbU
 
 - 0:00 - 7:43:	Game mechanics
 - 7:43 - 11:45:	Playing the game
+
+A full playthrough of Flippy Fish can be watched here: https://www.youtube.com/watch?v=lUMaZcV6xaA&t
 
 
 ## Description
@@ -41,8 +43,6 @@ No external code libraries were used in this project.
 - Jonathan Brown	- Game Developer
 - Chanil Park		- Game Developer
 - James Watt		- Game Developer
-
-Please note that lots of commits in the Commits page claim to be authored by guest users. However, viewing those commits through the Activity page will display our names.
 
 
 ## Developers' writeup
